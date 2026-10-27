@@ -1,0 +1,64 @@
+</main>
+
+<script>
+// shared data + helpers (run before the per-block DOMContentLoaded handlers)
+window.VS=[
+  {t:'ATN',a:['Apple','Tesla','Nasdaq'],v:'214.3381',c:3.12,m:'gold',seed:3},
+  {t:'BSE',a:['Bonds','Silver','Euro'],v:'98.1204',c:0.84,m:'silver',seed:5},
+  {t:'BEG',a:['Bitcoin','Ethereum','Gold'],v:'167.9144',c:2.41,m:'gold',seed:7},
+  {t:'SGA',a:['S&P 500','Gold','Apple'],v:'142.0711',c:-0.62,m:'silver',seed:11},
+  {t:'VBG',a:['Visa','Bonds','Gold'],v:'121.5530',c:1.08,m:'silver',seed:13},
+  {t:'USB',a:['US Bonds','Silver','Berkshire'],v:'88.2917',c:0.37,m:'bronze',seed:17},
+  {t:'GB',a:['Gold','Bonds'],v:'76.4402',c:-0.21,m:'bronze',seed:19},
+  {t:'BGE',a:['Bonds','Gold','Euro'],v:'93.0068',c:-0.44,m:'bronze',seed:23},
+  {t:'MNVA',a:['Microsoft','Nvidia','Visa','Apple'],v:'251.7710',c:4.85,m:'gold',seed:29}
+];
+window.VCOIN=i=>({gold:['coin-gold-v','coin-gold-t'],silver:['coin-silver-a','coin-silver-o'],bronze:['coin-bronze-l','coin-bronze-g']})[VS[i].m][i%2];
+// stepped line (the brand chart): seeded random walk drawn with H/V segments
+window.VSTEP=(seed,w,h,n)=>{let s=seed*9301+49297;const r=()=>(s=(s*9301+49297)%233280)/233280;
+  let y=h*(.3+r()*.4),d=`M0 ${y.toFixed(1)}`;const dx=w/n;
+  for(let i=1;i<=n;i++){d+=`H${(i*dx).toFixed(1)}`;y=Math.max(h*.06,Math.min(h*.94,y+(r()-.5)*h*.55));d+=`V${y.toFixed(1)}`}return d};
+
+// realistic price line: seeded random walk with drift, lightly smoothed
+window.VLINE=(seed,w,h,n=64,drift=0)=>{let s=(seed*7919+13)%2147483647;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+  let v=0;const p=[];for(let i=0;i<n;i++){v+=(r()-.5)+(r()<.06?(r()-.5)*2.4:0)+drift;p.push(v)}
+  const sm=p.map((x,i)=>(p[Math.max(0,i-1)]+x*2+p[Math.min(n-1,i+1)])/4),mn=Math.min(...sm),mx=Math.max(...sm),pad=h*.1;
+  const P=sm.map((x,i)=>[i*w/(n-1),pad+(1-(x-mn)/((mx-mn)||1))*(h-2*pad)]);
+  const d='M'+P.map(q=>q[0].toFixed(1)+' '+q[1].toFixed(1)).join('L');
+  return {d,area:d+`L${w} ${h}L0 ${h}Z`,y0:P[0][1],end:P[n-1]}};
+// sparkline markup: area gradient + line + dashed open price + end dot
+window.VSPARK=(seed,w,h,c,col,o={})=>{const pr=o.pr??Math.max(6,w*.025),L=VLINE(seed,w-pr,h,o.n||64,c>0?.14:c<0?-.14:0),id='sg'+Math.random().toString(36).slice(2,8),r=o.r||3;
+  return `<defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity="${o.fa??.28}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient>`+
+    `<linearGradient id="${id}f" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".16" stop-color="#fff"/></linearGradient>`+
+    `<mask id="${id}m" maskUnits="userSpaceOnUse" x="0" y="${-h}" width="${w}" height="${h*3}"><rect x="0" y="${-h}" width="${w}" height="${h*3}" fill="url(#${id}f)"/></mask></defs><g mask="url(#${id}m)">`+
+    (o.base===false?'':`<path d="M0 ${L.y0.toFixed(1)}H${w-pr}" stroke="${o.bc||col}" stroke-opacity=".35" stroke-dasharray="2 4" vector-effect="non-scaling-stroke"/>`)+
+    `<path d="${L.area}" fill="url(#${id})" stroke="none"/><path d="${L.d}" fill="none" stroke="${col}" stroke-width="${o.sw||1.6}" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g>`+
+    (o.dot===false?'':`<path d="M${L.end[0].toFixed(1)} ${L.end[1].toFixed(1)}h0" stroke="${col}" stroke-opacity=".25" stroke-width="${r*4}" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M${L.end[0].toFixed(1)} ${L.end[1].toFixed(1)}h0" stroke="${col}" stroke-width="${r*2}" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`)};
+window.VTREND=(c,light)=>c<0?(light?'#E2531A':'#FF7A45'):(light?'#0E9F84':'#3EF2D0');
+
+addEventListener('DOMContentLoaded',()=>{
+  // fill declarative stepped paths
+  document.querySelectorAll('path[data-step]').forEach(p=>{if(p.getAttribute('d'))return;const vb=p.ownerSVGElement.viewBox.baseVal;p.setAttribute('d',VSTEP(+p.dataset.step,vb.width,vb.height,+p.dataset.n||16))});
+
+  // scale every 1440px stage to its column
+  const frames=[...document.querySelectorAll('.frame')];
+  const fit=()=>frames.forEach(f=>{const s=f.firstElementChild,k=f.clientWidth/1440;s.style.transform=`scale(${k})`;f.style.height=(parseFloat(s.style.height)*k)+'px'});
+  fit(); new ResizeObserver(fit).observe(document.querySelector('main'));
+
+  // "keep scrolling" dividers between variants
+  const vs=[...document.querySelectorAll('article.v')];
+  vs.forEach((v,i)=>{const n=vs[i+1];if(!n)return;const a=document.createElement('a');a.className='next';a.href='#'+n.id;
+    a.innerHTML=`<span class="ln"></span><span class="ar">↓</span><small>Листайте дальше</small><span>${n.id} · ${n.querySelector('.vh h3').textContent}</span>`;v.after(a)});
+
+  // glyph noise canvases
+  const G='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789$%&@#+=/<>·ΛΣΦΩ';
+  document.querySelectorAll('canvas.glyphs').forEach(c=>{
+    const W=1440,H=parseFloat(c.parentNode.style.height);c.width=W;c.height=H;const x=c.getContext('2d');
+    const col=c.dataset.color||'255,255,255',al=+c.dataset.alpha||.15,cs=24,cells=[];
+    for(let i=0;i<W/cs;i++)for(let j=0;j<H/cs;j++)if(Math.random()<.2)cells.push([i*cs,j*cs,G[Math.random()*G.length|0],Math.random()]);
+    x.font='12px "JetBrains Mono",monospace';let vis=false;
+    new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(c);
+    const draw=()=>{if(vis){x.clearRect(0,0,W,H);cells.forEach(g=>{if(Math.random()<.02)g[2]=G[Math.random()*G.length|0];if(Math.random()<.01)g[3]=Math.random();x.fillStyle=`rgba(${col},${(al*g[3]).toFixed(3)})`;x.fillText(g[2],g[0],g[1])})}setTimeout(draw,110)};draw();
+  });
+});
+</script>

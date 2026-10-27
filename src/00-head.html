@@ -1,0 +1,135 @@
+<title>Valta Variants</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+/* Review board: dark neutral chrome; every variant is a fixed 1440px desktop stage scaled to the column width */
+:root{
+  --u:#3E42DC; --u-hi:#5357F2; --u-deep:#2629A8; --u-ink:#15174F;
+  --ink:#08080A; --ink2:#131317; --paper:#F2F2EF; --fog:#E4E4E1; --white:#FFFFFF;
+  --gold:#C9A24A; --silver:#C8CCD2; --bronze:#B5683A; --sig:#3EF2D0; --hot:#FF5A1F;
+  --c-bg:#0E0E11; --c-fg:#ECECEA; --c-mute:#85858F; --c-line:#24242A;
+  --f-disp:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-serif:'Instrument Serif','Times New Roman',serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --f-body:'Geist','Helvetica Neue',Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--c-bg);color:var(--c-fg);font-family:var(--f-body);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--c-bg)}
+a{color:inherit}
+.wrap{max-width:1560px;margin:0 auto}
+
+/* board chrome */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--c-bg) 88%,transparent);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--c-line);display:flex;gap:24px;align-items:center;justify-content:space-between;padding-block:14px;flex-wrap:wrap}
+.top .brand{display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-mute)}
+.top .brand svg{width:84px;height:11px;color:var(--c-fg)}
+.top nav{display:flex;gap:6px;flex-wrap:wrap}
+.top nav a{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:7px 12px;border-radius:999px;border:1px solid var(--c-line);color:var(--c-mute)}
+.top nav a:hover,.top nav a:focus-visible{color:var(--c-fg);border-color:var(--c-mute);outline:none}
+.intro{padding-block:56px 24px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end}
+.intro h1{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 112;font-size:clamp(40px,6vw,88px);line-height:.95;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.intro h1 em{font-family:var(--f-serif);font-weight:400;font-style:italic;font-variation-settings:normal}
+.intro p{color:var(--c-mute);max-width:56ch;margin:0}
+.intro p b{color:var(--c-fg);font-weight:500}
+@media (max-width:760px){.intro{grid-template-columns:1fr}}
+
+.block{padding-top:72px;scroll-margin-top:64px}
+.block-h{display:flex;align-items:baseline;gap:18px;border-top:1px solid var(--c-line);padding-top:18px;margin-bottom:28px;flex-wrap:wrap}
+.block-h .n{font-family:var(--f-mono);font-size:12px;color:var(--c-mute)}
+.block-h h2{font-family:var(--f-disp);font-weight:400;font-variation-settings:"wdth" 120;font-size:32px;margin:0;letter-spacing:-.01em;text-transform:uppercase}
+.block-h p{margin:0;color:var(--c-mute);flex:1 1 320px;min-width:0}
+
+.v{scroll-margin-top:64px;border:1px solid #3a3a42;border-radius:14px;padding:18px;background:#141418}
+.next{display:flex;flex-direction:column;align-items:center;gap:10px;padding-block:44px;color:var(--c-mute);text-decoration:none;text-align:center}
+.next .ar{width:44px;height:44px;border-radius:50%;border:1px solid #3a3a42;display:grid;place-items:center;font-size:18px;color:var(--c-fg);animation:nudge 1.8s ease-in-out infinite}
+.next .ln{width:1px;height:36px;background:linear-gradient(#3a3a42,transparent)}
+.next small{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.next span{font-family:var(--f-disp);font-size:15px;color:var(--c-fg)}
+.next:hover .ar,.next:focus-visible .ar{background:var(--c-fg);color:var(--c-bg);outline:none}
+@keyframes nudge{50%{transform:translateY(6px)}}
+.vh{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 18px;align-items:baseline;margin-bottom:14px}
+.vh b{font-family:var(--f-mono);font-size:13px;font-weight:600;background:var(--c-fg);color:var(--c-bg);padding:3px 8px;border-radius:4px;grid-row:span 2;align-self:start}
+.vh h3{margin:0;font-family:var(--f-disp);font-size:20px;font-weight:500}
+.vh p{margin:0;color:var(--c-mute);max-width:110ch}
+.vh p i{font-style:normal;color:var(--c-fg)}
+.frame{position:relative;overflow:hidden;border-radius:8px;background:#000}
+.stage{position:absolute;top:0;left:0;width:1440px;transform-origin:0 0;overflow:hidden;font-family:var(--f-body);-webkit-font-smoothing:antialiased}
+.stage *{box-sizing:border-box}
+
+/* shared stage atoms */
+.s-nav{position:absolute;top:0;left:0;right:0;z-index:6;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;padding:30px 40px;
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.s-nav .logo{width:120px;height:15px;display:block}
+.s-nav nav{display:grid;grid-template-columns:repeat(2,auto);gap:4px 44px}
+.s-nav .cta{justify-self:end}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.sq::before{content:"";display:inline-block;width:7px;height:7px;background:currentColor;margin-right:8px;vertical-align:1px}
+.pill{display:inline-flex;align-items:center;gap:16px;border:1px solid currentColor;border-radius:999px;padding:5px 5px 5px 22px;
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.pill i{width:36px;height:36px;border-radius:50%;background:currentColor;display:grid;place-items:center;font-style:normal}
+.pill i::after{content:"→";color:var(--pill-in,#000);font-family:var(--f-body);font-size:15px}
+.chrome{background:linear-gradient(180deg,#ffffff 0%,#d9dce1 30%,#7d828b 50%,#f1f2f4 66%,#a3a8b0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.steel{background:linear-gradient(180deg,#2a2a2e 0%,#8c8c92 48%,#1c1c1f 52%,#5b5b61 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goldtx{background:linear-gradient(180deg,#fff2c7 0%,#e2bd63 34%,#7d5617 52%,#f0d27e 72%,#9a6d22 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{font-variant-numeric:tabular-nums}
+.up{color:var(--sig)} .dn{color:var(--hot)}
+.ser{font-family:var(--f-serif);font-style:italic;font-weight:400;font-variation-settings:normal;letter-spacing:-.01em}
+canvas.glyphs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pf{display:inline-block;flex:none;overflow:hidden;background:#DCDAD4;isolation:isolate}
+.pf img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.06);mix-blend-mode:multiply}
+
+@media (prefers-reduced-motion:reduce){.stage *,.stage *::before,.stage *::after{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 120 15">
+      <path fill="currentColor" d="M54.9794 15V0.389611H57.5073V12.8711H64.6918V15H54.9794Z"/>
+      <path fill="currentColor" d="M85.2057 15V2.51855H80.4604V0.389611H92.5011V2.51855H87.7336V15H85.2057Z"/>
+      <path fill="currentColor" d="M113.459 2.91512L111.396 9.34369L110.775 11.3891L109.6 15H107.05L111.951 0.389611H115.099L120 15H117.361L116.186 11.3891L115.565 9.34369L113.459 2.91512Z"/>
+      <path fill="currentColor" d="M32.2924 2.91512L30.2302 9.34369L29.6093 11.3891L28.4341 15H25.884L30.7845 0.389611H33.9333L38.8338 15H36.1951L35.0199 11.3891L34.399 9.34369L32.2924 2.91512Z"/>
+      <path fill="currentColor" d="M5.02277 15L0 0H2.67734L6.54952 11.9786L10.4438 0H13.0548L8.05414 15H5.02277Z"/>
+    </symbol>
+    <!-- engraving: the gold-coin flower (6 circles around a centre) inside rings -->
+    <symbol id="eng" viewBox="-110 -110 220 220">
+      <g fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+        <circle r="100"/><circle r="92"/><circle r="38"/>
+        <circle cx="0" cy="-38" r="38"/><circle cx="32.9" cy="-19" r="38"/><circle cx="32.9" cy="19" r="38"/>
+        <circle cx="0" cy="38" r="38"/><circle cx="-32.9" cy="19" r="38"/><circle cx="-32.9" cy="-19" r="38"/>
+        <circle r="76"/>
+      </g>
+    </symbol>
+    <symbol id="eng-dec" viewBox="-110 -110 220 220">
+      <g fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+        <polygon points="30.9,-95.1 80.9,-58.8 100.0,0.0 80.9,58.8 30.9,95.1 -30.9,95.1 -80.9,58.8 -100.0,0.0 -80.9,-58.8 -30.9,-95.1"/>
+        <polygon points="22.9,-70.4 59.9,-43.5 74.0,0.0 59.9,43.5 22.9,70.4 -22.9,70.4 -59.9,43.5 -74.0,0.0 -59.9,-43.5 -22.9,-70.4"/>
+        <polygon points="0.0,-64.0 55.4,32.0 -55.4,32.0"/><polygon points="0.0,64.0 -55.4,-32.0 55.4,-32.0"/>
+        <circle r="30"/><circle r="52"/>
+      </g>
+    </symbol>
+    <symbol id="eng-oct" viewBox="-110 -110 220 220">
+      <g fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+        <polygon points="38.3,-92.4 92.4,-38.3 92.4,38.3 38.3,92.4 -38.3,92.4 -92.4,38.3 -92.4,-38.3 -38.3,-92.4"/>
+        <polygon points="26.8,-64.7 64.7,-26.8 64.7,26.8 26.8,64.7 -26.8,64.7 -64.7,26.8 -64.7,-26.8 -26.8,-64.7"/>
+        <circle r="22"/><path d="M0-92.4V92.4M-92.4 0H92.4M-65 -65L65 65M65 -65L-65 65"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="brand"><svg viewBox="0 0 120 15"><use href="#logo"/></svg> Раунд 1 · 5 блоков · {{VARIANT_COUNT}} вариантов</div>
+  <nav>
+    <a href="#hero">01 Хиро</a><a href="#banker">02 Банкир</a><a href="#cards">03 Стратегии</a><a href="#talks">04 Market Talks</a><a href="#acc">05 Аккордеон</a>
+  </nav>
+</header>
+<main class="wrap">
+<section class="intro">
+  <h1>Valta, <em>усиление</em> — раунд первый</h1>
+  <p>Каждый вариант — десктопный макет 1440px, ужатый под ширину экрана. Графика взята из кейса, остальное нарисовано вектором как черновик. <b>Отмечайте комментарием метку варианта (H1, C2…) и что именно забираем</b>: композицию, шрифт, моушн, деталь. Варианты внутри блока нарочно разные по характеру, чтобы нащупать направление.</p>
+</section>

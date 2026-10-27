@@ -1,0 +1,350 @@
+<style>
+/* ---------- H1 · Mint ---------- */
+.h1{background:radial-gradient(1100px 760px at 50% 52%,#5559F0 0%,#3E42DC 42%,#2A2DB4 100%);color:#fff;perspective:1400px}
+.h1 .rings{position:absolute;inset:0;width:1440px;height:960px;color:rgba(255,255,255,.2)}
+.h1 .rings .rot{transform-origin:0 0;animation:h1rot 140s linear infinite}
+@keyframes h1rot{to{transform:rotate(360deg)}}
+.h1 .coinwrap{position:absolute;left:540px;top:300px;width:360px;height:360px;transform-style:preserve-3d;animation:h1flip 18s cubic-bezier(.6,0,.4,1) infinite}
+.h1 .coinwrap img{width:100%;height:100%;filter:drop-shadow(0 40px 50px rgba(10,10,60,.55))}
+@keyframes h1flip{0%,30%{transform:rotateY(0)}50%,80%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+.h1 h1{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 118;font-size:116px;line-height:.9;letter-spacing:-.025em;text-transform:uppercase}
+.h1 h1 span{position:absolute;white-space:nowrap}
+.h1 .l1{left:40px;top:136px;font-weight:400;font-size:132px;letter-spacing:-.035em}
+.h1 .l2{left:44px;top:268px;text-transform:none;font-size:88px;letter-spacing:-.01em;color:rgba(255,255,255,.88);z-index:2}
+.h1 .l3{left:40px;top:716px;font-size:112px}
+.h1 .tick{position:absolute;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85)}
+.h1 .tick::before{content:"";width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.14)}
+.h1 .sub{position:absolute;left:40px;bottom:40px;width:400px;font-size:16px;line-height:1.45;color:rgba(255,255,255,.82);margin:0}
+.h1 .meta{position:absolute;right:40px;bottom:40px;text-align:right;line-height:1.7;color:rgba(255,255,255,.7)}
+.h1 .meta b{color:#fff;font-weight:500}
+
+/* ---------- H2 · Chrome wordmark ---------- */
+.h2{background:#050506;color:#fff}
+.h2 .wm{position:absolute;left:40px;top:140px;width:1360px;height:170px;
+  background:linear-gradient(100deg,#3b3e45 0%,#f5f6f8 12%,#7e838c 24%,#ffffff 36%,#4d5159 48%,#dcdfe3 60%,#6a6e77 72%,#f2f3f5 86%,#5a5e66 100%);
+  background-size:220% 100%;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.h2 .floor{position:absolute;left:0;right:0;top:520px;height:480px;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.12) 0 1px,transparent 1px 11px);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 55%);mask-image:linear-gradient(180deg,#000 0%,transparent 55%)}
+.h2 .floor::before{content:"";position:absolute;left:40px;right:40px;top:0;height:1px;background:linear-gradient(90deg,transparent,#fff 25%,#fff 75%,transparent)}
+.h2 .glow{position:absolute;left:470px;top:400px;width:500px;height:240px;background:radial-gradient(closest-side,rgba(255,214,140,.22),transparent);pointer-events:none}
+.h2 .coin{position:absolute;left:630px;top:340px;width:180px;height:180px;animation:spinY 12s linear infinite}
+.h2 .refl{position:absolute;left:630px;top:520px;width:180px;height:180px;transform:scaleY(-1);opacity:.28;
+  -webkit-mask-image:linear-gradient(0deg,#000,transparent 55%);mask-image:linear-gradient(0deg,#000,transparent 55%)}
+.h2 .refl img{width:100%;height:100%;animation:spinY 12s linear infinite}
+.h2 .head{position:absolute;left:0;right:0;top:620px;margin:0;text-align:center;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 108;font-size:54px;line-height:1;letter-spacing:-.02em}
+.h2 .head .ser{font-size:84px;display:block;margin-bottom:4px}
+.h2 .sub{position:absolute;left:490px;width:460px;top:778px;text-align:center;color:rgba(255,255,255,.6);font-size:15px;margin:0}
+.h2 .go{position:absolute;left:0;right:0;top:834px;margin:0 auto;width:max-content;color:#000;background:#fff;border-color:#fff;--pill-in:#fff}
+.h2 .go i{background:#000}
+.h2 .tape{position:absolute;left:0;right:0;bottom:0;height:56px;border-top:1px solid rgba(255,255,255,.14);display:flex;align-items:center;overflow:hidden;color:rgba(255,255,255,.7)}
+.h2 .tape div{display:flex;gap:56px;white-space:nowrap;animation:tape 40s linear infinite;padding-left:40px}
+@keyframes tape{to{transform:translateX(-50%)}}
+@keyframes spinY{to{transform:rotateY(360deg)}}
+
+/* ---------- H3 · Floating product ---------- */
+.h3{background:radial-gradient(900px 600px at 76% 46%,#ffffff 0%,#EEEEEC 50%,#E2E2DF 100%);color:#111}
+.h3 .ledger{position:absolute;left:0;right:0;bottom:0;height:360px;background:repeating-linear-gradient(180deg,rgba(0,0,0,.09) 0 1px,transparent 1px 10px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 70%,transparent)}
+.h3 .eyebrow{position:absolute;left:40px;top:190px;color:#55555c}
+.h3 h1{position:absolute;left:40px;top:226px;margin:0;font-family:var(--f-disp);font-weight:500;font-size:104px;line-height:.93;letter-spacing:-.04em}
+.h3 h1 span{display:block}
+.h3 h1 .ser{font-size:118px;letter-spacing:-.02em;line-height:.85}
+.h3 .sub{position:absolute;left:40px;top:568px;width:430px;font-size:17px;line-height:1.45;color:#4a4a52;margin:0}
+.h3 .btns{position:absolute;left:40px;top:670px;display:flex;gap:12px}
+.h3 .btn{display:inline-flex;align-items:center;height:56px;padding:0 28px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.h3 .btn.d{background:#151517;color:#fff}.h3 .btn.l{border:1px solid rgba(0,0,0,.18);background:rgba(255,255,255,.6)}
+.h3 .stats{position:absolute;left:40px;top:800px;display:flex;gap:56px}
+.h3 .stats div{display:flex;flex-direction:column;gap:4px}
+.h3 .stats b{font-family:var(--f-disp);font-weight:400;font-size:40px;letter-spacing:-.02em}
+.h3 .stats span{color:#77777f}
+.h3 .card{position:absolute;background:#fff;border-radius:28px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 60px -20px rgba(20,20,40,.22),0 0 0 1px rgba(0,0,0,.04);animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.h3 .ghost{filter:blur(2px);opacity:.45;transform:scale(.8)}
+.h3 .tk{left:790px;top:150px;width:390px;height:250px;padding:24px 26px;animation-delay:-2s}
+.h3 .tk .t{font-family:var(--f-disp);font-size:60px;font-weight:400;line-height:1;letter-spacing:-.02em}
+.h3 .tk .t sup{font-size:14px;color:var(--sig);vertical-align:34px;margin-left:4px}
+.h3 .tk .val{font-family:var(--f-disp);font-size:24px;margin-top:4px}
+.h3 .tk svg{position:absolute;left:24px;right:24px;bottom:24px;width:342px;height:86px}
+.h3 .bk{left:1010px;top:330px;width:390px;padding:26px;animation-delay:-4s;z-index:2}
+.h3 .bk .row{display:flex;gap:16px;align-items:center}
+.h3 .bk img{width:76px;height:76px;border-radius:18px;object-fit:cover;object-position:top}
+.h3 .bk .nm{font-family:var(--f-disp);font-size:24px;font-weight:500;letter-spacing:-.01em}
+.h3 .bk .match{margin-left:auto;width:64px;height:64px;border-radius:50%;background:conic-gradient(#151517 0 94%,#e7e7e4 0);display:grid;place-items:center}
+.h3 .bk .match span{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:13px}
+.h3 .bk dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0;padding:16px 0;border-block:1px solid #ececea}
+.h3 .bk dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:#8a8a92;text-transform:uppercase}
+.h3 .bk dd{margin:4px 0 0;font-family:var(--f-disp);font-size:22px}
+.h3 .bk .go{height:50px;border-radius:999px;background:#151517;color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}
+.h3 .rk{left:770px;top:560px;width:370px;padding:22px 24px;animation-delay:-1s;z-index:3}
+.h3 .seg{display:flex;gap:4px;margin:14px 0 18px;background:#f1f1ef;border-radius:12px;padding:4px}
+.h3 .seg span{flex:1;text-align:center;padding:9px 0;border-radius:9px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:#77777f}
+.h3 .seg .on{background:#151517;color:#fff}
+.h3 .slide{height:4px;border-radius:4px;background:linear-gradient(90deg,#151517 0,#151517 18%,#fff 22%,#151517 40%,#151517 46%,#e5e5e2 46%);position:relative}
+.h3 .slide::after{content:"";position:absolute;left:46%;top:50%;width:22px;height:22px;margin:-11px;border-radius:50%;background:#151517;box-shadow:0 0 0 5px #fff,0 4px 12px rgba(0,0,0,.3)}
+.h3 .coin{position:absolute;left:1236px;top:118px;width:150px;filter:drop-shadow(0 24px 30px rgba(0,0,0,.25));animation:float 9s ease-in-out infinite;z-index:3}
+
+/* ---------- H4 · Horizon ---------- */
+.h4{background:#040406;color:#fff}
+.h4 .sky{position:absolute;left:0;right:0;top:0;height:560px;background:linear-gradient(180deg,#2729AE 0%,#3E42DC 58%,#6064F6 100%);overflow:hidden}
+.h4 .under{position:absolute;left:0;right:0;top:560px;bottom:0;overflow:hidden;background:radial-gradient(700px 300px at 980px 0,rgba(255,206,120,.16),transparent 70%),radial-gradient(1200px 500px at 50% 0,#0b0c1e,#040406 70%)}
+.h4 .grid{position:absolute;left:0;top:0;width:1440px;height:380px;stroke:rgba(110,114,255,.28);fill:none;
+  -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.h4 .bob{position:absolute;left:720px;width:520px;height:520px;animation:h4bob 9s ease-in-out infinite}
+.h4 .sky .bob{top:300px}.h4 .under .bob{top:-260px}
+.h4 .bob img{width:100%;height:100%;filter:drop-shadow(0 -10px 50px rgba(255,220,140,.3))}
+.h4 .bob svg{width:100%;height:100%;color:rgba(255,255,255,.7)}
+@keyframes h4bob{50%{transform:translateY(-18px)}}
+.h4 .line{position:absolute;left:0;right:0;top:560px;height:1px;background:rgba(255,255,255,.85)}
+.h4 .ticks{position:absolute;left:40px;right:40px;top:561px;height:8px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 1px,transparent 1px 40px)}
+.h4 .tn{position:absolute;top:574px;font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,.4)}
+.h4 .lead{position:absolute;left:40px;bottom:400px;margin:0;font-family:var(--f-serif);font-style:italic;font-size:76px;line-height:.95;letter-spacing:-.01em}
+.h4 .big{position:absolute;left:36px;top:596px;margin:0;font-family:var(--f-disp);font-weight:200;font-variation-settings:"wdth" 62;font-size:168px;line-height:.86;letter-spacing:-.005em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.2px #fff}
+.h4 .rb{position:absolute;right:40px;top:150px;width:380px;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:22px}
+.h4 .rb p{margin:0;font-size:16px;line-height:1.45;color:rgba(255,255,255,.85)}
+.h4 .rb .pill{color:#fff;--pill-in:var(--u)}
+.h4 .tag{position:absolute;right:40px;top:500px;text-align:right;line-height:1.7;color:rgba(255,255,255,.75)}
+.h4 .dim{position:absolute;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.h4 .dh{left:744px;width:473px;top:850px;height:14px;border-left:1px solid rgba(255,255,255,.6);border-right:1px solid rgba(255,255,255,.6);display:flex;justify-content:center}
+.h4 .dh::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:rgba(255,255,255,.6)}
+.h4 .dh span{position:relative;background:#040406;padding:0 10px;top:-1px}
+.h4 .dv{left:1290px;top:560px;height:236px;width:14px;border-top:1px solid rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.6)}
+.h4 .dv::before{content:"";position:absolute;top:0;bottom:0;left:7px;width:1px;background:rgba(255,255,255,.6)}
+.h4 .dv span{position:absolute;left:24px;top:108px;white-space:nowrap}
+.h4 .spec{left:1290px;top:850px;line-height:1.7;color:rgba(255,255,255,.5)}
+
+/* ---------- H5 · Match instrument ---------- */
+.h5{background:radial-gradient(900px 700px at 78% 40%,#4A4EE8 0%,#2E31BF 55%,#1C1E86 100%);color:#fff}
+.h5 .eyebrow{position:absolute;left:40px;top:168px;color:rgba(255,255,255,.7)}
+.h5 h1{position:absolute;left:40px;top:200px;width:700px;margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 104;font-size:68px;line-height:.98;letter-spacing:-.03em}
+.h5 h1 .ser{font-size:78px}
+.h5 .panel{position:absolute;left:40px;top:392px;width:720px;padding:8px;border-radius:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(14px)}
+.h5 .cell{background:rgba(255,255,255,.06);border-radius:24px;padding:24px 28px}
+.h5 .cell+.cell{margin-top:8px}
+.h5 .lbl{color:rgba(255,255,255,.6)}
+.h5 .cap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:12px}
+.h5 .cap output{font-family:var(--f-disp);font-size:56px;font-weight:300;letter-spacing:-.03em;line-height:1}
+.h5 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;margin:24px 0 10px;border-radius:3px;background:linear-gradient(90deg,#fff var(--p,40%),rgba(255,255,255,.22) var(--p,40%));outline:none}
+.h5 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18),0 4px 12px rgba(0,0,40,.4);cursor:pointer}
+.h5 input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18);cursor:pointer}
+.h5 input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(255,255,255,.45)}
+.h5 .two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.h5 .two .cell{margin:0}
+.h5 .seg{display:flex;gap:4px;margin-top:16px;background:rgba(255,255,255,.08);border-radius:14px;padding:4px}
+.h5 .seg button{flex:1;border:0;background:transparent;padding:11px 0;border-radius:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.65);cursor:pointer;text-transform:uppercase}
+.h5 .seg button[aria-pressed=true]{background:#fff;color:var(--u)}
+.h5 .seg button:focus-visible{outline:2px solid #fff}
+.h5 .res{position:absolute;left:860px;right:40px;top:160px}
+.h5 .num{font-family:var(--f-disp);font-weight:200;font-variation-settings:"wdth" 90;font-size:200px;line-height:.78;letter-spacing:-.05em}
+.h5 .res .cap2{font-family:var(--f-serif);font-style:italic;font-size:36px;line-height:1;margin:16px 0 0}
+.h5 .list{display:flex;flex-direction:column;gap:8px;margin-top:40px}
+.h5 .chip{display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:center;padding:8px 20px 8px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+.h5 .chip img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top}
+.h5 .chip b{display:block;font-family:var(--f-disp);font-weight:500;font-size:17px}
+.h5 .chip small{color:rgba(255,255,255,.6)}
+.h5 .chip .pc{font-family:var(--f-mono);font-size:13px}
+.h5 .model{display:flex;align-items:center;gap:14px;margin-top:16px;padding:8px 20px 8px 8px;color:rgba(255,255,255,.8)}
+.h5 .model img{width:48px;height:48px;transition:transform .5s}
+</style>
+
+<section class="block" id="hero">
+  <div class="block-h"><span class="n">01</span><h2>Хиро</h2><p>Первый экран: тезис «правильный банкир для вашего капитала» и главный объект бренда.</p></div>
+
+  <!-- H1 -->
+  <article class="v" id="H1" data-name="Монетный двор">
+    <header class="vh"><b>H1</b><h3>Монетный двор</h3><p>Монета в центре медленно переворачивается, её гравировка расходится кольцами на весь экран и становится сеткой страницы. На ближнем кольце отмечены четыре основы диагностики. Заголовок стоит на одной левой оси и читается одной линией: «Your portfolio» главная строка, «starts with» — курсивная антиква рангом ниже, «the right banker» под монетой как второй акцент. <i>Что можно забрать: монета как центр композиции, гравировка как фон, два голоса в типографике.</i></p></header>
+    <div class="frame"><div class="stage h1" style="height:960px">
+      <div class="s-nav" style="color:#fff">
+        <svg class="logo"><use href="#logo"/></svg>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <a class="pill cta" style="--pill-in:var(--u)">Get a consultation<i></i></a>
+      </div>
+      <svg class="rings" viewBox="-720 -480 1440 960" aria-hidden="true">
+        <g fill="none" stroke="currentColor">
+          <circle r="280"/><circle r="390" stroke-dasharray="2 6"/><circle r="520"/><circle r="690" stroke-dasharray="2 6"/><circle r="880"/>
+          <g class="rot"><circle cx="0" cy="-280" r="280"/><circle cx="242.5" cy="-140" r="280"/><circle cx="242.5" cy="140" r="280"/><circle cx="0" cy="280" r="280"/><circle cx="-242.5" cy="140" r="280"/><circle cx="-242.5" cy="-140" r="280"/></g>
+          <path d="M-720 0H720M0 -480V480" stroke-dasharray="1 9"/>
+        </g>
+      </svg>
+      <div class="coinwrap"><img src="assets/coin-gold-v.webp" alt=""></div>
+      <span class="tick mono" style="left:1050px;top:268px">Capital</span>
+      <span class="tick mono" style="left:1012px;top:462px">Horizon</span>
+      <span class="tick mono" style="left:300px;top:640px">Risk</span>
+      <span class="tick mono" style="left:1050px;top:640px">Liquidity</span>
+      <h1><span class="l1">Your portfolio</span><span class="l2 ser">starts with</span><span class="l3">the right banker</span></h1>
+      <p class="sub">Valta matches private capital with a verified banker and a strategy you can read: transparent profiles, clear metrics, approaches side by side.</p>
+      <div class="meta mono"><b>VLT-01 · Gold model</b><br>Long-term growth · Scroll ↓</div>
+    </div></div>
+  </article>
+
+  <!-- H2 -->
+  <article class="v" id="H2" data-name="Хромовый вордмарк">
+    <header class="vh"><b>H2</b><h3>Хромовый вордмарк</h3><p>Логотип во всю ширину отлит в хром (как металлические цифры у Avon), блик бежит за курсором. Чтение идёт по одной центральной оси сверху вниз: вордмарк, единственная монета на горизонте «пола» с отражением в линиях, заголовок, подзаголовок, кнопка. Внизу лента тикеров. Глиф-шум приглушён, чтобы не спорить с бликом. <i>Что можно забрать: хром как материал бренда, линии-горизонт, одну ось чтения.</i></p></header>
+    <div class="frame"><div class="stage h2" style="height:1000px">
+      <canvas class="glyphs" data-color="255,255,255" data-alpha=".08"></canvas>
+      <div class="s-nav" style="color:#fff">
+        <span class="mono" style="color:rgba(255,255,255,.6)">Private capital advisory</span>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <span class="mono cta" style="color:rgba(255,255,255,.75);text-decoration:underline;text-underline-offset:4px">Get a consultation</span>
+      </div>
+      <div class="wm" data-logo-mask></div>
+      <div class="floor"></div>
+      <div class="glow"></div>
+      <img class="coin" src="assets/coin-gold-v.webp" alt="">
+      <div class="refl"><img src="assets/coin-gold-v.webp" alt=""></div>
+      <h1 class="head"><span class="ser chrome">The right banker</span>for capital with a purpose</h1>
+      <p class="sub">Compare verified bankers, their strategy models and decision logic before you commit a single dollar.</p>
+      <a class="pill go">Find your banker<i></i></a>
+      <div class="tape mono"><div>
+        <span>BEG 167.9144 <em class="up">▲ 2.41%</em></span><span>ATN 214.3381 <em class="up">▲ 3.12%</em></span><span>SGA 142.0711 <em class="dn">▼ 0.62%</em></span><span>VBG 121.5530 <em class="up">▲ 1.08%</em></span><span>USB 88.2917 <em class="up">▲ 0.37%</em></span><span>GB 76.4402 <em class="dn">▼ 0.21%</em></span><span>MNVA 251.7710 <em class="up">▲ 4.85%</em></span>
+        <span>BEG 167.9144 <em class="up">▲ 2.41%</em></span><span>ATN 214.3381 <em class="up">▲ 3.12%</em></span><span>SGA 142.0711 <em class="dn">▼ 0.62%</em></span><span>VBG 121.5530 <em class="up">▲ 1.08%</em></span><span>USB 88.2917 <em class="up">▲ 0.37%</em></span><span>GB 76.4402 <em class="dn">▼ 0.21%</em></span><span>MNVA 251.7710 <em class="up">▲ 4.85%</em></span>
+      </div></div>
+    </div></div>
+  </article>
+
+  <!-- H3 -->
+  <article class="v" id="H3" data-name="Парящий продукт">
+    <header class="vh"><b>H3</b><h3>Парящий продукт</h3><p>Прямая адаптация Avon: светлая сцена, продукт в виде парящих карточек со светом и тенью — подбор банкира, тикер стратегии, профиль риска. Заголовок залит тёмной сталью, внизу горизонт из линий и три числа доверия. <i>Что можно забрать: продукт как герой, светлый мир, числа на первом экране.</i></p></header>
+    <div class="frame"><div class="stage h3" style="height:920px">
+      <div class="ledger"></div>
+      <div class="s-nav" style="color:#111">
+        <svg class="logo"><use href="#logo"/></svg>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <a class="pill cta" style="--pill-in:#fff">Get a consultation<i></i></a>
+      </div>
+      <span class="eyebrow mono sq">Private capital advisory</span>
+      <h1 class="steel"><span>Your portfolio</span><span class="ser">starts with</span><span>the right banker</span></h1>
+      <p class="sub">Find a verified banker suited to your capital, goals and horizon, and see exactly how they build a portfolio before you commit.</p>
+      <div class="btns"><span class="btn d">Find your banker →</span><span class="btn l">Explore strategies</span></div>
+      <div class="stats">
+        <div><b class="tab">48</b><span class="mono">Verified bankers</span></div>
+        <div><b class="tab">312</b><span class="mono">Strategy models</span></div>
+        <div><b class="tab">$2.4B</b><span class="mono">Capital advised</span></div>
+      </div>
+      <div class="card ghost" style="left:1180px;top:690px;width:260px;height:170px;padding:20px"><div style="font-family:var(--f-disp);font-size:40px">SGA</div></div>
+      <div class="card tk">
+        <div class="t">BEG<sup>▲</sup></div>
+        <div class="val tab">167.9144 <span class="mono" style="font-size:11px;color:#8a8a92">USD · +2.41%</span></div>
+        <svg viewBox="0 0 342 86" preserveAspectRatio="none"><path data-step="7" data-n="16" fill="none" stroke="#3E42DC" stroke-width="2"/></svg>
+      </div>
+      <div class="card bk">
+        <div class="row"><img src="assets/p-elena.webp" alt=""><div><div class="nm">Elena Voss</div><div class="mono" style="font-size:10px;color:#8a8a92;margin-top:4px">Private capital strategist</div></div><div class="match"><span>94%</span></div></div>
+        <dl><div><dt>Advised</dt><dd>$1.2B</dd></div><div><dt>Clients</dt><dd>64</dd></div><div><dt>Horizon</dt><dd>5–10Y</dd></div></dl>
+        <div class="go">VIEW PROFILE →</div>
+      </div>
+      <div class="card rk">
+        <div style="display:flex;justify-content:space-between" class="mono"><span style="color:#8a8a92">Risk profile</span><span>40.02%</span></div>
+        <div class="seg"><span>SAFE</span><span class="on">MODERATE</span><span>AGGRESSIVE</span></div>
+        <div class="slide"></div>
+      </div>
+      <img class="coin" src="assets/coin-silver-o.webp" alt="">
+    </div></div>
+  </article>
+
+  <!-- H4 -->
+  <article class="v" id="H4" data-name="Горизонт">
+    <header class="vh"><b>H4</b><h3>Горизонт</h3><p>Идея из постера кейса: над горизонтом настоящая золотая монета, под ним та же монета чертежом. Горизонт режет заголовок пополам: «Your portfolio starts with» стоит на линии, «The right banker» уходит под неё контуром. Текст занимает левую колонку, монета и чертёж — правую, линии больше не пересекаются. Подзаголовок и кнопка выровнены по правому краю и закрывают композицию сверху. Низ — чертёжный пол в перспективе: шкала делений на горизонте, размерные линии Ø и R, отсвет монеты. <i>Что можно забрать: разрез «объект / чертёж», фразу, разрезанную горизонтом, глубину чертежа.</i></p></header>
+    <div class="frame"><div class="stage h4" style="height:940px">
+      <div class="sky"><div class="bob"><img src="assets/coin-gold-v.webp" alt=""></div></div>
+      <div class="under">
+        <svg class="grid" viewBox="0 0 1440 380" aria-hidden="true"><path d="M980 0L-840 1140"/><path d="M980 0L-710 1140"/><path d="M980 0L-580 1140"/><path d="M980 0L-450 1140"/><path d="M980 0L-320 1140"/><path d="M980 0L-190 1140"/><path d="M980 0L-60 1140"/><path d="M980 0L70 1140"/><path d="M980 0L200 1140"/><path d="M980 0L330 1140"/><path d="M980 0L460 1140"/><path d="M980 0L590 1140"/><path d="M980 0L720 1140"/><path d="M980 0L850 1140"/><path d="M980 0L980 1140"/><path d="M980 0L1110 1140"/><path d="M980 0L1240 1140"/><path d="M980 0L1370 1140"/><path d="M980 0L1500 1140"/><path d="M980 0L1630 1140"/><path d="M980 0L1760 1140"/><path d="M980 0L1890 1140"/><path d="M980 0L2020 1140"/><path d="M980 0L2150 1140"/><path d="M980 0L2280 1140"/><path d="M980 0L2410 1140"/><path d="M980 0L2540 1140"/><path d="M980 0L2670 1140"/><path d="M980 0L2800 1140"/><path d="M0 6.0H1440"/><path d="M0 13.9H1440"/><path d="M0 24.4H1440"/><path d="M0 38.2H1440"/><path d="M0 56.4H1440"/><path d="M0 80.4H1440"/><path d="M0 112.2H1440"/><path d="M0 154.1H1440"/><path d="M0 209.4H1440"/><path d="M0 282.4H1440"/><path d="M0 378.7H1440"/></svg>
+        <div class="bob"><svg viewBox="0 0 220 220"><use href="#eng"/></svg></div>
+      </div>
+      <div class="line"></div><div class="ticks"></div>
+      <span class="tn" style="left:40px">0</span><span class="tn" style="left:440px">400</span><span class="tn" style="left:840px">800</span><span class="tn" style="left:1240px">1200</span>
+      <div class="s-nav" style="color:#fff">
+        <svg class="logo"><use href="#logo"/></svg>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <span class="mono cta" style="text-decoration:underline;text-underline-offset:4px">Get a consultation</span>
+      </div>
+      <p class="lead">Your portfolio<br>starts with</p>
+      <h2 class="big">The right<br>banker</h2>
+      <div class="rb">
+        <p>The service helps you find a financial expert suited to your capital, goals and strategy, using transparent profiles and clear metrics.</p>
+        <a class="pill">Find your banker<i></i></a>
+      </div>
+      <span class="tag mono">Gold model<br>Long-term growth</span>
+      <span class="dim dh"><span>Ø 38.60 mm</span></span>
+      <span class="dim dv"><span>R 19.30</span></span>
+      <span class="dim spec">VLT-01<br>Au 999.9<br>Tol. ±0.02</span>
+    </div></div>
+  </article>
+
+  <!-- H5 -->
+  <article class="v" id="H5" data-name="Подбор">
+    <header class="vh"><b>H5</b><h3>Подбор за три вопроса</h3><p>Хиро как работающий инструмент, а не плакат. Слева вопросы в полупрозрачной панели того же языка, что и чипы справа: капитал (слайдер), горизонт, риск. Справа ответ одной группой: число подходящих банкиров, подпись, тройка совпадений и модель с монетой, которая меняется от уровня риска. Единая сетка отступов 8px, больше воздуха между заголовком и панелью. <i>Подвигайте слайдер. Что можно забрать: интерактив на первом экране, «вопрос → ответ» одной композицией.</i></p></header>
+    <div class="frame"><div class="stage h5" style="height:860px">
+      <canvas class="glyphs" data-color="255,255,255" data-alpha=".10"></canvas>
+      <div class="s-nav" style="color:#fff">
+        <svg class="logo"><use href="#logo"/></svg>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <a class="pill cta" style="--pill-in:var(--u)">Get a consultation<i></i></a>
+      </div>
+      <span class="eyebrow mono sq">Banker match · three questions</span>
+      <h1>Find the banker who <span class="ser">fits</span> your capital.</h1>
+      <div class="panel">
+        <div class="cell">
+          <span class="mono lbl">Capital to allocate</span>
+          <div class="cap"><output class="tab" id="h5cap">$2,500,000</output><span class="mono lbl">USD</span></div>
+          <input type="range" id="h5range" min="0" max="100" value="45" aria-label="Capital to allocate">
+          <div style="display:flex;justify-content:space-between" class="mono lbl"><span>$250K</span><span>$25M</span></div>
+        </div>
+        <div class="two">
+          <div class="cell"><span class="mono lbl">Horizon</span><div class="seg" data-g="h"><button aria-pressed="false">1Y</button><button aria-pressed="false">3Y</button><button aria-pressed="true">5Y</button><button aria-pressed="false">10Y+</button></div></div>
+          <div class="cell"><span class="mono lbl">Risk</span><div class="seg" data-g="r"><button aria-pressed="false">Safe</button><button aria-pressed="true">Moderate</button><button aria-pressed="false">Bold</button></div></div>
+        </div>
+      </div>
+      <div class="res">
+        <div class="num tab" id="h5num">14</div>
+        <div class="cap2">bankers match your profile</div>
+        <div class="list" id="h5list"></div>
+        <div class="model mono"><img id="h5coin" src="assets/coin-silver-a.webp" alt=""><span id="h5model">Silver model · Balanced allocation</span></div>
+      </div>
+    </div></div>
+  </article>
+</section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  // H2: chrome wordmark masked by the real logo, light follows the cursor
+  const sym=document.querySelector('#logo');
+  document.querySelectorAll('[data-logo-mask]').forEach(el=>{
+    const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 15" preserveAspectRatio="none">'+sym.innerHTML.replaceAll('currentColor','#000')+'</svg>';
+    const u='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")';
+    el.style.webkitMaskImage=u; el.style.maskImage=u;
+  });
+  const h2=document.querySelector('.h2'), wm=h2.querySelector('.wm');
+  let tx=.5,cx=.5,hover=false,t0=performance.now();
+  h2.addEventListener('pointermove',e=>{const r=h2.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;hover=true});
+  h2.addEventListener('pointerleave',()=>hover=false);
+  (function loop(t){
+    if(!hover) tx=.5+.45*Math.sin((t-t0)/2600);
+    cx+=(tx-cx)*.08; wm.style.backgroundPosition=(100-cx*100)+'% 0';
+    requestAnimationFrame(loop);
+  })(t0);
+
+  // H5: live banker match
+  const B=[['Elena Voss','Private capital strategist','p-elena'],['Victor Halden','Portfolio strategist','p-victor'],['Adrian Keller','Growth strategist','p-adrian'],['Daniel Morozov','Risk allocation expert','p-daniel'],['Martin Ellwood','Chief investment officer','p-martin'],['Claire Duval','Income portfolios','p-claire']];
+  const st={c:45,h:2,r:1};
+  const range=document.getElementById('h5range'),out=document.getElementById('h5cap'),num=document.getElementById('h5num'),list=document.getElementById('h5list'),coin=document.getElementById('h5coin'),model=document.getElementById('h5model');
+  const capOf=p=>Math.round(250000*Math.pow(100,p/100)/50000)*50000;
+  const models=[['coin-bronze-l','Bronze model · Capital preservation'],['coin-silver-a','Silver model · Balanced allocation'],['coin-gold-v','Gold model · Long-term growth']];
+  let shown=14;
+  function render(){
+    const cap=capOf(st.c); out.textContent='$'+cap.toLocaleString('en-US'); range.style.setProperty('--p',st.c+'%');
+    const n=Math.max(3,Math.min(28,Math.round(5+Math.log10(cap/250000)*6+st.h*2-st.r*1.5)));
+    const from=shown,t1=performance.now();
+    (function tick(t){const k=Math.min(1,(t-t1)/500);shown=Math.round(from+(n-from)*(1-Math.pow(1-k,3)));num.textContent=String(shown).padStart(2,'0');if(k<1)requestAnimationFrame(tick)})(t1);
+    const off=(st.h+st.r*2+Math.floor(st.c/25))%B.length;
+    list.innerHTML=[0,1,2].map(i=>{const b=B[(off+i)%B.length];return `<div class="chip"><img src="assets/${b[2]}.webp" alt=""><div><b>${b[0]}</b><small class="mono">${b[1]}</small></div><span class="pc">${97-i*4-st.r}%</span></div>`}).join('');
+    coin.src='assets/'+models[st.r][0]+'.webp'; model.textContent=models[st.r][1];
+    coin.style.transform='rotate('+(st.c*3.6)+'deg)';
+  }
+  range.addEventListener('input',()=>{st.c=+range.value;render()});
+  document.querySelectorAll('.h5 .seg').forEach(g=>g.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;[...g.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+    st[g.dataset.g]=[...g.children].indexOf(b);render();
+  }));
+  render();
+});
+</script>

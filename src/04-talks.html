@@ -1,0 +1,277 @@
+<style>
+/* ---------- T1 · Index with cursor portrait ---------- */
+.t1{background:var(--paper);color:#111}
+.t1 h2{position:absolute;left:36px;top:48px;margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:112px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+.t1 .meta{position:absolute;left:40px;top:170px;width:560px;margin:0;font-size:16px;line-height:1.4;color:#55555c}
+.t1 .meta span{display:block;margin-bottom:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8a92}
+.t1 .list{position:absolute;left:40px;right:40px;top:262px}
+.t1 .r{display:grid;grid-template-columns:110px 1fr 240px 110px 52px;align-items:center;height:118px;border-top:1px solid #111;cursor:pointer;transition:color .3s}
+.t1 .r:last-child{border-bottom:1px solid #111}
+.t1 .r .ti{font-family:var(--f-disp);font-weight:400;font-size:46px;letter-spacing:-.03em;transition:padding .5s cubic-bezier(.2,.8,.2,1)}
+.t1 .r:hover .ti{padding-left:28px;font-family:var(--f-serif);font-style:italic;font-size:54px;letter-spacing:-.01em}
+.t1 .list:hover .r:not(:hover){color:#a3a3a8}
+.t1 .r .ar{justify-self:end;width:52px;height:52px;border-radius:50%;border:1px solid #111;display:grid;place-items:center;transition:background .3s,color .3s,transform .4s}
+.t1 .r .ar svg{width:18px;height:18px}
+.t1 .r:hover .ar{background:#111;color:#fff}
+.t1 .r:hover .ar svg{transform:rotate(-45deg);transition:transform .4s}
+.t1 .float{position:absolute;left:0;top:0;width:150px;height:188px;pointer-events:none;opacity:0;transition:opacity .3s;z-index:5}
+.t1 .float .ph{width:100%;height:100%;border-radius:12px;overflow:hidden;position:relative;background:#DCDAD4;isolation:isolate;box-shadow:0 24px 40px -18px rgba(0,0,0,.35)}
+.t1 .float img.p{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.06);mix-blend-mode:multiply}
+.t1 .float img.c{position:absolute;right:-18px;bottom:-18px;width:52px}
+
+/* ---------- T2 · Player ---------- */
+.t2{background:#060607;color:#fff}
+.t2 .hd{position:absolute;left:40px;top:50px}
+.t2 .hd h2{margin:14px 0 0;font-family:var(--f-disp);font-weight:300;font-size:64px;letter-spacing:-.035em;line-height:1}
+.t2 .hd h2 .ser{font-size:74px}
+.t2 .feat{position:absolute;left:40px;top:280px;width:820px;height:620px;border-radius:30px;overflow:hidden;background:url(assets/photo-zebra.webp) center 30%/cover}
+.t2 .feat::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 30%,rgba(0,0,0,.88) 100%);filter:grayscale(1)}
+.t2 .feat>*{position:absolute}
+.t2 .chipv{left:26px;top:26px;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:999px;padding:8px 14px}
+.t2 .feat h3{left:32px;width:640px;bottom:176px;margin:0;font-family:var(--f-disp);font-weight:400;font-size:50px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+.t2 .feat .au{left:32px;bottom:128px;display:flex;align-items:center;gap:12px}
+.t2 .feat .au img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top}
+.t2 .bar{left:16px;right:16px;bottom:16px;height:84px;display:grid;grid-template-columns:60px auto 1fr auto auto;gap:18px;align-items:center;background:rgba(255,255,255,.82);backdrop-filter:blur(18px) saturate(1.2);border-radius:20px;padding:0 20px 0 12px;color:#111;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 20px 40px -20px rgba(0,0,0,.6)}
+.t2 .play{width:60px;height:60px;border:0;padding:0;background:#111;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:#fff;transition:transform .2s}
+.t2 .play:hover{transform:scale(1.05)}
+.t2 .play svg{width:20px;height:20px;display:block}
+.t2 .play .pz{display:none}.t2 .play[aria-pressed=true] .pz{display:block}.t2 .play[aria-pressed=true] .pl{display:none}
+
+
+.t2 .play:focus-visible{outline:2px solid #111;outline-offset:3px}
+.t2 .wave{height:48px;min-width:0;overflow:hidden;display:flex;align-items:center;gap:2px;cursor:pointer}
+.t2 .wave i{flex:1;background:rgba(17,17,17,.2);border-radius:2px;min-width:1px}
+.t2 .tm{font-family:var(--f-mono);font-size:12px;color:#55555c}
+.t2 .sp{font-family:var(--f-mono);font-size:11px;padding:6px 10px;border:1px solid rgba(17,17,17,.2);border-radius:8px;color:#111}
+.t2 .wave i.on{background:#111}
+.t2 .q{position:absolute;left:900px;right:40px;top:280px;display:flex;flex-direction:column;gap:10px}
+.t2 .qi{display:grid;grid-template-columns:96px 1fr 48px;gap:20px;align-items:center;padding:12px 18px 12px 12px;border-radius:22px;border:1px solid rgba(255,255,255,.1);transition:background .3s;cursor:pointer}
+.t2 .qi:hover{background:rgba(255,255,255,.06)}
+.t2 .qi .pf{width:96px;height:118px;border-radius:14px}
+.t2 .qi b{display:block;font-family:var(--f-disp);font-weight:400;font-size:23px;line-height:1.1;letter-spacing:-.01em;margin:16px 0 4px}
+.t2 .qi .pb{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;transition:background .3s,color .3s,border-color .3s,transform .3s}
+.t2 .qi .pb svg{width:16px;height:16px;margin-left:2px}
+.t2 .qi:hover .pb{background:#fff;color:#000;border-color:#fff;transform:scale(1.06)}
+
+
+/* ---------- T3 · Quote rail ---------- */
+.t3{background:var(--u);color:#fff}
+.t3 .hd{position:absolute;left:40px;right:40px;top:40px;display:flex;justify-content:space-between;align-items:flex-end}
+.t3 .hd h2{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:112px;letter-spacing:-.02em;text-transform:uppercase;line-height:.9}
+.t3 .hd .ar{display:flex;gap:10px}
+.t3 .hd button{width:54px;height:54px;border-radius:50%;border:1px solid #fff;background:transparent;color:#fff;font-size:18px;cursor:pointer}
+.t3 .hd button:last-child,.t3 .hd button:hover,.t3 .hd button:focus-visible{background:#fff;color:var(--u);outline:none}
+.t3 .rail{position:absolute;left:0;right:0;top:200px;bottom:40px;overflow-x:auto;scrollbar-width:none;cursor:grab;scroll-behavior:smooth}
+.t3 .rail::-webkit-scrollbar{display:none}
+.t3 .track{display:flex;gap:16px;padding:0 40px;height:100%;width:max-content}
+.t3 .qc{flex:none;border-radius:28px;padding:32px 36px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.t3 .qc .lb{display:flex;justify-content:space-between;align-items:center}
+.t3 .qc blockquote{margin:28px 0 0;font-family:var(--f-serif);font-size:58px;line-height:1;letter-spacing:-.015em;text-wrap:balance}
+.t3 .qc .au{margin-top:auto;padding-top:22px;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 22%,transparent);display:flex;align-items:center;gap:14px}
+.t3 .qc .au img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top}
+.t3 .qc .au b{display:block;font-family:var(--f-disp);font-weight:500;font-size:18px}
+.t3 .qc .ls{margin-left:auto;border:1px solid currentColor;border-radius:999px;padding:10px 16px}
+.t3 .q1{width:580px;background:var(--u-ink)}
+.t3 .q2{width:440px;background:#fff;color:var(--u)}
+.t3 .q3{width:660px;background:url(assets/photo-shadow.webp) center/cover}
+.t3 .q3::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.75));filter:grayscale(1)}
+.t3 .q3>*{position:relative}
+.t3 .q4{width:480px;background:#F2F2EF;color:#111}
+.t3 .q4 img.cn{width:64px;height:64px;padding:8px;margin:-16px -12px -16px 0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e6e6e2 75%);box-shadow:0 10px 18px -8px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,0,0,.05)}
+.t3 .q5{width:420px;background:var(--u-deep)}
+
+/* ---------- T4 · Posters ---------- */
+.t4{background:#E7E7E4;color:#111}
+.t4 .hd{position:absolute;left:40px;right:40px;top:50px;display:flex;justify-content:space-between;align-items:flex-end}
+.t4 .hd h2{margin:0;font-family:var(--f-disp);font-weight:400;font-size:64px;letter-spacing:-.035em;line-height:.95}
+.t4 .hd h2 .ser{font-size:72px;color:#55555c}
+.t4 .row{position:absolute;left:40px;top:220px;display:flex;gap:26px;perspective:1400px}
+.t4 .po{width:320px;height:480px;border-radius:6px;position:relative;overflow:hidden;padding:22px;display:flex;flex-direction:column;transition:transform .2s ease-out,box-shadow .3s;box-shadow:0 30px 50px -30px rgba(0,0,0,.5);transform-style:preserve-3d}
+.t4 .po .tp{display:flex;justify-content:space-between;align-items:center}
+.t4 .po .tp svg{width:70px;height:9px}
+.t4 .po .ti{margin-top:auto;font-family:var(--f-mono);font-weight:500;font-size:20px;line-height:1.15;text-transform:uppercase;letter-spacing:-.01em}
+.t4 .po .ft{display:flex;justify-content:space-between;margin-top:16px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.t4 .po .art{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%)}
+.t4 .p1{background:#070708;color:#fff}.t4 .p1 .art{width:210px}
+.t4 .p2{background:var(--u);color:#fff}.t4 .p2 .art{width:250px;height:250px;color:rgba(255,255,255,.85)}
+.t4 .p3{background:url(assets/photo-zebra.webp) center/cover;color:#fff}
+.t4 .p3::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7))}
+.t4 .p3>*{position:relative}
+.t4 .p4{background:#fff}.t4 .p4 .art{width:180px}
+.t4 .p4 .rings{position:absolute;left:50%;top:44%;width:420px;height:420px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed #cfcfcc;box-shadow:0 0 0 70px transparent,inset 0 0 0 70px transparent}
+.t4 .p4 .rings::after{content:"";position:absolute;inset:70px;border-radius:50%;border:1px dashed #cfcfcc}
+.t4 .bt{position:absolute;left:40px;right:40px;bottom:40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #111;padding-top:20px}
+
+/* ---------- T5 · Schedule ---------- */
+.t5{background:#fff;color:#111}
+.t5 .l{position:absolute;left:40px;top:60px;bottom:50px;width:520px;display:flex;flex-direction:column}
+.t5 .live{display:flex;align-items:center;gap:10px;color:#55555c}
+.t5 .live i{width:10px;height:10px;border-radius:50%;background:var(--hot);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,90,31,.6)}100%{box-shadow:0 0 0 14px rgba(255,90,31,0)}}
+.t5 .cd{font-family:var(--f-disp);font-weight:200;font-size:132px;line-height:.9;letter-spacing:-.05em;margin:22px 0 12px}
+.t5 .l h3{margin:44px 0 0;font-family:var(--f-disp);font-weight:400;font-size:40px;line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
+.t5 .l h3 .ser{font-size:46px}
+.t5 .au{display:flex;align-items:center;gap:12px;margin-top:14px}
+.t5 .au img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top}
+.t5 .au b{display:block;font-family:var(--f-disp);font-weight:500;font-size:17px;line-height:1.2}
+.t5 .btns{display:flex;gap:10px;margin-top:32px}
+.t5 .btns span{height:54px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.t5 .btns .d{background:#111;color:#fff}.t5 .btns .o{border:1px solid #cfcfcc}
+.t5 .lgd{margin-top:auto;display:flex;gap:22px;padding-top:18px;border-top:1px solid #ececea;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#77777f}
+.t5 .lgd i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.t5 .cal{position:absolute;left:600px;right:40px;top:60px;bottom:50px;border-radius:24px;background:#F5F5F2;overflow:hidden;display:grid;grid-template-columns:54px repeat(5,1fr) .5fr .5fr;grid-template-rows:76px 1fr}
+.t5 .cal .hdr{display:contents}
+.t5 .dh{padding:14px 10px 0;border-bottom:1px solid #e3e3df;display:flex;flex-direction:column;gap:4px}
+.t5 .dh span{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:#8a8a92}
+.t5 .dh b{font-family:var(--f-disp);font-weight:400;font-size:24px;line-height:1;letter-spacing:-.02em;width:38px;height:38px;margin-left:-6px;display:grid;place-items:center;border-radius:50%}
+.t5 .dh.today b{background:var(--u);color:#fff}
+.t5 .dh.today span{color:var(--u)}
+.t5 .ax{position:relative;border-right:1px solid #e3e3df}
+.t5 .ax span{position:absolute;right:10px;transform:translateY(-50%);font-family:var(--f-mono);font-size:10px;color:#9a9aa2}
+.t5 .col{position:relative;border-right:1px solid #ebebe7;background:repeating-linear-gradient(180deg,#e9e9e5 0 1px,transparent 1px var(--ph))}
+.t5 .col:last-child{border-right:0}
+.t5 .col.we{background-color:#EFEFEB}
+.t5 .col.today{background-color:#EEEFFC}
+.t5 .now{position:absolute;left:-4px;right:0;height:2px;background:var(--hot);z-index:3}
+.t5 .now::before{content:"";position:absolute;left:0;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--hot)}
+.t5 .ev{position:absolute;left:5px;right:5px;border-radius:10px;padding:8px 9px;overflow:hidden;font-size:12px;line-height:1.2;z-index:2}
+.t5 .ev small{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase}
+.t5 .ev b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--f-disp);font-weight:500;font-size:13px;line-height:1.15;margin-top:4px}
+.t5 .ev .sp{display:flex;align-items:center;gap:6px;margin-top:8px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase}
+.t5 .ev .sp img{width:20px;height:20px;border-radius:50%;object-fit:cover;object-position:top}
+.t5 .ev.past{background:#fff;color:#8a8a92;box-shadow:inset 3px 0 0 #c9c9c5}
+.t5 .ev.past b{color:#55555c}
+.t5 .ev.onair{background:var(--u);color:#fff;box-shadow:0 16px 30px -14px rgba(62,66,220,.8)}
+.t5 .ev.soon{background:#fff;color:#111;box-shadow:inset 3px 0 0 var(--u),0 1px 0 rgba(0,0,0,.04)}
+.t5 .ev.soon small{color:var(--u)}
+</style>
+
+<section class="block" id="talks">
+  <div class="block-h"><span class="n">04</span><h2>Market Talks</h2><p>Сейчас это две одинаковые карточки в рамке. Варианты превращают раздел в медиа: индекс, плеер, цитаты, постеры, расписание.</p></div>
+
+  <!-- T1 -->
+  <article class="v" id="T1">
+    <header class="vh"><b>T1</b><h3>Индекс с портретом за курсором</h3><p>Редакционный список выпусков. Под заголовком короткое описание рубрики, список подтянут к ним. При наведении строка сдвигается и переключается на курсивную антикву, остальные гаснут, а портрет спикера плывёт за курсором. Портрет небольшой и без тонировки: ч/б фото на одной нейтральной подложке, поэтому любые исходные фоны выглядят одинаково. Справа у каждой строки круглая кнопка-стрелка, которая заливается при наведении, видно, что строка ведёт дальше. Описание рубрики стоит под заголовком. Классический приём Awwwards в фирменной типографике. <i>Наведите на строки. Что можно забрать: смену голоса шрифта на ховере, портрет за курсором.</i></p></header>
+    <div class="frame"><div class="stage t1" style="height:900px">
+      <h2>Market talks</h2>
+      <p class="meta"><span>Weekly · 5 talks · 54 min</span>Short talks where Valta bankers explain how they read markets, risk and timing.</p>
+      <div class="list" id="t1list"></div>
+      <div class="float" id="t1float"><div class="ph"><img class="p" alt=""></div><img class="c" src="assets/coin-gold-v.webp" alt=""></div>
+    </div></div>
+  </article>
+
+  <!-- T2 -->
+  <article class="v" id="T2">
+    <header class="vh"><b>T2</b><h3>Плеер</h3><p>Talks как подкаст или видео. Главный выпуск — большая карточка с фото-атмосферой кейса, отодвинутая от заголовка. Название выпуска сбалансировано без висячих слов. Плеер — аккуратная продуктовая панель на белом матовом стекле: чёрная кнопка Play с иконкой точно по центру, прошедшее и общее время по краям, плотная волна во всю ширину (по ней можно перематывать кликом), скорость 1×. Справа очередь: ч/б портреты на общей подложке, у каждой карточки кнопка Play, которая загорается при наведении. <i>Нажмите Play или кликните по волне. Что можно забрать: медиаформат, продуктовый плеер.</i></p></header>
+    <div class="frame"><div class="stage t2" style="height:940px">
+      <div class="hd"><span class="mono sq" style="opacity:.6">Market talks</span><h2>Listen before you <span class="ser">invest.</span></h2></div>
+      <div class="feat">
+        <span class="chipv mono">Video · 12 min</span>
+        <h3>Why capital needs structure before growth</h3>
+        <div class="au"><span class="pf" style="width:40px;height:40px;border-radius:50%"><img src="assets/p-victor.webp" alt=""></span><span class="mono">Victor Halden · Portfolio strategist</span></div>
+        <div class="bar"><button class="play" id="t2play" aria-pressed="false" aria-label="Play"><svg class="pl" viewBox="0 0 20 20"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg><svg class="pz" viewBox="0 0 20 20"><path d="M5 3h3.5v14H5zM11.5 3H15v14h-3.5z" fill="currentColor"/></svg></button><span class="tm tab" id="t2time">03:00</span><div class="wave" id="t2wave"></div><span class="tm tab">12:00</span><span class="sp">1×</span></div>
+      </div>
+      <div class="q" id="t2q"></div>
+    </div></div>
+  </article>
+
+  <!-- T3 -->
+  <article class="v" id="T3">
+    <header class="vh"><b>T3</b><h3>Лента цитат</h3><p>Заголовок блока главный (112px), карточки ниже и плотнее. Каждый выпуск — одна ключевая фраза крупной антиквой, отделённая от автора линией, чтобы пространство между ними работало как пауза, а не как пустота. Карточки разной ширины и материала: глубокий синий, белый, фото, бумага; монета живёт в строке номера и не заходит на текст. Лента листается мышью или стрелками. <i>Перетащите ленту. Что можно забрать: мысль как превью, разные материалы карточек.</i></p></header>
+    <div class="frame"><div class="stage t3" style="height:720px">
+      <div class="hd"><h2>Market talks</h2><div class="ar"><button id="t3p" aria-label="Previous">←</button><button id="t3n" aria-label="Next">→</button></div></div>
+      <div class="rail" id="t3rail"><div class="track">
+        <div class="qc q1"><div class="lb mono" style="opacity:.6"><span>№ 01 · Structure</span></div><blockquote>“Structure first. Growth is what structure earns.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-victor.webp" alt=""></span><div><b>Victor Halden</b><span class="mono" style="opacity:.6">Portfolio strategist</span></div><span class="ls mono">▶ 12 min</span></div></div>
+        <div class="qc q2"><div class="lb mono"><span>№ 02 · Risk</span></div><blockquote>“Risk is a number you can live with, not one you pick.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-martin.webp" alt=""></span><div><b>Martin Ellwood</b><span class="mono" style="opacity:.6">CIO</span></div><span class="ls mono">▶ 8 min</span></div></div>
+        <div class="qc q3"><div class="lb mono" style="opacity:.7"><span>№ 03 · Timing</span></div><blockquote style="font-size:62px">“Waiting is also a position, and it has a price.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-elena.webp" alt=""></span><div><b>Elena Voss</b><span class="mono" style="opacity:.7">Private capital strategist</span></div><span class="ls mono">▶ 15 min</span></div></div>
+        <div class="qc q4"><div class="lb mono"><span>№ 04 · Liquidity</span><img class="cn" src="assets/coin-bronze-l.webp" alt=""></div><blockquote>“Liquidity is a decision, not a leftover.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-adrian.webp" alt=""></span><div><b>Adrian Keller</b><span class="mono" style="opacity:.6">Growth strategist</span></div><span class="ls mono">▶ 10 min</span></div></div>
+        <div class="qc q5"><div class="lb mono" style="opacity:.6"><span>№ 05 · Review</span></div><blockquote>“A review that changes nothing was a meeting.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-daniel.webp" alt=""></span><div><b>Daniel Morozov</b><span class="mono" style="opacity:.6">Risk allocation</span></div><span class="ls mono">▶ 9 min</span></div></div>
+      </div></div>
+    </div></div>
+  </article>
+
+  <!-- T4 -->
+  <article class="v" id="T4">
+    <header class="vh"><b>T4</b><h3>Постеры</h3><p>Выпуски как серия постеров в духе соцсетей из кейса: чёрный с золотом, ультрамарин с чертежом, фото-зебра, белый с серебром. Моноширинный капс, коды VLT, при наведении постер наклоняется за курсором. <i>Что можно забрать: айдентику кейса прямо на сайте, серийность.</i></p></header>
+    <div class="frame"><div class="stage t4" style="height:860px">
+      <div class="hd"><h2>Market talks<br><span class="ser">weekly advisory sessions</span></h2><span class="mono" style="color:#55555c">Every Thursday · 18:00 GMT</span></div>
+      <div class="row" id="t4row">
+        <div class="po p1"><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-11</span></div><img class="art" src="assets/coin-gold-v.webp" alt=""><div class="ti">Why capital needs structure before growth</div><div class="ft"><span>Victor Halden</span><span>12 min</span></div></div>
+        <div class="po p2"><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-12</span></div><svg class="art" viewBox="0 0 220 220"><use href="#eng-dec"/></svg><div class="ti">How bankers read risk</div><div class="ft"><span>Martin Ellwood</span><span>8 min</span></div></div>
+        <div class="po p3"><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-13</span></div><div class="ti">Gold, bonds and the cost of waiting</div><div class="ft"><span>Elena Voss</span><span>15 min</span></div></div>
+        <div class="po p4"><span class="rings"></span><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-14</span></div><img class="art" src="assets/coin-silver-o.webp" alt=""><div class="ti">Liquidity is a decision</div><div class="ft"><span>Adrian Keller</span><span>10 min</span></div></div>
+      </div>
+      <div class="bt"><span class="mono">04 sessions this month</span><span class="pill" style="--pill-in:#fff">All sessions<i></i></span></div>
+    </div></div>
+  </article>
+
+  <!-- T5 -->
+  <article class="v" id="T5">
+    <header class="vh"><b>T5</b><h3>Расписание</h3><p>Talks как живое событие. Слева обратный отсчёт до следующей сессии, название и спикер одной плотной группой, кнопки и легенда. Справа проработанный недельный календарь: шкала часов, сегодняшний день выделен, красная линия «сейчас». Сессии трёх состояний: Live (заливка), Upcoming (акцентная кромка), Replay (приглушённые, с длительностью). У Live виден спикер. <i>Таймер идёт. Что можно забрать: время как графика, календарь как интерфейс.</i></p></header>
+    <div class="frame"><div class="stage t5" style="height:880px">
+      <div class="l">
+        <div class="live mono"><i></i>Next session · live in</div>
+        <div class="cd tab" id="t5cd">02:14:33</div>
+        <div class="mono" style="color:#77777f">Tue 27 Oct · 18:00 GMT · 40 min + Q&amp;A</div>
+        <h3>How bankers read risk <span class="ser">before</span> building a portfolio</h3>
+        <div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-martin.webp" alt=""></span><div><b>Martin Ellwood</b><span class="mono" style="color:#77777f">Chief investment officer</span></div></div>
+        <div class="btns"><span class="d">Remind me</span><span class="o">Add to calendar</span></div>
+        <div class="lgd"><span><i style="background:var(--u)"></i>Live</span><span><i style="background:#fff;box-shadow:inset 3px 0 0 var(--u),0 0 0 1px #e3e3df"></i>Upcoming</span><span><i style="background:#fff;box-shadow:inset 3px 0 0 #c9c9c5,0 0 0 1px #e3e3df"></i>Replay</span></div>
+      </div>
+      <div class="cal" id="t5cal"></div>
+    </div></div>
+  </article>
+</section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  const T=[['Why capital needs structure before growth','Victor Halden','p-victor','12'],['How bankers read risk','Martin Ellwood','p-martin','08'],['Gold, bonds and the cost of waiting','Elena Voss','p-elena','15'],['Liquidity is a decision','Adrian Keller','p-adrian','10'],['What a quarterly review should change','Daniel Morozov','p-daniel','09']];
+
+  // T1 index + floating portrait
+  const st=document.querySelector('.t1'), list=document.getElementById('t1list'), fl=document.getElementById('t1float'), fimg=fl.querySelector('.p');
+  list.innerHTML=T.map((t,i)=>`<div class="r" data-i="${i}"><span class="mono">№ ${String(i+1).padStart(2,'0')}</span><span class="ti">${t[0]}</span><span class="mono">${t[1]}</span><span class="mono">${t[3]} min</span><span class="ar"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span></div>`).join('');
+  let tx=0,ty=0,x=0,y=0,on=false;
+  st.addEventListener('pointermove',e=>{const r=st.getBoundingClientRect(),k=r.width/1440;tx=(e.clientX-r.left)/k;ty=(e.clientY-r.top)/k;const row=e.target.closest('.r');on=!!row;if(row)fimg.src='assets/'+T[row.dataset.i][2]+'.webp';fl.style.opacity=on?1:0});
+  st.addEventListener('pointerleave',()=>{on=false;fl.style.opacity=0});
+  (function loop(){const dx=tx-x;x+=dx*.12;y+=(ty-y)*.12;fl.style.transform=`translate(${x+36}px,${y-94}px) rotate(${Math.max(-12,Math.min(12,dx*.08))}deg)`;requestAnimationFrame(loop)})();
+
+  // T2 waveform + queue
+  const wave=document.getElementById('t2wave'); const N=110; let h='';
+  for(let i=0;i<N;i++){const v=Math.round(6+Math.abs(Math.sin(i*.29)*Math.cos(i*.07)+Math.sin(i*1.7)*.25)*36);h+=`<i style="height:${Math.min(46,v)}px"></i>`}
+  wave.innerHTML=h; const bars=[...wave.children]; let pos=25, timer=null;
+  const paint=()=>{bars.forEach((b,i)=>b.classList.toggle('on',i<pos*N/100));const s=Math.round(pos/100*720);document.getElementById('t2time').textContent=`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
+  wave.addEventListener('click',e=>{const r=wave.getBoundingClientRect();pos=(e.clientX-r.left)/r.width*100;paint()});
+  paint();
+  const pb=document.getElementById('t2play');
+  pb.onclick=()=>{const p=pb.getAttribute('aria-pressed')!=='true';pb.setAttribute('aria-pressed',p);clearInterval(timer);if(p)timer=setInterval(()=>{pos=(pos+.4)%100;paint()},120)};
+  document.getElementById('t2q').innerHTML=T.slice(1).map(t=>`<div class="qi"><span class="pf"><img src="assets/${t[2]}.webp" alt=""></span><div><span class="mono" style="opacity:.45;font-size:10px">${t[3]} min · Audio</span><b>${t[0]}</b><span class="mono" style="opacity:.7">${t[1]}</span></div><span class="pb"><svg viewBox="0 0 20 20"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg></span></div>`).join('');
+
+  // T3 rail: drag + arrows
+  const rail=document.getElementById('t3rail'); let dn=false,sx=0,sl=0;
+  rail.addEventListener('pointerdown',e=>{dn=true;sx=e.clientX;sl=rail.scrollLeft;rail.style.scrollBehavior='auto';rail.setPointerCapture(e.pointerId)});
+  rail.addEventListener('pointermove',e=>{if(!dn)return;const k=rail.getBoundingClientRect().width/1440;rail.scrollLeft=sl-(e.clientX-sx)/k});
+  rail.addEventListener('pointerup',()=>{dn=false;rail.style.scrollBehavior='smooth'});
+  document.getElementById('t3p').onclick=()=>rail.scrollLeft-=500; document.getElementById('t3n').onclick=()=>rail.scrollLeft+=500;
+
+  // T4 poster tilt
+  document.querySelectorAll('.t4 .po').forEach(p=>{
+    p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;p.style.transform=`rotateY(${px*14}deg) rotateX(${-py*14}deg) translateZ(20px)`;p.style.boxShadow=`${-px*30}px ${40-py*20}px 60px -30px rgba(0,0,0,.55)`});
+    p.addEventListener('pointerleave',()=>{p.style.transform='';p.style.boxShadow=''});
+  });
+
+  // T5 calendar + countdown
+  const days=[['MON',26],['TUE',27],['WED',28],['THU',29],['FRI',30],['SAT',31],['SUN',1]], H0=9, H1=21, PH=56;
+  const ev={0:[[10,1.3,'past','Replay · 12 min','Why capital needs structure'],[14.5,1.3,'past','Replay · 9 min','What a review should change']],
+    1:[[18,1.6,'onair','Live · 18:00','How bankers read risk','p-martin','M. Ellwood']],
+    2:[[9.5,1.3,'past','Office hours','Ask a banker anything']],
+    3:[[11,1.3,'soon','11:00 · 30 min','Office hours'],[18,1.3,'soon','18:00 · 15 min','Gold, bonds and the cost of waiting']],
+    4:[[12,1.3,'soon','12:00 · 10 min','Liquidity is a decision']]};
+  const cal=document.getElementById('t5cal');
+  let ch='<div class="dh"></div>'+days.map((d,i)=>`<div class="dh${i===1?' today':''}"><span>${d[0]}</span><b class="tab">${d[1]}</b></div>`).join('');
+  ch+=`<div class="ax">${Array.from({length:H1-H0},(_,k)=>k?`<span style="top:${k*PH}px">${String(H0+k).padStart(2,'0')}:00</span>`:'').join('')}</div>`;
+  ch+=days.map((d,i)=>`<div class="col${i===1?' today':''}${i>4?' we':''}" style="--ph:${PH}px">${i===1?`<div class="now" style="top:${(15.76-H0)*PH}px"></div>`:''}${(ev[i]||[]).map(e=>`<div class="ev ${e[2]}" style="top:${(e[0]-H0)*PH+2}px;height:${e[1]*PH-4}px"><small>${e[3]}</small><b>${e[4]}</b>${e[5]?`<div class="sp"><img src="assets/${e[5]}.webp" alt="">${e[6]}</div>`:''}</div>`).join('')}</div>`).join('');
+  cal.innerHTML=ch;
+  let left=2*3600+14*60+33; const cd=document.getElementById('t5cd');
+  setInterval(()=>{left=left>0?left-1:8040;cd.textContent=[Math.floor(left/3600),Math.floor(left%3600/60),left%60].map(n=>String(n).padStart(2,'0')).join(':')},1000);
+});
+</script>

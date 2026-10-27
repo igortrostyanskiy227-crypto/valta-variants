@@ -1,0 +1,1551 @@
+<title>Valta Variants</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Geist:wght@300..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300..700&display=swap" rel="stylesheet">
+<style>
+/* Review board: dark neutral chrome; every variant is a fixed 1440px desktop stage scaled to the column width */
+:root{
+  --u:#3E42DC; --u-hi:#5357F2; --u-deep:#2629A8; --u-ink:#15174F;
+  --ink:#08080A; --ink2:#131317; --paper:#F2F2EF; --fog:#E4E4E1; --white:#FFFFFF;
+  --gold:#C9A24A; --silver:#C8CCD2; --bronze:#B5683A; --sig:#3EF2D0; --hot:#FF5A1F;
+  --c-bg:#0E0E11; --c-fg:#ECECEA; --c-mute:#85858F; --c-line:#24242A;
+  --f-disp:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-serif:'Instrument Serif','Times New Roman',serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --f-body:'Geist','Helvetica Neue',Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--c-bg);color:var(--c-fg);font-family:var(--f-body);font-size:14px;line-height:1.45;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--c-bg)}
+a{color:inherit}
+.wrap{max-width:1560px;margin:0 auto}
+
+/* board chrome */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--c-bg) 88%,transparent);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--c-line);display:flex;gap:24px;align-items:center;justify-content:space-between;padding-block:14px;flex-wrap:wrap}
+.top .brand{display:flex;align-items:center;gap:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--c-mute)}
+.top .brand svg{width:84px;height:11px;color:var(--c-fg)}
+.top nav{display:flex;gap:6px;flex-wrap:wrap}
+.top nav a{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:7px 12px;border-radius:999px;border:1px solid var(--c-line);color:var(--c-mute)}
+.top nav a:hover,.top nav a:focus-visible{color:var(--c-fg);border-color:var(--c-mute);outline:none}
+.intro{padding-block:56px 24px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:end}
+.intro h1{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 112;font-size:clamp(40px,6vw,88px);line-height:.95;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.intro h1 em{font-family:var(--f-serif);font-weight:400;font-style:italic;font-variation-settings:normal}
+.intro p{color:var(--c-mute);max-width:56ch;margin:0}
+.intro p b{color:var(--c-fg);font-weight:500}
+@media (max-width:760px){.intro{grid-template-columns:1fr}}
+
+.block{padding-top:72px;scroll-margin-top:64px}
+.block-h{display:flex;align-items:baseline;gap:18px;border-top:1px solid var(--c-line);padding-top:18px;margin-bottom:28px;flex-wrap:wrap}
+.block-h .n{font-family:var(--f-mono);font-size:12px;color:var(--c-mute)}
+.block-h h2{font-family:var(--f-disp);font-weight:400;font-variation-settings:"wdth" 120;font-size:32px;margin:0;letter-spacing:-.01em;text-transform:uppercase}
+.block-h p{margin:0;color:var(--c-mute);flex:1 1 320px;min-width:0}
+
+.v{scroll-margin-top:64px;border:1px solid #3a3a42;border-radius:14px;padding:18px;background:#141418}
+.next{display:flex;flex-direction:column;align-items:center;gap:10px;padding-block:44px;color:var(--c-mute);text-decoration:none;text-align:center}
+.next .ar{width:44px;height:44px;border-radius:50%;border:1px solid #3a3a42;display:grid;place-items:center;font-size:18px;color:var(--c-fg);animation:nudge 1.8s ease-in-out infinite}
+.next .ln{width:1px;height:36px;background:linear-gradient(#3a3a42,transparent)}
+.next small{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.next span{font-family:var(--f-disp);font-size:15px;color:var(--c-fg)}
+.next:hover .ar,.next:focus-visible .ar{background:var(--c-fg);color:var(--c-bg);outline:none}
+@keyframes nudge{50%{transform:translateY(6px)}}
+.vh{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 18px;align-items:baseline;margin-bottom:14px}
+.vh b{font-family:var(--f-mono);font-size:13px;font-weight:600;background:var(--c-fg);color:var(--c-bg);padding:3px 8px;border-radius:4px;grid-row:span 2;align-self:start}
+.vh h3{margin:0;font-family:var(--f-disp);font-size:20px;font-weight:500}
+.vh p{margin:0;color:var(--c-mute);max-width:110ch}
+.vh p i{font-style:normal;color:var(--c-fg)}
+.frame{position:relative;overflow:hidden;border-radius:8px;background:#000}
+.stage{position:absolute;top:0;left:0;width:1440px;transform-origin:0 0;overflow:hidden;font-family:var(--f-body);-webkit-font-smoothing:antialiased}
+.stage *{box-sizing:border-box}
+
+/* shared stage atoms */
+.s-nav{position:absolute;top:0;left:0;right:0;z-index:6;display:grid;grid-template-columns:1fr auto 1fr;align-items:start;padding:30px 40px;
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.s-nav .logo{width:120px;height:15px;display:block}
+.s-nav nav{display:grid;grid-template-columns:repeat(2,auto);gap:4px 44px}
+.s-nav .cta{justify-self:end}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.sq::before{content:"";display:inline-block;width:7px;height:7px;background:currentColor;margin-right:8px;vertical-align:1px}
+.pill{display:inline-flex;align-items:center;gap:16px;border:1px solid currentColor;border-radius:999px;padding:5px 5px 5px 22px;
+  font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;white-space:nowrap}
+.pill i{width:36px;height:36px;border-radius:50%;background:currentColor;display:grid;place-items:center;font-style:normal}
+.pill i::after{content:"→";color:var(--pill-in,#000);font-family:var(--f-body);font-size:15px}
+.chrome{background:linear-gradient(180deg,#ffffff 0%,#d9dce1 30%,#7d828b 50%,#f1f2f4 66%,#a3a8b0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.steel{background:linear-gradient(180deg,#2a2a2e 0%,#8c8c92 48%,#1c1c1f 52%,#5b5b61 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goldtx{background:linear-gradient(180deg,#fff2c7 0%,#e2bd63 34%,#7d5617 52%,#f0d27e 72%,#9a6d22 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tab{font-variant-numeric:tabular-nums}
+.up{color:var(--sig)} .dn{color:var(--hot)}
+.ser{font-family:var(--f-serif);font-style:italic;font-weight:400;font-variation-settings:normal;letter-spacing:-.01em}
+canvas.glyphs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pf{display:inline-block;flex:none;overflow:hidden;background:#DCDAD4;isolation:isolate}
+.pf img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.06);mix-blend-mode:multiply}
+
+@media (prefers-reduced-motion:reduce){.stage *,.stage *::before,.stage *::after{animation:none!important;transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 120 15">
+      <path fill="currentColor" d="M54.9794 15V0.389611H57.5073V12.8711H64.6918V15H54.9794Z"/>
+      <path fill="currentColor" d="M85.2057 15V2.51855H80.4604V0.389611H92.5011V2.51855H87.7336V15H85.2057Z"/>
+      <path fill="currentColor" d="M113.459 2.91512L111.396 9.34369L110.775 11.3891L109.6 15H107.05L111.951 0.389611H115.099L120 15H117.361L116.186 11.3891L115.565 9.34369L113.459 2.91512Z"/>
+      <path fill="currentColor" d="M32.2924 2.91512L30.2302 9.34369L29.6093 11.3891L28.4341 15H25.884L30.7845 0.389611H33.9333L38.8338 15H36.1951L35.0199 11.3891L34.399 9.34369L32.2924 2.91512Z"/>
+      <path fill="currentColor" d="M5.02277 15L0 0H2.67734L6.54952 11.9786L10.4438 0H13.0548L8.05414 15H5.02277Z"/>
+    </symbol>
+    <!-- engraving: the gold-coin flower (6 circles around a centre) inside rings -->
+    <symbol id="eng" viewBox="-110 -110 220 220">
+      <g fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+        <circle r="100"/><circle r="92"/><circle r="38"/>
+        <circle cx="0" cy="-38" r="38"/><circle cx="32.9" cy="-19" r="38"/><circle cx="32.9" cy="19" r="38"/>
+        <circle cx="0" cy="38" r="38"/><circle cx="-32.9" cy="19" r="38"/><circle cx="-32.9" cy="-19" r="38"/>
+        <circle r="76"/>
+      </g>
+    </symbol>
+    <symbol id="eng-dec" viewBox="-110 -110 220 220">
+      <g fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+        <polygon points="30.9,-95.1 80.9,-58.8 100.0,0.0 80.9,58.8 30.9,95.1 -30.9,95.1 -80.9,58.8 -100.0,0.0 -80.9,-58.8 -30.9,-95.1"/>
+        <polygon points="22.9,-70.4 59.9,-43.5 74.0,0.0 59.9,43.5 22.9,70.4 -22.9,70.4 -59.9,43.5 -74.0,0.0 -59.9,-43.5 -22.9,-70.4"/>
+        <polygon points="0.0,-64.0 55.4,32.0 -55.4,32.0"/><polygon points="0.0,64.0 -55.4,-32.0 55.4,-32.0"/>
+        <circle r="30"/><circle r="52"/>
+      </g>
+    </symbol>
+    <symbol id="eng-oct" viewBox="-110 -110 220 220">
+      <g fill="none" stroke="currentColor" vector-effect="non-scaling-stroke">
+        <polygon points="38.3,-92.4 92.4,-38.3 92.4,38.3 38.3,92.4 -38.3,92.4 -92.4,38.3 -92.4,-38.3 -38.3,-92.4"/>
+        <polygon points="26.8,-64.7 64.7,-26.8 64.7,26.8 26.8,64.7 -26.8,64.7 -64.7,26.8 -64.7,-26.8 -26.8,-64.7"/>
+        <circle r="22"/><path d="M0-92.4V92.4M-92.4 0H92.4M-65 -65L65 65M65 -65L-65 65"/>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="brand"><svg viewBox="0 0 120 15"><use href="#logo"/></svg> Раунд 1 · 5 блоков · 20 вариантов</div>
+  <nav>
+    <a href="#hero">01 Хиро</a><a href="#banker">02 Банкир</a><a href="#cards">03 Стратегии</a><a href="#talks">04 Market Talks</a><a href="#acc">05 Аккордеон</a>
+  </nav>
+</header>
+<main class="wrap">
+<section class="intro">
+  <h1>Valta, <em>усиление</em> — раунд первый</h1>
+  <p>Каждый вариант — десктопный макет 1440px, ужатый под ширину экрана. Графика взята из кейса, остальное нарисовано вектором как черновик. <b>Отмечайте комментарием метку варианта (H1, C2…) и что именно забираем</b>: композицию, шрифт, моушн, деталь. Варианты внутри блока нарочно разные по характеру, чтобы нащупать направление.</p>
+</section>
+<style>
+/* ---------- H1 · Mint ---------- */
+.h1{background:radial-gradient(1100px 760px at 50% 52%,#5559F0 0%,#3E42DC 42%,#2A2DB4 100%);color:#fff;perspective:1400px}
+.h1 .rings{position:absolute;inset:0;width:1440px;height:960px;color:rgba(255,255,255,.2)}
+.h1 .rings .rot{transform-origin:0 0;animation:h1rot 140s linear infinite}
+@keyframes h1rot{to{transform:rotate(360deg)}}
+.h1 .coinwrap{position:absolute;left:540px;top:300px;width:360px;height:360px;transform-style:preserve-3d;animation:h1flip 18s cubic-bezier(.6,0,.4,1) infinite}
+.h1 .coinwrap img{width:100%;height:100%;filter:drop-shadow(0 40px 50px rgba(10,10,60,.55))}
+@keyframes h1flip{0%,30%{transform:rotateY(0)}50%,80%{transform:rotateY(180deg)}100%{transform:rotateY(360deg)}}
+.h1 h1{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 118;font-size:116px;line-height:.9;letter-spacing:-.025em;text-transform:uppercase}
+.h1 h1 span{position:absolute;white-space:nowrap}
+.h1 .l1{left:40px;top:136px;font-weight:400;font-size:132px;letter-spacing:-.035em}
+.h1 .l2{left:44px;top:268px;text-transform:none;font-size:88px;letter-spacing:-.01em;color:rgba(255,255,255,.88);z-index:2}
+.h1 .l3{left:40px;top:716px;font-size:112px}
+.h1 .tick{position:absolute;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85)}
+.h1 .tick::before{content:"";width:9px;height:9px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.14)}
+.h1 .sub{position:absolute;left:40px;bottom:40px;width:400px;font-size:16px;line-height:1.45;color:rgba(255,255,255,.82);margin:0}
+.h1 .meta{position:absolute;right:40px;bottom:40px;text-align:right;line-height:1.7;color:rgba(255,255,255,.7)}
+.h1 .meta b{color:#fff;font-weight:500}
+
+/* ---------- H2 · Chrome wordmark ---------- */
+.h2{background:#050506;color:#fff}
+.h2 .wm{position:absolute;left:40px;top:140px;width:1360px;height:170px;
+  background:linear-gradient(100deg,#3b3e45 0%,#f5f6f8 12%,#7e838c 24%,#ffffff 36%,#4d5159 48%,#dcdfe3 60%,#6a6e77 72%,#f2f3f5 86%,#5a5e66 100%);
+  background-size:220% 100%;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.h2 .floor{position:absolute;left:0;right:0;top:520px;height:480px;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.12) 0 1px,transparent 1px 11px);
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 55%);mask-image:linear-gradient(180deg,#000 0%,transparent 55%)}
+.h2 .floor::before{content:"";position:absolute;left:40px;right:40px;top:0;height:1px;background:linear-gradient(90deg,transparent,#fff 25%,#fff 75%,transparent)}
+.h2 .glow{position:absolute;left:470px;top:400px;width:500px;height:240px;background:radial-gradient(closest-side,rgba(255,214,140,.22),transparent);pointer-events:none}
+.h2 .coin{position:absolute;left:630px;top:340px;width:180px;height:180px;animation:spinY 12s linear infinite}
+.h2 .refl{position:absolute;left:630px;top:520px;width:180px;height:180px;transform:scaleY(-1);opacity:.28;
+  -webkit-mask-image:linear-gradient(0deg,#000,transparent 55%);mask-image:linear-gradient(0deg,#000,transparent 55%)}
+.h2 .refl img{width:100%;height:100%;animation:spinY 12s linear infinite}
+.h2 .head{position:absolute;left:0;right:0;top:620px;margin:0;text-align:center;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 108;font-size:54px;line-height:1;letter-spacing:-.02em}
+.h2 .head .ser{font-size:84px;display:block;margin-bottom:4px}
+.h2 .sub{position:absolute;left:490px;width:460px;top:778px;text-align:center;color:rgba(255,255,255,.6);font-size:15px;margin:0}
+.h2 .go{position:absolute;left:0;right:0;top:834px;margin:0 auto;width:max-content;color:#000;background:#fff;border-color:#fff;--pill-in:#fff}
+.h2 .go i{background:#000}
+.h2 .tape{position:absolute;left:0;right:0;bottom:0;height:56px;border-top:1px solid rgba(255,255,255,.14);display:flex;align-items:center;overflow:hidden;color:rgba(255,255,255,.7)}
+.h2 .tape div{display:flex;gap:56px;white-space:nowrap;animation:tape 40s linear infinite;padding-left:40px}
+@keyframes tape{to{transform:translateX(-50%)}}
+@keyframes spinY{to{transform:rotateY(360deg)}}
+
+/* ---------- H3 · Floating product ---------- */
+.h3{background:radial-gradient(900px 600px at 76% 46%,#ffffff 0%,#EEEEEC 50%,#E2E2DF 100%);color:#111}
+.h3 .ledger{position:absolute;left:0;right:0;bottom:0;height:360px;background:repeating-linear-gradient(180deg,rgba(0,0,0,.09) 0 1px,transparent 1px 10px);
+  -webkit-mask-image:linear-gradient(180deg,transparent,#000 40%,#000 70%,transparent);mask-image:linear-gradient(180deg,transparent,#000 40%,#000 70%,transparent)}
+.h3 .eyebrow{position:absolute;left:40px;top:190px;color:#55555c}
+.h3 h1{position:absolute;left:40px;top:226px;margin:0;font-family:var(--f-disp);font-weight:500;font-size:104px;line-height:.93;letter-spacing:-.04em}
+.h3 h1 span{display:block}
+.h3 h1 .ser{font-size:118px;letter-spacing:-.02em;line-height:.85}
+.h3 .sub{position:absolute;left:40px;top:568px;width:430px;font-size:17px;line-height:1.45;color:#4a4a52;margin:0}
+.h3 .btns{position:absolute;left:40px;top:670px;display:flex;gap:12px}
+.h3 .btn{display:inline-flex;align-items:center;height:56px;padding:0 28px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.h3 .btn.d{background:#151517;color:#fff}.h3 .btn.l{border:1px solid rgba(0,0,0,.18);background:rgba(255,255,255,.6)}
+.h3 .stats{position:absolute;left:40px;top:800px;display:flex;gap:56px}
+.h3 .stats div{display:flex;flex-direction:column;gap:4px}
+.h3 .stats b{font-family:var(--f-disp);font-weight:400;font-size:40px;letter-spacing:-.02em}
+.h3 .stats span{color:#77777f}
+.h3 .card{position:absolute;background:#fff;border-radius:28px;box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 30px 60px -20px rgba(20,20,40,.22),0 0 0 1px rgba(0,0,0,.04);animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.h3 .ghost{filter:blur(2px);opacity:.45;transform:scale(.8)}
+.h3 .tk{left:790px;top:150px;width:390px;height:250px;padding:24px 26px;animation-delay:-2s}
+.h3 .tk .t{font-family:var(--f-disp);font-size:60px;font-weight:400;line-height:1;letter-spacing:-.02em}
+.h3 .tk .t sup{font-size:14px;color:var(--sig);vertical-align:34px;margin-left:4px}
+.h3 .tk .val{font-family:var(--f-disp);font-size:24px;margin-top:4px}
+.h3 .tk svg{position:absolute;left:24px;right:24px;bottom:24px;width:342px;height:86px}
+.h3 .bk{left:1010px;top:330px;width:390px;padding:26px;animation-delay:-4s;z-index:2}
+.h3 .bk .row{display:flex;gap:16px;align-items:center}
+.h3 .bk img{width:76px;height:76px;border-radius:18px;object-fit:cover;object-position:top}
+.h3 .bk .nm{font-family:var(--f-disp);font-size:24px;font-weight:500;letter-spacing:-.01em}
+.h3 .bk .match{margin-left:auto;width:64px;height:64px;border-radius:50%;background:conic-gradient(#151517 0 94%,#e7e7e4 0);display:grid;place-items:center}
+.h3 .bk .match span{width:52px;height:52px;border-radius:50%;background:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:13px}
+.h3 .bk dl{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0;padding:16px 0;border-block:1px solid #ececea}
+.h3 .bk dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:#8a8a92;text-transform:uppercase}
+.h3 .bk dd{margin:4px 0 0;font-family:var(--f-disp);font-size:22px}
+.h3 .bk .go{height:50px;border-radius:999px;background:#151517;color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}
+.h3 .rk{left:770px;top:560px;width:370px;padding:22px 24px;animation-delay:-1s;z-index:3}
+.h3 .seg{display:flex;gap:4px;margin:14px 0 18px;background:#f1f1ef;border-radius:12px;padding:4px}
+.h3 .seg span{flex:1;text-align:center;padding:9px 0;border-radius:9px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:#77777f}
+.h3 .seg .on{background:#151517;color:#fff}
+.h3 .slide{height:4px;border-radius:4px;background:linear-gradient(90deg,#151517 0,#151517 18%,#fff 22%,#151517 40%,#151517 46%,#e5e5e2 46%);position:relative}
+.h3 .slide::after{content:"";position:absolute;left:46%;top:50%;width:22px;height:22px;margin:-11px;border-radius:50%;background:#151517;box-shadow:0 0 0 5px #fff,0 4px 12px rgba(0,0,0,.3)}
+.h3 .coin{position:absolute;left:1236px;top:118px;width:150px;filter:drop-shadow(0 24px 30px rgba(0,0,0,.25));animation:float 9s ease-in-out infinite;z-index:3}
+
+/* ---------- H4 · Horizon ---------- */
+.h4{background:#040406;color:#fff}
+.h4 .sky{position:absolute;left:0;right:0;top:0;height:560px;background:linear-gradient(180deg,#2729AE 0%,#3E42DC 58%,#6064F6 100%);overflow:hidden}
+.h4 .under{position:absolute;left:0;right:0;top:560px;bottom:0;overflow:hidden;background:radial-gradient(700px 300px at 980px 0,rgba(255,206,120,.16),transparent 70%),radial-gradient(1200px 500px at 50% 0,#0b0c1e,#040406 70%)}
+.h4 .grid{position:absolute;left:0;top:0;width:1440px;height:380px;stroke:rgba(110,114,255,.28);fill:none;
+  -webkit-mask-image:linear-gradient(180deg,#000 30%,transparent);mask-image:linear-gradient(180deg,#000 30%,transparent)}
+.h4 .bob{position:absolute;left:720px;width:520px;height:520px;animation:h4bob 9s ease-in-out infinite}
+.h4 .sky .bob{top:300px}.h4 .under .bob{top:-260px}
+.h4 .bob img{width:100%;height:100%;filter:drop-shadow(0 -10px 50px rgba(255,220,140,.3))}
+.h4 .bob svg{width:100%;height:100%;color:rgba(255,255,255,.7)}
+@keyframes h4bob{50%{transform:translateY(-18px)}}
+.h4 .line{position:absolute;left:0;right:0;top:560px;height:1px;background:rgba(255,255,255,.85)}
+.h4 .ticks{position:absolute;left:40px;right:40px;top:561px;height:8px;background:repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 1px,transparent 1px 40px)}
+.h4 .tn{position:absolute;top:574px;font-family:var(--f-mono);font-size:10px;color:rgba(255,255,255,.4)}
+.h4 .lead{position:absolute;left:40px;bottom:400px;margin:0;font-family:var(--f-serif);font-style:italic;font-size:76px;line-height:.95;letter-spacing:-.01em}
+.h4 .big{position:absolute;left:36px;top:596px;margin:0;font-family:var(--f-disp);font-weight:200;font-variation-settings:"wdth" 62;font-size:168px;line-height:.86;letter-spacing:-.005em;text-transform:uppercase;color:transparent;-webkit-text-stroke:1.2px #fff}
+.h4 .rb{position:absolute;right:40px;top:150px;width:380px;text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:22px}
+.h4 .rb p{margin:0;font-size:16px;line-height:1.45;color:rgba(255,255,255,.85)}
+.h4 .rb .pill{color:#fff;--pill-in:var(--u)}
+.h4 .tag{position:absolute;right:40px;top:500px;text-align:right;line-height:1.7;color:rgba(255,255,255,.75)}
+.h4 .dim{position:absolute;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.h4 .dh{left:744px;width:473px;top:850px;height:14px;border-left:1px solid rgba(255,255,255,.6);border-right:1px solid rgba(255,255,255,.6);display:flex;justify-content:center}
+.h4 .dh::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:rgba(255,255,255,.6)}
+.h4 .dh span{position:relative;background:#040406;padding:0 10px;top:-1px}
+.h4 .dv{left:1290px;top:560px;height:236px;width:14px;border-top:1px solid rgba(255,255,255,.6);border-bottom:1px solid rgba(255,255,255,.6)}
+.h4 .dv::before{content:"";position:absolute;top:0;bottom:0;left:7px;width:1px;background:rgba(255,255,255,.6)}
+.h4 .dv span{position:absolute;left:24px;top:108px;white-space:nowrap}
+.h4 .spec{left:1290px;top:850px;line-height:1.7;color:rgba(255,255,255,.5)}
+
+/* ---------- H5 · Match instrument ---------- */
+.h5{background:radial-gradient(900px 700px at 78% 40%,#4A4EE8 0%,#2E31BF 55%,#1C1E86 100%);color:#fff}
+.h5 .eyebrow{position:absolute;left:40px;top:168px;color:rgba(255,255,255,.7)}
+.h5 h1{position:absolute;left:40px;top:200px;width:700px;margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 104;font-size:68px;line-height:.98;letter-spacing:-.03em}
+.h5 h1 .ser{font-size:78px}
+.h5 .panel{position:absolute;left:40px;top:392px;width:720px;padding:8px;border-radius:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(14px)}
+.h5 .cell{background:rgba(255,255,255,.06);border-radius:24px;padding:24px 28px}
+.h5 .cell+.cell{margin-top:8px}
+.h5 .lbl{color:rgba(255,255,255,.6)}
+.h5 .cap{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-top:12px}
+.h5 .cap output{font-family:var(--f-disp);font-size:56px;font-weight:300;letter-spacing:-.03em;line-height:1}
+.h5 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;margin:24px 0 10px;border-radius:3px;background:linear-gradient(90deg,#fff var(--p,40%),rgba(255,255,255,.22) var(--p,40%));outline:none}
+.h5 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18),0 4px 12px rgba(0,0,40,.4);cursor:pointer}
+.h5 input[type=range]::-moz-range-thumb{width:22px;height:22px;border:0;border-radius:50%;background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,.18);cursor:pointer}
+.h5 input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(255,255,255,.45)}
+.h5 .two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.h5 .two .cell{margin:0}
+.h5 .seg{display:flex;gap:4px;margin-top:16px;background:rgba(255,255,255,.08);border-radius:14px;padding:4px}
+.h5 .seg button{flex:1;border:0;background:transparent;padding:11px 0;border-radius:10px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.65);cursor:pointer;text-transform:uppercase}
+.h5 .seg button[aria-pressed=true]{background:#fff;color:var(--u)}
+.h5 .seg button:focus-visible{outline:2px solid #fff}
+.h5 .res{position:absolute;left:860px;right:40px;top:160px}
+.h5 .num{font-family:var(--f-disp);font-weight:200;font-variation-settings:"wdth" 90;font-size:200px;line-height:.78;letter-spacing:-.05em}
+.h5 .res .cap2{font-family:var(--f-serif);font-style:italic;font-size:36px;line-height:1;margin:16px 0 0}
+.h5 .list{display:flex;flex-direction:column;gap:8px;margin-top:40px}
+.h5 .chip{display:grid;grid-template-columns:48px 1fr auto;gap:16px;align-items:center;padding:8px 20px 8px 8px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+.h5 .chip img{width:48px;height:48px;border-radius:50%;object-fit:cover;object-position:top}
+.h5 .chip b{display:block;font-family:var(--f-disp);font-weight:500;font-size:17px}
+.h5 .chip small{color:rgba(255,255,255,.6)}
+.h5 .chip .pc{font-family:var(--f-mono);font-size:13px}
+.h5 .model{display:flex;align-items:center;gap:14px;margin-top:16px;padding:8px 20px 8px 8px;color:rgba(255,255,255,.8)}
+.h5 .model img{width:48px;height:48px;transition:transform .5s}
+</style>
+
+<section class="block" id="hero">
+  <div class="block-h"><span class="n">01</span><h2>Хиро</h2><p>Первый экран: тезис «правильный банкир для вашего капитала» и главный объект бренда.</p></div>
+
+  <!-- H1 -->
+  <article class="v" id="H1" data-name="Монетный двор">
+    <header class="vh"><b>H1</b><h3>Монетный двор</h3><p>Монета в центре медленно переворачивается, её гравировка расходится кольцами на весь экран и становится сеткой страницы. На ближнем кольце отмечены четыре основы диагностики. Заголовок стоит на одной левой оси и читается одной линией: «Your portfolio» главная строка, «starts with» — курсивная антиква рангом ниже, «the right banker» под монетой как второй акцент. <i>Что можно забрать: монета как центр композиции, гравировка как фон, два голоса в типографике.</i></p></header>
+    <div class="frame"><div class="stage h1" style="height:960px">
+      <div class="s-nav" style="color:#fff">
+        <svg class="logo"><use href="#logo"/></svg>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <a class="pill cta" style="--pill-in:var(--u)">Get a consultation<i></i></a>
+      </div>
+      <svg class="rings" viewBox="-720 -480 1440 960" aria-hidden="true">
+        <g fill="none" stroke="currentColor">
+          <circle r="280"/><circle r="390" stroke-dasharray="2 6"/><circle r="520"/><circle r="690" stroke-dasharray="2 6"/><circle r="880"/>
+          <g class="rot"><circle cx="0" cy="-280" r="280"/><circle cx="242.5" cy="-140" r="280"/><circle cx="242.5" cy="140" r="280"/><circle cx="0" cy="280" r="280"/><circle cx="-242.5" cy="140" r="280"/><circle cx="-242.5" cy="-140" r="280"/></g>
+          <path d="M-720 0H720M0 -480V480" stroke-dasharray="1 9"/>
+        </g>
+      </svg>
+      <div class="coinwrap"><img src="assets/coin-gold-v.webp" alt=""></div>
+      <span class="tick mono" style="left:1050px;top:268px">Capital</span>
+      <span class="tick mono" style="left:1012px;top:462px">Horizon</span>
+      <span class="tick mono" style="left:300px;top:640px">Risk</span>
+      <span class="tick mono" style="left:1050px;top:640px">Liquidity</span>
+      <h1><span class="l1">Your portfolio</span><span class="l2 ser">starts with</span><span class="l3">the right banker</span></h1>
+      <p class="sub">Valta matches private capital with a verified banker and a strategy you can read: transparent profiles, clear metrics, approaches side by side.</p>
+      <div class="meta mono"><b>VLT-01 · Gold model</b><br>Long-term growth · Scroll ↓</div>
+    </div></div>
+  </article>
+
+  <!-- H2 -->
+  <article class="v" id="H2" data-name="Хромовый вордмарк">
+    <header class="vh"><b>H2</b><h3>Хромовый вордмарк</h3><p>Логотип во всю ширину отлит в хром (как металлические цифры у Avon), блик бежит за курсором. Чтение идёт по одной центральной оси сверху вниз: вордмарк, единственная монета на горизонте «пола» с отражением в линиях, заголовок, подзаголовок, кнопка. Внизу лента тикеров. Глиф-шум приглушён, чтобы не спорить с бликом. <i>Что можно забрать: хром как материал бренда, линии-горизонт, одну ось чтения.</i></p></header>
+    <div class="frame"><div class="stage h2" style="height:1000px">
+      <canvas class="glyphs" data-color="255,255,255" data-alpha=".08"></canvas>
+      <div class="s-nav" style="color:#fff">
+        <span class="mono" style="color:rgba(255,255,255,.6)">Private capital advisory</span>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <span class="mono cta" style="color:rgba(255,255,255,.75);text-decoration:underline;text-underline-offset:4px">Get a consultation</span>
+      </div>
+      <div class="wm" data-logo-mask></div>
+      <div class="floor"></div>
+      <div class="glow"></div>
+      <img class="coin" src="assets/coin-gold-v.webp" alt="">
+      <div class="refl"><img src="assets/coin-gold-v.webp" alt=""></div>
+      <h1 class="head"><span class="ser chrome">The right banker</span>for capital with a purpose</h1>
+      <p class="sub">Compare verified bankers, their strategy models and decision logic before you commit a single dollar.</p>
+      <a class="pill go">Find your banker<i></i></a>
+      <div class="tape mono"><div>
+        <span>BEG 167.9144 <em class="up">▲ 2.41%</em></span><span>ATN 214.3381 <em class="up">▲ 3.12%</em></span><span>SGA 142.0711 <em class="dn">▼ 0.62%</em></span><span>VBG 121.5530 <em class="up">▲ 1.08%</em></span><span>USB 88.2917 <em class="up">▲ 0.37%</em></span><span>GB 76.4402 <em class="dn">▼ 0.21%</em></span><span>MNVA 251.7710 <em class="up">▲ 4.85%</em></span>
+        <span>BEG 167.9144 <em class="up">▲ 2.41%</em></span><span>ATN 214.3381 <em class="up">▲ 3.12%</em></span><span>SGA 142.0711 <em class="dn">▼ 0.62%</em></span><span>VBG 121.5530 <em class="up">▲ 1.08%</em></span><span>USB 88.2917 <em class="up">▲ 0.37%</em></span><span>GB 76.4402 <em class="dn">▼ 0.21%</em></span><span>MNVA 251.7710 <em class="up">▲ 4.85%</em></span>
+      </div></div>
+    </div></div>
+  </article>
+
+  <!-- H5 -->
+  <article class="v" id="H5" data-name="Подбор">
+    <header class="vh"><b>H5</b><h3>Подбор за три вопроса</h3><p>Хиро как работающий инструмент, а не плакат. Слева вопросы в полупрозрачной панели того же языка, что и чипы справа: капитал (слайдер), горизонт, риск. Справа ответ одной группой: число подходящих банкиров, подпись, тройка совпадений и модель с монетой, которая меняется от уровня риска. Единая сетка отступов 8px, больше воздуха между заголовком и панелью. <i>Подвигайте слайдер. Что можно забрать: интерактив на первом экране, «вопрос → ответ» одной композицией.</i></p></header>
+    <div class="frame"><div class="stage h5" style="height:860px">
+      <canvas class="glyphs" data-color="255,255,255" data-alpha=".10"></canvas>
+      <div class="s-nav" style="color:#fff">
+        <svg class="logo"><use href="#logo"/></svg>
+        <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+        <a class="pill cta" style="--pill-in:var(--u)">Get a consultation<i></i></a>
+      </div>
+      <span class="eyebrow mono sq">Banker match · three questions</span>
+      <h1>Find the banker who <span class="ser">fits</span> your capital.</h1>
+      <div class="panel">
+        <div class="cell">
+          <span class="mono lbl">Capital to allocate</span>
+          <div class="cap"><output class="tab" id="h5cap">$2,500,000</output><span class="mono lbl">USD</span></div>
+          <input type="range" id="h5range" min="0" max="100" value="45" aria-label="Capital to allocate">
+          <div style="display:flex;justify-content:space-between" class="mono lbl"><span>$250K</span><span>$25M</span></div>
+        </div>
+        <div class="two">
+          <div class="cell"><span class="mono lbl">Horizon</span><div class="seg" data-g="h"><button aria-pressed="false">1Y</button><button aria-pressed="false">3Y</button><button aria-pressed="true">5Y</button><button aria-pressed="false">10Y+</button></div></div>
+          <div class="cell"><span class="mono lbl">Risk</span><div class="seg" data-g="r"><button aria-pressed="false">Safe</button><button aria-pressed="true">Moderate</button><button aria-pressed="false">Bold</button></div></div>
+        </div>
+      </div>
+      <div class="res">
+        <div class="num tab" id="h5num">14</div>
+        <div class="cap2">bankers match your profile</div>
+        <div class="list" id="h5list"></div>
+        <div class="model mono"><img id="h5coin" src="assets/coin-silver-a.webp" alt=""><span id="h5model">Silver model · Balanced allocation</span></div>
+      </div>
+    </div></div>
+  </article>
+</section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  // H2: chrome wordmark masked by the real logo, light follows the cursor
+  const sym=document.querySelector('#logo');
+  document.querySelectorAll('[data-logo-mask]').forEach(el=>{
+    const svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 15" preserveAspectRatio="none">'+sym.innerHTML.replaceAll('currentColor','#000')+'</svg>';
+    const u='url("data:image/svg+xml,'+encodeURIComponent(svg)+'")';
+    el.style.webkitMaskImage=u; el.style.maskImage=u;
+  });
+  const h2=document.querySelector('.h2'), wm=h2.querySelector('.wm');
+  let tx=.5,cx=.5,hover=false,t0=performance.now();
+  h2.addEventListener('pointermove',e=>{const r=h2.getBoundingClientRect();tx=(e.clientX-r.left)/r.width;hover=true});
+  h2.addEventListener('pointerleave',()=>hover=false);
+  (function loop(t){
+    if(!hover) tx=.5+.45*Math.sin((t-t0)/2600);
+    cx+=(tx-cx)*.08; wm.style.backgroundPosition=(100-cx*100)+'% 0';
+    requestAnimationFrame(loop);
+  })(t0);
+
+  // H5: live banker match
+  const B=[['Elena Voss','Private capital strategist','p-elena'],['Victor Halden','Portfolio strategist','p-victor'],['Adrian Keller','Growth strategist','p-adrian'],['Daniel Morozov','Risk allocation expert','p-daniel'],['Martin Ellwood','Chief investment officer','p-martin'],['Claire Duval','Income portfolios','p-claire']];
+  const st={c:45,h:2,r:1};
+  const range=document.getElementById('h5range'),out=document.getElementById('h5cap'),num=document.getElementById('h5num'),list=document.getElementById('h5list'),coin=document.getElementById('h5coin'),model=document.getElementById('h5model');
+  const capOf=p=>Math.round(250000*Math.pow(100,p/100)/50000)*50000;
+  const models=[['coin-bronze-l','Bronze model · Capital preservation'],['coin-silver-a','Silver model · Balanced allocation'],['coin-gold-v','Gold model · Long-term growth']];
+  let shown=14;
+  function render(){
+    const cap=capOf(st.c); out.textContent='$'+cap.toLocaleString('en-US'); range.style.setProperty('--p',st.c+'%');
+    const n=Math.max(3,Math.min(28,Math.round(5+Math.log10(cap/250000)*6+st.h*2-st.r*1.5)));
+    const from=shown,t1=performance.now();
+    (function tick(t){const k=Math.min(1,(t-t1)/500);shown=Math.round(from+(n-from)*(1-Math.pow(1-k,3)));num.textContent=String(shown).padStart(2,'0');if(k<1)requestAnimationFrame(tick)})(t1);
+    const off=(st.h+st.r*2+Math.floor(st.c/25))%B.length;
+    list.innerHTML=[0,1,2].map(i=>{const b=B[(off+i)%B.length];return `<div class="chip"><img src="assets/${b[2]}.webp" alt=""><div><b>${b[0]}</b><small class="mono">${b[1]}</small></div><span class="pc">${97-i*4-st.r}%</span></div>`}).join('');
+    coin.src='assets/'+models[st.r][0]+'.webp'; model.textContent=models[st.r][1];
+    coin.style.transform='rotate('+(st.c*3.6)+'deg)';
+  }
+  range.addEventListener('input',()=>{st.c=+range.value;render()});
+  document.querySelectorAll('.h5 .seg').forEach(g=>g.addEventListener('click',e=>{
+    const b=e.target.closest('button');if(!b)return;[...g.children].forEach(x=>x.setAttribute('aria-pressed',x===b));
+    st[g.dataset.g]=[...g.children].indexOf(b);render();
+  }));
+  render();
+});
+</script>
+<style>
+/* ---------- B1 · Statement ---------- */
+.b1{background:var(--u);color:#fff}
+.b1 .tp{position:absolute;left:40px;right:40px;top:44px;display:flex;justify-content:space-between;color:rgba(255,255,255,.75)}
+.b1 .q{position:absolute;left:40px;top:120px;width:1340px;margin:0;font-family:var(--f-disp);font-weight:300;font-size:76px;line-height:1.06;letter-spacing:-.03em}
+.b1 .q .w{opacity:.38;transition:opacity .5s}
+.b1 .q .w.on{opacity:1}
+.b1 .q .ser{font-size:86px;letter-spacing:-.01em}
+.b1 .pp{display:inline-block;width:150px;height:72px;border-radius:999px;overflow:hidden;vertical-align:-10px;margin:0 6px;box-shadow:0 0 0 2px rgba(255,255,255,.4)}
+.b1 .pp img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.b1 .ic{display:inline-block;width:76px;height:76px;vertical-align:-14px;margin:0 4px;animation:spinY 8s linear infinite}
+@keyframes spinY{to{transform:rotateY(360deg)}}
+.b1 .sig{position:absolute;left:40px;right:40px;top:570px;display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid rgba(255,255,255,.3)}
+.b1 .sig a{text-underline-offset:5px}
+.b1 .found{position:absolute;left:0;right:0;bottom:0;height:230px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.3)}
+.b1 .found div{padding:26px 40px;border-right:1px solid rgba(255,255,255,.3);display:flex;flex-direction:column;gap:12px;transition:background .4s,color .4s}
+.b1 .found div:last-child{border-right:0}
+.b1 .found div:hover{background:#fff;color:var(--u)}
+.b1 .found b{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:40px;letter-spacing:-.01em;text-transform:uppercase}
+.b1 .found p{margin:auto 0 0;font-size:14px;opacity:.75;max-width:260px}
+
+/* ---------- B2 · Diagnostic panels ---------- */
+.b2{background:var(--paper);color:#111}
+.b2 .who{position:absolute;left:40px;top:60px;width:400px}
+.b2 .who img{display:block;width:400px;height:500px;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.05);transition:filter .6s;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%),linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);-webkit-mask-composite:source-in;mask-image:linear-gradient(180deg,#000 62%,transparent 98%),linear-gradient(90deg,transparent 0,#000 16%,#000 84%,transparent 100%);mask-composite:intersect}
+.b2 .who:hover img{filter:none}
+.b2 .who .nm{position:relative;font-family:var(--f-disp);font-size:30px;font-weight:500;margin-top:-36px;letter-spacing:-.01em;line-height:1.05}
+.b2 .who .ser{font-size:27px;line-height:1.12;margin-top:36px;padding-top:20px;border-top:1px solid #dcdcd8;color:#3a3a40}
+.b2 h2{position:absolute;left:500px;top:56px;width:860px;margin:0;font-family:var(--f-disp);font-weight:400;font-size:54px;line-height:1.02;letter-spacing:-.035em}
+.b2 h2 .ser{font-size:62px}
+.b2 .panels{position:absolute;left:500px;right:40px;top:300px;height:540px;display:flex;gap:8px}
+.b2 .p{flex:1;min-width:0;background:#fff;border-radius:22px;padding:24px;display:flex;flex-direction:column;transition:flex .7s cubic-bezier(.2,.8,.2,1),background .5s,color .5s;cursor:default;box-shadow:0 0 0 1px rgba(0,0,0,.05);overflow:hidden;position:relative}
+.b2 .p:hover{flex:1.9;background:var(--u);color:#fff}
+.b2 .p .ix{color:#8a8a92;transition:color .5s}
+.b2 .p:hover .ix,.b2 .p:hover .lg{color:rgba(255,255,255,.7)}
+.b2 .p b{font-family:var(--f-disp);font-weight:400;font-size:36px;letter-spacing:-.02em;line-height:1;margin-top:48px}
+.b2 .p p{margin:6px 0 0;font-size:15px;line-height:1.35;max-width:260px;opacity:.75}
+.b2 .ill{margin-top:auto;height:210px;position:relative}
+.b2 .ill svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.b2 .lg{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#8a8a92;transition:color .5s}
+/* capital: three metals in a row, silver in the centre */
+.b2 .stack{display:flex;align-items:flex-end;justify-content:flex-start;padding-bottom:4px}
+.b2 .stack figure:first-child{margin-left:0}
+.b2 .stack figure{margin:0 -6px;display:flex;flex-direction:column;align-items:center;gap:12px;transition:margin .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1)}
+.b2 .stack img{display:block;filter:drop-shadow(0 10px 14px rgba(0,0,0,.22))}
+.b2 .stack .s img{width:84px}.b2 .stack .g img,.b2 .stack .c img{width:64px}
+.b2 .stack{position:relative;padding-bottom:26px}
+.b2 .stack::after{content:"50 / 30 / 20 %";position:absolute;left:0;right:0;bottom:0;text-align:left;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;color:#8a8a92;transition:opacity .3s}
+.b2 .p:hover .stack::after{opacity:0}
+.b2 .stack figcaption{font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.75);white-space:nowrap;opacity:0;transition:opacity .4s .25s;position:absolute;bottom:-26px}
+.b2 .stack figure{position:relative}
+.b2 .p:hover .stack figcaption{opacity:1}
+.b2 .p:hover .stack figure{margin:0 16px}
+.b2 .p:hover .stack figure:first-child{margin-left:0}
+.b2 .p:hover .stack .s{transform:translateY(-10px)}
+
+/* horizon: stepped growth drawn on hover */
+.b2 .hz path.st{stroke-dasharray:600;stroke-dashoffset:0;transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)}
+.b2 .p:not(:hover) .hz path.st{stroke-dashoffset:260}
+.b2 .hz .dot{transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.b2 .p:not(:hover) .hz .dot{transform:translate(-110px,74px)}
+/* risk: engraved gauge with a moving needle */
+.b2 .gz .nd{transform-origin:80px 170px;transform:rotate(-50deg);transition:transform 1s cubic-bezier(.3,1.5,.5,1)}
+.b2 .p:hover .gz .nd{transform:rotate(18deg)}
+/* liquidity: level rises on hover */
+.b2 .lq .lvl{transform:translateY(96px);transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.b2 .p:hover .lq .lvl{transform:translateY(40px)}
+.b2 .lq .wv{animation:wave 4s linear infinite}
+@keyframes wave{to{transform:translateX(-80px)}}
+
+/* ---------- B3 · Dossier ---------- */
+.b3{background:radial-gradient(900px 700px at 25% 50%,#15151a,#060607 70%);color:#fff}
+.b3 .under{position:absolute;left:96px;top:96px;width:600px;height:780px;background:#d9d6cc;border-radius:4px;transform:rotate(3.2deg);box-shadow:0 40px 80px -30px rgba(0,0,0,.9)}
+.b3 .file{position:absolute;left:70px;top:70px;width:600px;height:790px;background:#F4F1E8;color:#121214;border-radius:4px;transform:rotate(-1.6deg);box-shadow:0 60px 100px -30px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.06);padding:30px 34px}
+.b3 .file::before{content:"";position:absolute;inset:12px;border:1px solid rgba(18,18,20,.18);pointer-events:none}
+.b3 .file .hd{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.b3 .file .hd svg{width:84px;height:11px;color:#121214}
+.b3 .file .id{display:grid;grid-template-columns:1fr 132px;gap:24px;margin-top:30px;align-items:start}
+.b3 .file .id h4{margin:0;font-family:var(--f-disp);font-weight:300;font-size:60px;line-height:.86;letter-spacing:-.04em}
+.b3 .file .id h4 em{font-family:var(--f-serif);font-weight:400;font-size:68px;letter-spacing:-.01em;display:block}
+.b3 .file .id .role{margin-top:18px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;line-height:1.7;color:#55555c}
+.b3 .file .pp{width:132px}
+.b3 .file .pp .im{width:132px;height:166px;background:#e4e1d8;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(18,18,20,.15)}
+.b3 .file .pp img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;filter:grayscale(1) contrast(1.05);transform:scale(1.02)}
+.b3 .file .pp span{display:block;margin-top:8px;font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#77777f}
+.b3 .file .kv{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.b3 .file .kv div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed #c9c6bd;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase}
+.b3 .file .kv div span:first-child{color:#77777f}
+.b3 .file .sm{margin-top:26px}
+.b3 .file .sm span{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#77777f}
+.b3 .file .sm p{margin:8px 0 0;font-size:14px;line-height:1.5;color:#2a2a2e;max-width:470px}
+.b3 .file .stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:28px;border-top:1px solid #121214}
+.b3 .file .stats div{padding:12px 0 0;border-right:1px solid rgba(18,18,20,.18);padding-left:14px}
+.b3 .file .stats div:first-child{padding-left:0}.b3 .file .stats div:last-child{border-right:0}
+.b3 .file .stats b{display:block;font-family:var(--f-disp);font-weight:200;font-size:46px;line-height:1;letter-spacing:-.04em}
+.b3 .file .stats span{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#77777f}
+.b3 .file .ft{position:absolute;left:34px;right:34px;bottom:30px;display:flex;justify-content:space-between;align-items:flex-end}
+.b3 .file .ft q{font-family:var(--f-serif);font-style:italic;font-size:19px;line-height:1.2;width:300px;quotes:"“" "”"}
+.b3 .file .ft .sg{text-align:right;font-family:var(--f-serif);font-style:italic;font-size:34px;line-height:1}
+.b3 .file .ft .sg small{display:block;margin-top:6px;padding-top:6px;border-top:1px solid #121214;font-family:var(--f-mono);font-style:normal;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:#77777f}
+.b3 .seal{position:absolute;left:592px;top:122px;width:84px;transform:rotate(16deg);filter:drop-shadow(0 18px 24px rgba(0,0,0,.6))}
+.b3 .r{position:absolute;left:770px;top:120px;width:610px}
+.b3 .r h2{margin:44px 0 0;font-family:var(--f-disp);font-weight:300;font-size:64px;line-height:1;letter-spacing:-.035em}
+.b3 .r h2 .ser{font-size:74px}
+.b3 .r > p{color:rgba(255,255,255,.6);font-size:16px;margin:14px 0 48px;max-width:520px}
+.b3 .sc{display:grid;grid-template-columns:220px 1fr 70px;gap:20px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,.12)}
+.b3 .sc .bar{height:6px;border-radius:6px;background:#1e1e24;overflow:hidden}
+.b3 .sc .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--u-deep),var(--u-hi));border-radius:6px}
+.b3 .sc b{font-family:var(--f-disp);font-weight:400;font-size:28px;text-align:right}
+.b3 .r .pill{margin-top:36px;color:#fff;--pill-in:#000}
+
+/* ---------- B4 · Process as a stepped chart ---------- */
+.b4{background:linear-gradient(180deg,#3E42DC 0%,#3135C8 100%);color:#fff}
+.b4 h2{position:absolute;left:40px;top:70px;margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 115;font-size:118px;line-height:.9;letter-spacing:-.035em;text-transform:uppercase}
+.b4 h2 .ser{text-transform:none;font-size:136px}
+.b4 .lede{position:absolute;right:40px;top:90px;width:380px;margin:0;font-size:16px;color:rgba(255,255,255,.82)}
+.b4 svg.chart{position:absolute;left:0;top:0;width:1440px;height:900px}
+.b4 .node{position:absolute;width:236px;background:#fff;color:#111;border-radius:20px;padding:18px 20px;box-shadow:0 30px 50px -24px rgba(0,0,40,.7);transition:transform .4s}
+.b4 .node:hover{transform:translateY(-6px)}
+.b4 .node .ix{color:#8a8a92}
+.b4 .node b{display:block;font-family:var(--f-disp);font-weight:500;font-size:24px;letter-spacing:-.01em;margin:8px 0 6px}
+.b4 .node span{font-family:var(--f-mono);font-size:11px;color:#55555c;letter-spacing:.03em;text-transform:uppercase}
+.b4 .node img{position:absolute;right:14px;top:14px;width:44px}
+.b4 .ax{position:absolute;color:rgba(255,255,255,.6)}
+
+/* ---------- B5 · Atmosphere ---------- */
+.b5{background:#000;color:#fff}
+.b5 .ph{position:absolute;inset:0;background:url(assets/photo-shadow.webp) center 40%/cover;filter:grayscale(1) contrast(1.15) brightness(.9)}
+.b5 .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.35) 50%,rgba(0,0,0,.1) 100%)}
+.b5 .tag{position:absolute;left:40px;top:60px;color:rgba(255,255,255,.7)}
+.b5 h2{position:absolute;left:40px;top:120px;width:800px;margin:0;font-family:var(--f-mono);font-weight:500;font-size:84px;line-height:1.04;letter-spacing:-.02em;text-transform:uppercase}
+.b5 .low{position:absolute;left:40px;bottom:48px;width:520px;font-size:16px;color:rgba(255,255,255,.75);margin:0}
+.b5 .code{position:absolute;right:40px;bottom:48px;text-align:right;color:rgba(255,255,255,.6);line-height:1.7}
+.b5 .cardw{position:absolute;right:56px;top:130px;width:540px;background:rgba(255,255,255,.96);color:#111;border-radius:34px;padding:40px;box-shadow:0 50px 90px -30px rgba(0,0,0,.8);animation:float 8s ease-in-out infinite}
+.b5 .cardw .row{display:flex;gap:16px;align-items:center}
+.b5 .cardw .av{position:relative;width:64px;height:64px;border-radius:50%;overflow:hidden;background:#3E42DC;flex:none}
+.b5 .cardw .av img{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.1) brightness(1.15);mix-blend-mode:luminosity}
+.b5 .cardw .av::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(83,87,242,.25),rgba(38,41,168,.55));mix-blend-mode:multiply}
+.b5 .cardw .nm{font-family:var(--f-disp);font-weight:500;font-size:22px}
+.b5 .cardw blockquote{margin:32px 0 36px;font-family:var(--f-serif);font-size:36px;line-height:1.1}
+.b5 .cardw dl{display:grid;grid-template-columns:repeat(3,1fr);margin:0 0 24px;padding:18px 0;background:#E7E7E2;border-radius:18px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.05)}
+.b5 .cardw dl div{padding:0 20px;border-left:1px solid rgba(0,0,0,.1)}
+.b5 .cardw dl div:first-child{border-left:0}
+.b5 .cardw dt{font-family:var(--f-mono);font-size:10px;color:#8a8a92;text-transform:uppercase;letter-spacing:.06em}
+.b5 .cardw dd{margin:4px 0 0;font-family:var(--f-disp);font-size:22px}
+.b5 .cardw .go{height:58px;border-radius:999px;background:#151517;color:#fff;display:grid;place-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}
+.b5 .cardw .cn{position:absolute;right:-30px;top:-34px;width:96px;filter:drop-shadow(0 14px 20px rgba(0,0,0,.4))}
+</style>
+
+<section class="block" id="banker">
+  <div class="block-h"><span class="n">02</span><h2>Банкир</h2><p>Блок под хиро: голос Valta через CIO Маркуса Эллвуда и четыре основы (capital, horizon, risk, liquidity). Портрет-заглушка взят из кейса.</p></div>
+
+  <!-- B1 -->
+  <article class="v" id="B1" data-name="Заявление">
+    <header class="vh"><b>B1</b><h3>Заявление</h3><p>Вместо двух колонок текста — одна фраза крупным кеглем. Портрет и монета встроены прямо в строку, как слова. Слова подсвечиваются по очереди, как при чтении (на сайте — по скроллу). Внизу четыре основы диагностики полосой, ячейка при наведении становится белой. <i>Что можно забрать: картинки внутри текста, манифест вместо абзацев.</i></p></header>
+    <div class="frame"><div class="stage b1" style="height:880px">
+      <div class="tp mono"><span class="sq">About Valta</span><span>Statement · 23.09.2026</span></div>
+      <p class="q" data-read>A good banker <span class="pp"><img src="assets/p-daniel.webp" alt=""></span> does not simply recommend assets. He builds a <span class="ser">structure</span> the client can understand, follow and review <img class="ic" src="assets/coin-gold-v.webp" alt=""> over time.</p>
+      <div class="sig mono"><span>Marcus Ellwood — Chief Investment Officer</span><a>Read the statement →</a></div>
+      <div class="found">
+        <div><span class="mono">01</span><b>Capital</b><p>How much you are ready to allocate, and what this money is meant to do.</p></div>
+        <div><span class="mono">02</span><b>Horizon</b><p>How long the capital can stay invested before you need it back.</p></div>
+        <div><span class="mono">03</span><b>Risk</b><p>How much volatility you can live with, measured, not guessed.</p></div>
+        <div><span class="mono">04</span><b>Liquidity</b><p>What has to stay within reach, and how fast.</p></div>
+      </div>
+    </div></div>
+  </article>
+
+  <!-- B2 -->
+  <article class="v" id="B2" data-name="Диагностика">
+    <header class="vh"><b>B2</b><h3>Диагностика</h3><p>Светлый блок. Слева CIO: ч/б портрет без подложки, низ и бока кадра уходят в фейд, при наведении фото становится цветным. Имя и должность стоят плотной парой, цитата отделена воздухом и линией. Справа четыре панели. Номер стоит отдельно, заголовок и вопрос сцеплены плотной парой, иллюстрация живёт внизу отдельным слоем и оживает при раскрытии: три монеты стоят ровным рядом (серебро в центре крупнее), под каждой доля, при раскрытии ряд расходится шире, ступенчатый график дорисовывается до 5Y, стрелка датчика уходит в зону риска (только дуга и стрелка, без узора), уровень ликвидности поднимается. <i>Что можно забрать: инфографика вместо текста, раскрывающиеся панели.</i></p></header>
+    <div class="frame"><div class="stage b2" style="height:900px">
+      <div class="who">
+        <img src="assets/p-daniel.webp" alt="">
+        <div class="nm">Marcus Ellwood</div>
+        <div class="mono sq" style="color:#77777f;margin-top:4px">Chief investment officer</div>
+        <div class="ser">“Before any portfolio is built, we define capital, horizon, risk and liquidity. Only then does the banker become useful.”</div>
+      </div>
+      <h2>Before any portfolio is built, we define the <span class="ser">foundation.</span></h2>
+      <div class="panels">
+        <div class="p"><span class="mono ix">01 / 04</span><b>Capital</b><p>How much are you ready to allocate, and what is it for?</p>
+          <div class="ill stack"><figure class="g"><img src="assets/coin-gold-v.webp" alt=""><figcaption>Gold 50%</figcaption></figure><figure class="s"><img src="assets/coin-silver-a.webp" alt=""><figcaption>Silver 30%</figcaption></figure><figure class="c"><img src="assets/coin-bronze-l.webp" alt=""><figcaption>Bronze 20%</figcaption></figure></div></div>
+        <div class="p"><span class="mono ix">02 / 04</span><b>Horizon</b><p>How long can this money stay invested?</p>
+          <div class="ill hz"><svg viewBox="0 0 230 210" fill="none" stroke="currentColor">
+            <g opacity=".25"><path d="M0 60H230M0 110H230M0 160H230"/></g>
+            <path class="st" d="M0 186H40V170H80V150H120V128H160V96H200V64H230" stroke-width="2.4"/>
+            <path d="M0 196H230" opacity=".5"/><path d="M0 192v8M57 192v8M115 192v8M172 192v8M230 192v8" opacity=".5"/>
+            <g class="dot"><circle cx="160" cy="96" r="7" fill="currentColor" stroke="none"/><circle cx="160" cy="96" r="14" opacity=".35"/></g>
+            <g fill="currentColor" stroke="none" font-family="JetBrains Mono" font-size="10" opacity=".7"><text x="0" y="212">1Y</text><text x="108" y="212">5Y</text><text x="204" y="212">10Y+</text></g></svg></div></div>
+        <div class="p"><span class="mono ix">03 / 04</span><b>Risk</b><p>How much volatility are you truly comfortable with?</p>
+          <div class="ill gz"><svg viewBox="0 0 220 210" fill="none" stroke="currentColor">
+            <path d="M4 170A76 76 0 0 1 156 170" stroke-width="2" opacity=".3"/>
+            <path d="M4 170A76 76 0 0 1 80 94" stroke-width="4" stroke-linecap="round"/>
+            <g class="nd"><path d="M80 170L80 112" stroke-width="3" stroke-linecap="round"/></g>
+            <circle cx="80" cy="170" r="7" fill="currentColor" stroke="none"/>
+            <g fill="currentColor" stroke="none" font-family="JetBrains Mono" font-size="9" opacity=".7"><text x="4" y="194">SAFE</text><text x="80" y="82" text-anchor="middle">MOD</text><text x="156" y="194" text-anchor="end">BOLD</text></g></svg></div></div>
+        <div class="p"><span class="mono ix">04 / 04</span><b>Liquidity</b><p>What has to stay within reach, and how fast?</p>
+          <div class="ill lq"><svg viewBox="0 0 220 210" fill="none" stroke="currentColor">
+            <defs><clipPath id="b2v"><rect x="1" y="20" width="108" height="170" rx="20"/></clipPath></defs>
+            <g clip-path="url(#b2v)"><g class="lvl"><path class="wv" d="M-80 40q20-12 40 0t40 0 40 0 40 0 40 0 40 0 40 0V220H-80Z" fill="currentColor" stroke="none" opacity=".9"/></g></g>
+            <rect x="1" y="20" width="108" height="170" rx="20" stroke-width="2"/>
+            <g opacity=".55"><path d="M122 20h10M122 105h10M122 190h10"/></g>
+            <g fill="currentColor" stroke="none" font-family="JetBrains Mono" font-size="9" opacity=".7"><text x="138" y="23">100%</text><text x="138" y="108">50%</text><text x="138" y="193">0%</text></g></svg></div></div>
+      </div>
+    </div></div>
+  </article>
+
+  <!-- B3 -->
+  <article class="v" id="B3" data-name="Досье">
+    <header class="vh"><b>B3</b><h3>Досье банкира</h3><p>Банкир как частное досье дорогого дома, в журнальной вёрстке. Плотная кремовая бумага с рамкой, под ней второй лист. Шапка с логотипом и номером, имя крупно в два голоса (гротеск и курсивная антиква) и небольшое ч/б фото как в документе, без тонировки. Ниже три ключевые цифры тонким начертанием, анкета в две колонки, цитата и подпись. Маленькая золотая монета лежит печатью на углу фото. Справа критерии проверки: дескриптор отделён воздухом, заголовок и текст сцеплены. <i>Что можно забрать: журнальную иерархию, материал бумаги, печать-монету.</i></p></header>
+    <div class="frame"><div class="stage b3" style="height:940px">
+      <div class="under"></div>
+      <div class="file">
+        <div class="hd"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span>Private banker file</span><span>Nº 0042 / 2026</span></div>
+        <div class="id"><div><h4>Marcus<em>Ellwood</em></h4><div class="role">Chief investment officer<br>London · since 2002</div></div><div class="pp"><div class="im"><img src="assets/p-daniel.webp" alt=""></div><span>Verified 23.09.2026</span></div></div>
+        <div class="stats"><div><b class="tab">24</b><span>Years in wealth</span></div><div><b class="tab">$1.8B</b><span>Capital advised</span></div><div><b class="tab">71</b><span>Active clients</span></div></div>
+        <div class="kv"><div><span>Approach</span><span>Balanced · long-term</span></div><div><span>Focus</span><span>Private capital</span></div><div><span>Horizon</span><span>5–10 years</span></div><div><span>Languages</span><span>EN · DE</span></div></div>
+        <div class="sm"><span>Banker summary</span><p>Builds balanced, long-horizon portfolios for families and founders. Known for written quarterly reviews, conservative liquidity reserves and plain-language reporting.</p></div>
+        <div class="ft"><q>A good banker builds a structure the client can understand, follow and review.</q><div class="sg">M. Ellwood<small>Valta advisory core</small></div></div>
+      </div>
+      <img class="seal" src="assets/coin-gold-v.webp" alt="">
+      <div class="r">
+        <span class="mono sq" style="color:rgba(255,255,255,.6)">How we vet bankers</span>
+        <h2>Every banker is judged by the way they <span class="ser">think.</span></h2>
+        <p>Experience is the entry ticket. Inside Valta every profile is checked through the same lens, so you compare reasoning, not reputations.</p>
+        <div class="sc"><span class="mono">Strategy logic</span><div class="bar"><i style="width:94%"></i></div><b class="tab">9.4</b></div>
+        <div class="sc"><span class="mono">Risk control</span><div class="bar"><i style="width:91%"></i></div><b class="tab">9.1</b></div>
+        <div class="sc"><span class="mono">Clarity</span><div class="bar"><i style="width:96%"></i></div><b class="tab">9.6</b></div>
+        <div class="sc"><span class="mono">Allocation discipline</span><div class="bar"><i style="width:89%"></i></div><b class="tab">8.9</b></div>
+        <a class="pill">View banker profile<i></i></a>
+      </div>
+    </div></div>
+  </article>
+
+  <!-- B5 -->
+  <article class="v" id="B5" data-name="Атмосфера">
+    <header class="vh"><b>B5</b><h3>Атмосфера</h3><p>Чёрно-белая архитектурная фотография из кейса на весь экран, крупный моноширинный капс, как на постерах кейса. Поверх парит белая карточка банкира в стиле Avon: цитата, три метрики, кнопка. Монета «прикреплена» к углу карточки. <i>Что можно забрать: фото-атмосферу кейса на сайте, сочетание «жёсткий моно + мягкая карточка».</i></p></header>
+    <div class="frame"><div class="stage b5" style="height:940px">
+      <div class="ph"></div>
+      <span class="tag mono sq">About Valta</span>
+      <h2>Banker choice built on data, not guesswork</h2>
+      <p class="low">Every expert is evaluated not only by experience, but by the way they think: how they approach risk, explain decisions and connect strategy with your goals.</p>
+      <div class="code mono">VLT-07<br>Advisory core</div>
+      <div class="cardw">
+        <img class="cn" src="assets/coin-silver-a.webp" alt="">
+        <div class="row"><span class="av"><img src="assets/p-daniel.webp" alt=""></span><div><div class="nm">Marcus Ellwood</div><div class="mono" style="font-size:10px;color:#8a8a92;margin-top:4px">Chief investment officer</div></div></div>
+        <blockquote>“A good banker builds a structure you can understand, follow and review.”</blockquote>
+        <dl><div><dt>Experience</dt><dd>24y</dd></div><div><dt>Advised</dt><dd>$1.8B</dd></div><div><dt>Clients</dt><dd>71</dd></div></dl>
+        <div class="go">READ THE STATEMENT →</div>
+      </div>
+    </div></div>
+  </article>
+</section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  // B1: words light up one after another, like reading along
+  document.querySelectorAll('[data-read]').forEach(p=>{
+    const walk=n=>{[...n.childNodes].forEach(c=>{
+      if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(t=>{if(!t.trim()){f.append(t);return}const s=document.createElement('span');s.className='w';s.textContent=t;f.append(s)});c.replaceWith(f)}
+      else if(c.classList&&c.classList.contains('ser')){c.classList.add('w')}
+      else if(c.nodeType===1&&!c.matches('.pp,.ic')) walk(c);
+    })};
+    walk(p);
+    const ws=[...p.querySelectorAll('.w,.pp,.ic')];ws.forEach(w=>w.classList.add('w'));
+    let i=0;setInterval(()=>{ if(i>ws.length+8){ws.forEach(w=>w.classList.remove('on'));i=0} else {ws[i]&&ws[i].classList.add('on');i++} },160);
+  });
+});
+</script>
+<style>
+/* ---------- C1 · Minted plates ---------- */
+.c1{background:radial-gradient(800px 520px at 50% 52%,#fff 0%,#EFEFED 55%,#E3E3E0 100%);color:#111}
+.c1 .band{position:absolute;left:0;right:0;top:470px;height:230px;background:repeating-linear-gradient(180deg,rgba(0,0,0,.1) 0 1px,transparent 1px 9px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.c1 .hd{position:absolute;left:40px;top:56px}
+.c1 .hd h2{margin:14px 0 0;font-family:var(--f-disp);font-weight:400;font-size:60px;line-height:1;letter-spacing:-.035em}
+.c1 .hd h2 .ser{font-size:68px}
+.c1 .ct{position:absolute;right:40px;top:56px;text-align:right}
+.c1 .ct b{display:block;font-family:var(--f-disp);font-weight:200;font-size:110px;line-height:.9;letter-spacing:-.05em}
+.c1 .sat{position:absolute;width:250px;height:180px;background:#fff;border-radius:22px;padding:18px 20px;box-shadow:0 20px 40px -20px rgba(0,0,0,.25),0 0 0 1px rgba(0,0,0,.04);cursor:pointer;transition:transform .6s cubic-bezier(.2,.8,.2,1),filter .6s,opacity .6s;border:0;text-align:left;color:#111;font:inherit}
+.c1 .sat:hover,.c1 .sat:focus-visible{filter:none!important;opacity:1!important;outline:none;transform:scale(var(--s)) translateY(-8px)!important}
+.c1 .sat .tt{font-family:var(--f-disp);font-size:38px;letter-spacing:-.02em}
+.c1 .sat img{position:absolute;right:16px;top:16px;width:46px}
+.c1 .sat .mono{position:absolute;left:20px;bottom:18px;font-size:11px}
+.c1 .focus{position:absolute;left:460px;top:200px;width:520px;height:580px;background:#fff;border-radius:34px;padding:30px;box-shadow:0 1px 0 #fff inset,0 60px 90px -40px rgba(20,20,50,.45),0 0 0 1px rgba(0,0,0,.05);z-index:3}
+.c1 .focus .lb{color:#9a9aa2}
+.c1 .focus .coins{display:flex;margin-top:16px}
+.c1 .focus .coins img{width:84px;height:84px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.2))}
+.c1 .focus .coins span{width:84px;height:84px;margin-left:-14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e9e9e6 70%);box-shadow:0 8px 16px -6px rgba(0,0,0,.25);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;color:#55555c}
+.c1 .focus .tt{font-family:var(--f-disp);font-weight:500;font-size:112px;line-height:.9;letter-spacing:-.05em;margin-top:22px}
+.c1 .focus .vv{display:flex;gap:14px;align-items:baseline;margin-top:8px;font-family:var(--f-disp);font-size:26px}
+.c1 .focus svg{display:block;width:100%;height:110px;margin-top:18px}
+.c1 .focus dl{position:absolute;left:30px;right:30px;bottom:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0}
+.c1 .focus dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:#9a9aa2;text-transform:uppercase}
+.c1 .focus dd{margin:4px 0 0;font-family:var(--f-disp);font-size:26px}
+
+/* ---------- C2 · Ticker board ---------- */
+.c2{background:var(--u);color:#fff}
+.c2 .hd{position:absolute;left:40px;right:40px;top:50px;display:flex;justify-content:space-between;align-items:flex-end}
+.c2 .hd h2{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:76px;letter-spacing:-.02em;letter-spacing:-.01em;text-transform:uppercase;line-height:1}
+.c2 .flt{display:flex;gap:6px}
+.c2 .flt button{font:inherit;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:9px 16px;cursor:pointer}
+.c2 .flt button[aria-pressed=true]{background:#fff;color:var(--u)}
+.c2 .flt button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.c2 .cols,.c2 .row{display:grid;grid-template-columns:330px 340px 1fr 170px 130px 70px;gap:20px;align-items:center;padding:0 40px}
+.c2 .cols{position:absolute;left:0;right:0;top:176px;color:rgba(255,255,255,.6)}
+.c2 .rows{position:absolute;left:0;right:0;top:206px}
+.c2 .row{height:96px;border-top:1px solid rgba(255,255,255,.25);transition:background .35s,color .35s}
+.c2 .row:last-child{border-bottom:1px solid rgba(255,255,255,.25)}
+.c2 .row:hover{background:#fff;color:var(--u)}
+.c2 .row .tt{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:44px;line-height:1;letter-spacing:-.01em}
+.c2 .row svg{display:block;width:255px;height:30px;overflow:visible}
+.c2 .row:hover svg{filter:brightness(.55) saturate(1.4)}
+.c2 .row .mt{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mc);margin-right:10px;vertical-align:2px}
+.c2 .gold{--mc:#E7C46E;--mh:#A97B1F}.c2 .silver{--mc:#D9DDE5;--mh:#6C7280}.c2 .bronze{--mc:#E39A68;--mh:#A2522A}
+.c2 .row .vv{font-family:var(--f-disp);font-size:26px;text-align:right}
+.c2 .row .ch{text-align:right}
+.c2 .row:hover .up{color:#0b9e83}.c2 .row:hover .dn{color:#e14a12}
+.c2 .row img{width:56px;transform:scale(.0) rotate(-120deg);transition:transform .5s cubic-bezier(.2,1.4,.4,1)}
+.c2 .row:hover img{transform:scale(1) rotate(0)}
+
+/* ---------- C3 · Coin arc ---------- */
+.c3{background:#060607;color:#fff}
+.c3 .bgchart{position:absolute;left:0;top:70px;width:1440px;height:640px;opacity:.6;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+.c3 .bigeng{position:absolute;left:20px;top:-160px;width:1400px;height:1400px;color:#fff;opacity:.075;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.c3 .nb{position:absolute;top:400px;font-family:var(--f-disp);font-weight:200;font-variation-settings:"wdth" 62;font-size:200px;line-height:.8;letter-spacing:-.01em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.28);transition:opacity .5s}
+.c3 .nb.l{left:40px}.c3 .nb.r{right:40px;text-align:right}
+.c3 .nb small{display:block;-webkit-text-stroke:0;color:rgba(255,255,255,.4);font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;margin-top:14px}
+.c3 .tt{position:absolute;left:0;right:0;top:80px;text-align:center;font-family:var(--f-disp);font-weight:200;font-size:230px;line-height:.85;letter-spacing:-.05em;transition:opacity .3s}
+.c3 .vv{position:absolute;left:0;right:0;top:290px;text-align:center;font-family:var(--f-mono);font-size:14px;letter-spacing:.06em;color:rgba(255,255,255,.75)}
+.c3 .arc{position:absolute;inset:0}
+.c3 .arc img{position:absolute;left:0;top:0;width:160px;height:160px;margin:-80px 0 0 -80px;transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s,filter .9s;cursor:pointer}
+.c3 .ring{position:absolute;left:420px;top:600px;width:600px;height:120px;border-radius:50%;background:radial-gradient(closest-side,rgba(83,87,242,.45),transparent);filter:blur(6px)}
+.c3 .fog{position:absolute;left:0;right:0;bottom:0;height:260px;background:linear-gradient(180deg,transparent,#060607 75%);pointer-events:none;z-index:20}
+.c3 .side,.c3 .ctrl{z-index:21}
+.c3 .ctrl{position:absolute;left:0;right:0;bottom:44px;display:flex;justify-content:center;align-items:center;gap:22px}
+.c3 .ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:18px;cursor:pointer}
+.c3 .ctrl button:hover,.c3 .ctrl button:focus-visible{background:#fff;color:#000;outline:none}
+.c3 .side{position:absolute;bottom:50px;width:330px;color:rgba(255,255,255,.7)}
+.c3 .side b{display:block;color:#fff;font-family:var(--f-disp);font-weight:400;font-size:24px;margin-bottom:8px;letter-spacing:-.01em}
+.c3 .side.l{left:40px}.c3 .side.r{right:40px;text-align:right}
+
+/* ---------- C4 · Bento ---------- */
+.c4{background:var(--paper);color:#111}
+.c4 .hd{position:absolute;left:40px;right:40px;top:44px;display:flex;justify-content:space-between;align-items:flex-end}
+.c4 .hd h2{margin:0;font-family:var(--f-disp);font-weight:400;font-size:56px;letter-spacing:-.035em;line-height:1}
+.c4 .grid{position:absolute;left:40px;right:40px;top:140px;bottom:40px;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);gap:10px}
+.c4 .g{border-radius:26px;padding:24px;position:relative;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.05)}
+.c4 .tt{font-family:var(--f-disp);font-weight:400;font-size:44px;letter-spacing:-.03em;line-height:1}
+.c4 .big{grid-column:1/3;grid-row:1/3;background:var(--u);color:#fff}
+.c4 .big .tt{font-size:96px}
+.c4 .big .tabs{position:absolute;right:24px;top:24px;display:flex;gap:4px;background:rgba(255,255,255,.12);border-radius:999px;padding:4px}
+.c4 .big .tabs span{padding:8px 16px;border-radius:999px;font-family:var(--f-mono);font-size:11px}
+.c4 .big .tabs .on{background:#fff;color:var(--u)}
+.c4 .big svg{position:absolute;left:24px;right:90px;bottom:60px;width:calc(100% - 114px);height:260px}
+.c4 .big .yl{position:absolute;right:24px;bottom:60px;height:260px;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--f-mono);font-size:11px;opacity:.7}
+.c4 .big .lg{position:absolute;left:24px;right:24px;bottom:22px;display:flex;gap:22px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+.c4 .big .lg i{display:inline-block;width:8px;height:8px;margin-right:6px}
+.c4 .dark{grid-column:3;grid-row:1/3;background:#0b0b0d;color:#fff}
+.c4 .dark .dots{position:absolute;left:24px;right:24px;bottom:24px;height:300px}
+.c4 .coinc{background:radial-gradient(circle at 85% 95%,#5A5EF5 0%,#3E42DC 40%,#2629A8 100%);color:#fff;box-shadow:none}
+.c4 .coinc img{position:absolute;right:-56px;bottom:-64px;width:240px;filter:drop-shadow(0 18px 26px rgba(10,10,60,.45)) drop-shadow(0 0 30px rgba(255,255,255,.18))}
+.c4 .alloc .al{position:absolute;left:24px;right:24px;bottom:20px;display:flex;flex-direction:column}
+.c4 .alloc .al div{display:grid;grid-template-columns:10px 1fr auto;gap:10px;align-items:center;padding:5px 0;border-top:1px solid #ececea}
+.c4 .alloc .al div:first-child{border-top:0}
+.c4 .alloc .al i{width:8px;height:8px;border-radius:2px}
+.c4 .alloc .al b{font-family:var(--f-disp);font-weight:400;font-size:18px}
+.c4 .list{grid-column:2/4}
+.c4 .list .li{display:grid;grid-template-columns:90px 1fr 120px 80px;gap:20px;align-items:center;padding:8px 0;border-top:1px solid #ececea}
+.c4 .list .li:first-of-type{border-top:0}
+.c4 .list .li b{font-family:var(--f-disp);font-weight:400;font-size:28px}
+.c4 .list svg{display:block;width:100%;height:40px;overflow:visible}
+.c4 .cta{background:var(--ink);color:#fff;display:flex;flex-direction:column;justify-content:space-between}
+.c4 .cta b{font-family:var(--f-disp);font-weight:300;font-size:40px;line-height:1;letter-spacing:-.03em}
+.c4 .cta b .ser{font-size:46px}
+.c4 svg,.c1 svg,.c2 .row svg{overflow:visible}
+.c4 .spark svg{position:absolute;left:24px;right:24px;bottom:24px;width:calc(100% - 48px);height:90px}
+.c4 .vv{font-family:var(--f-disp);font-size:22px;margin-top:6px}
+
+/* ---------- C5 · Deck ---------- */
+.c5{background:radial-gradient(900px 700px at 70% 50%,#5357F2 0%,#3E42DC 50%,#2D30BE 100%);color:#fff}
+.c5 .l{position:absolute;left:40px;top:110px;width:520px}
+.c5 .l h2{margin:16px 0 0;font-family:var(--f-disp);font-weight:300;font-size:70px;line-height:.98;letter-spacing:-.035em}
+.c5 .l h2 .ser{font-size:80px}
+.c5 .l p{color:rgba(255,255,255,.78);font-size:16px;margin:24px 0 0;max-width:430px}
+.c5 .det{position:absolute;left:40px;bottom:50px;width:500px;border-top:1px solid rgba(255,255,255,.35);padding-top:20px;display:grid;grid-template-columns:auto 1fr auto;gap:8px 22px;align-items:end}
+.c5 .det .tt{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:72px;line-height:.9}
+.c5 .det img{width:72px;grid-row:span 2}
+.c5 .det .vv{font-family:var(--f-disp);font-size:28px;text-align:right}
+.c5 .scene{position:absolute;left:640px;top:0;width:800px;height:920px;perspective:2400px}
+.c5 .deck{position:absolute;left:220px;top:300px;width:400px;height:250px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-36deg)}
+.c5 .pl{position:absolute;inset:0;background:#fff;color:#111;border-radius:22px;padding:20px 24px;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1);box-shadow:0 2px 0 #c9c9cf,0 4px 0 #b3b3ba,0 30px 40px -10px rgba(0,0,40,.35);cursor:pointer}
+.c5 .pl .tt{font-family:var(--f-disp);font-weight:500;font-size:60px;letter-spacing:-.04em;line-height:1}
+.c5 .pl img{position:absolute;right:20px;top:20px;width:70px}
+.c5 .pl .mono{position:absolute;left:24px;bottom:18px;font-size:11px;color:#55555c}
+.c5 .pl .vv{position:absolute;right:24px;bottom:16px;font-family:var(--f-disp);font-size:22px}
+</style>
+
+<section class="block" id="cards">
+  <div class="block-h"><span class="n">03</span><h2>Стратегии</h2><p>Карточки моделей ATN, BSE, BEG… Сейчас это пустые рамки с тикером. Здесь у каждой появляются данные, металл модели и характер.</p></div>
+
+  <!-- C1 -->
+  <article class="v" id="C1">
+    <header class="vh"><b>C1</b><h3>Отчеканенные пластины</h3><p>Адаптация второго рефа Avon: одна карточка в фокусе (монета модели, тикер, ступенчатый график, три метрики), остальные парят вокруг на разной глубине, с размытием, на фоне полосы линий. <i>Кликните по любой парящей карточке — она встанет в фокус. Что можно забрать: фокус и глубина, данные на карточке.</i></p></header>
+    <div class="frame"><div class="stage c1" style="height:900px">
+      <div class="band"></div>
+      <div class="hd"><span class="mono sq" style="color:#77777f">Strategy models</span><h2>Nine models.<br><span class="ser">One</span> standard.</h2></div>
+      <div class="ct"><b class="steel tab">09</b><span class="mono" style="color:#77777f">Gold · Silver · Bronze</span></div>
+      <div id="c1sats"></div>
+      <div class="focus" id="c1focus"></div>
+    </div></div>
+  </article>
+
+  <!-- C2 -->
+  <article class="v" id="C2">
+    <header class="vh"><b>C2</b><h3>Табло тикеров</h3><p>Самое сильное место страницы банкира — стопка тикеров ATN/VBG/USB — развито в полноценное табло. Заголовок блока главный, тикеры на ступень ниже, у строк есть воздух. Спарклайн выровнен по центру строки и окрашен в металл модели (золото, серебро, бронза), той же меткой отмечены активы. При наведении строка инвертируется и в неё вкатывается монета модели. <i>Фильтр по металлу работает. Что можно забрать: таблица как типографика.</i></p></header>
+    <div class="frame"><div class="stage c2" style="height:1110px">
+      <div class="hd"><h2>Strategy models</h2><div class="flt" id="c2f"><button aria-pressed="true" data-m="all">All 09</button><button aria-pressed="false" data-m="gold">Gold</button><button aria-pressed="false" data-m="silver">Silver</button><button aria-pressed="false" data-m="bronze">Bronze</button></div></div>
+      <div class="cols mono"><span>Model</span><span>30 days</span><span>Assets</span><span style="text-align:right">Value, USD</span><span style="text-align:right">Change</span><span></span></div>
+      <div class="rows" id="c2rows"></div>
+    </div></div>
+  </article>
+
+  <!-- C3 -->
+  <article class="v" id="C3">
+    <header class="vh"><b>C3</b><h3>Монеты на дуге</h3><p>Каждая стратегия — монета. Монеты стоят на одной дуге с ровным шагом. Второй план закрывает композицию: на всю сцену приглушённый график модели, огромная гравировка монеты поворачивается вместе с дугой, по краям контуром тикеры соседних моделей. Активная на переднем плане, соседние уходят назад: мельче, темнее, с размытием, а края дуги растворяются в тумане. Сверху тикер огромным тонким начертанием, подпись поднята от монеты, фоновый график приглушён градиентом и не проходит сквозь монеты. Стрелками дуга поворачивается. <i>Клик по стрелкам или по монете. Что можно забрать: монета как навигация, «коллекция».</i></p></header>
+    <div class="frame"><div class="stage c3" style="height:920px">
+      <svg class="bigeng" id="c3eng" viewBox="0 0 220 220"><use href="#eng"/></svg>
+      <div class="nb l" id="c3pl"></div><div class="nb r" id="c3nr"></div>
+      <svg class="bgchart" viewBox="0 0 1440 640" preserveAspectRatio="none"><defs><linearGradient id="c3g" x1="0" x2="1"><stop offset="0" stop-color="#5357F2" stop-opacity=".35"/><stop offset=".5" stop-color="#7B7FFF"/><stop offset="1" stop-color="#5357F2" stop-opacity=".35"/></linearGradient></defs><path id="c3path" data-step="31" data-n="26" fill="none" stroke="url(#c3g)" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+      <div class="tt chrome" id="c3t">BEG</div>
+      <div class="vv tab" id="c3v"></div>
+      <div class="ring"></div>
+      <div class="arc" id="c3arc"></div>
+      <div class="fog"></div>
+      <div class="side l mono" id="c3l"></div>
+      <div class="side r mono" id="c3r"></div>
+      <div class="ctrl"><button id="c3p" aria-label="Previous">←</button><span class="mono tab" id="c3n">03 / 09</span><button id="c3x" aria-label="Next">→</button></div>
+    </div></div>
+  </article>
+
+  <!-- C4 -->
+  <article class="v" id="C4">
+    <header class="vh"><b>C4</b><h3>Бенто с данными</h3><p>Асимметричная сетка, где у каждой карточки свой тип визуализации. Большой график BEG — одна чистая линия цены с заливкой, осью и линией открытия, без пересекающихся серий; состав модели указан под графиком. Ещё точечная гистограмма из золотых точек (из кейса), аллокация с иерархией (тикер → донат → доли), спарклайн, монета, список. Все графики реалистичные, цвет по динамике: рост бирюзовый, падение оранжевый. <i>Что можно забрать: разнообразие визуализаций при единой системе.</i></p></header>
+    <div class="frame"><div class="stage c4" style="height:960px">
+      <div class="hd"><h2>Strategy models</h2><span class="mono" style="color:#77777f">Updated 23.09.2026 · 09:41 GMT</span></div>
+      <div class="grid">
+        <div class="g big">
+          <div class="tt">BEG<span class="up" style="font-size:20px;vertical-align:60px"> ▲</span></div>
+          <div class="vv tab" style="font-size:26px">167.9144 <span class="mono" style="font-size:12px;opacity:.7">USD · +2.41%</span></div>
+          <div class="tabs"><span class="on">1M</span><span>3M</span><span>6M</span><span>12M</span></div>
+          <svg viewBox="0 0 560 260" preserveAspectRatio="none" id="c4big"></svg>
+          <div class="yl tab"><span>172.00</span><span>166.00</span><span>160.00</span><span>154.00</span><span>148.00</span></div>
+          <div class="lg mono"><span>Bitcoin 40%</span><span>Ethereum 35%</span><span>Gold 25%</span><span style="margin-left:auto;opacity:.7">30 days · USD</span></div>
+        </div>
+        <div class="g dark">
+          <div class="tt">MNVA</div><div class="vv tab">251.7710 <span class="up mono" style="font-size:12px">▲ 4.85%</span></div>
+          <div class="mono" style="margin-top:10px;opacity:.6">Microsoft · Nvidia · Visa · Apple</div>
+          <svg class="dots" id="c4dots" viewBox="0 0 300 300"></svg>
+        </div>
+        <div class="g spark"><div class="tt">ATN</div><div class="vv tab">214.3381 <span class="mono" style="font-size:12px;color:#0E9F84">▲ 3.12%</span></div><svg viewBox="0 0 300 90" preserveAspectRatio="none" id="c4atn"></svg></div>
+        <div class="g alloc">
+          <span class="mono" style="color:#8a8a92">Allocation</span><div class="tt" style="margin-top:6px">ATN</div>
+          <svg viewBox="0 0 120 120" style="position:absolute;right:24px;top:24px;width:64px;height:64px;transform:rotate(-90deg)">
+            <circle cx="60" cy="60" r="44" fill="none" stroke="#3E42DC" stroke-width="18" stroke-dasharray="117 300"/>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="#111" stroke-width="18" stroke-dasharray="83 300" stroke-dashoffset="-119"/>
+            <circle cx="60" cy="60" r="44" fill="none" stroke="#C9A24A" stroke-width="18" stroke-dasharray="72 300" stroke-dashoffset="-204"/>
+          </svg>
+          <div class="al"><div><i style="background:#3E42DC"></i><span class="mono">Apple</span><b class="tab">42%</b></div><div><i style="background:#111"></i><span class="mono">Tesla</span><b class="tab">30%</b></div><div><i style="background:#C9A24A"></i><span class="mono">Nasdaq</span><b class="tab">28%</b></div></div>
+        </div>
+        <div class="g coinc"><div class="tt">VBG</div><div class="vv tab">121.5530 <span class="mono" style="font-size:12px;color:var(--sig)">▲ 1.08%</span></div><div class="mono" style="margin-top:10px;color:rgba(255,255,255,.7)">Silver model</div><img src="assets/coin-silver-a.webp" alt=""></div>
+        <div class="g list" id="c4list"></div>
+        <div class="g cta"><span class="mono" style="opacity:.6">Compare</span><b>All nine models, <span class="ser">side by side</span></b><span class="pill" style="align-self:flex-start;--pill-in:#000">Open table<i></i></span></div>
+      </div>
+    </div></div>
+  </article>
+
+  </section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  const S=window.VS, coin=window.VCOIN, ch=c=>`<span class="${c<0?'dn':'up'}">${c<0?'▼':'▲'} ${Math.abs(c).toFixed(2)}%</span>`;
+
+  // C1 focus + satellites
+  const pos=[[60,300,.78,1.5,.55],[230,620,.66,2.5,.45],[1080,190,.8,1.2,.6],[1150,520,.7,2,.5],[1010,720,.55,3,.35],[740,40,.5,3,.3]];
+  let fi=2;
+  function c1(){
+    const s=S[fi];
+    document.getElementById('c1focus').innerHTML=`<span class="mono lb">Model / Assets</span>
+      <div class="coins"><img src="assets/${coin(fi)}.webp" alt="">${s.a.slice(0,3).map(a=>`<span>${a.split(' ')[0].slice(0,4)}</span>`).join('')}</div>
+      <div class="tt steel">${s.t}</div><div class="vv tab">${s.v} <span class="mono" style="font-size:12px">${ch(s.c)}</span></div>
+      <svg viewBox="0 0 460 110" preserveAspectRatio="none">${VSPARK(s.seed,460,110,s.c,VTREND(s.c,1),{sw:2.2,r:4})}</svg>
+      <dl><div><dt>12M return</dt><dd class="tab">${(8+s.seed%9+.4).toFixed(1)}%</dd></div><div><dt>Volatility</dt><dd class="tab">${(4+s.seed%7+.2).toFixed(1)}%</dd></div><div><dt>Min. capital</dt><dd>$250K</dd></div></dl>`;
+    const others=S.map((x,i)=>i).filter(i=>i!==fi).slice(0,6);
+    document.getElementById('c1sats').innerHTML=others.map((i,k)=>{const p=pos[k],s=S[i];
+      return `<button class="sat" data-i="${i}" style="left:${p[0]}px;top:${p[1]}px;--s:${p[2]};transform:scale(${p[2]});filter:blur(${p[3]}px);opacity:${p[4]}"><div class="tt">${s.t}</div><img src="assets/${coin(i)}.webp" alt=""><span class="mono">${ch(s.c)}</span></button>`}).join('');
+  }
+  document.getElementById('c1sats').addEventListener('click',e=>{const b=e.target.closest('.sat');if(b){fi=+b.dataset.i;c1()}});
+  c1();
+
+  // C2 rows
+  const rows=document.getElementById('c2rows');
+  function c2(m){rows.innerHTML=S.map((s,i)=>({s,i})).filter(o=>m==='all'||o.s.m===m).map(({s,i})=>`<div class="row ${s.m}"><span class="tt">${s.t}</span>
+    <svg viewBox="0 0 340 30" preserveAspectRatio="none">${VSPARK(s.seed,340,30,s.c,"var(--mc)",{fa:.35,sw:1.6,r:2.5})}</svg>
+    <span class="mono"><i class="mt"></i>${s.a.join(' · ')}</span><span class="vv tab">${s.v}</span><span class="ch mono">${ch(s.c)}</span><img src="assets/${coin(i)}.webp" alt=""></div>`).join('')}
+  document.getElementById('c2f').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;[...b.parentNode.children].forEach(x=>x.setAttribute('aria-pressed',x===b));c2(b.dataset.m)});
+  c2('all');
+
+  // C3 coin arc
+  const arc=document.getElementById('c3arc');
+  arc.innerHTML=S.map((s,i)=>`<img src="assets/${coin(i)}.webp" alt="${s.t}" data-i="${i}">`).join('');
+  const imgs=[...arc.children]; let ai=2;
+  const meta={gold:'Gold model · long-term growth',silver:'Silver model · balanced allocation',bronze:'Bronze model · capital preservation'};
+  function c3(){
+    imgs.forEach((im,i)=>{const d=i-ai,ad=Math.abs(d); const a=d*12*Math.PI/180, R=900, x=720+R*Math.sin(a), y=1440-R*Math.cos(a);
+      const sc=d===0?1.7:1-ad*.16; im.style.transform=`translate(${x}px,${y}px) scale(${sc})`; im.style.opacity=ad>3?0:1-ad*.18; im.style.zIndex=10-ad;
+      im.style.filter=d===0?'drop-shadow(0 34px 40px rgba(83,87,242,.5))':`blur(${ad*1.4}px) brightness(${1-ad*.2}) saturate(${1-ad*.2})`});
+    document.getElementById('c3path').setAttribute('d',VSTEP(S[ai].seed+31,1440,640,30));
+    document.getElementById('c3eng').style.transform=`rotate(${-ai*12}deg)`;
+    const pv=S[(ai+8)%9],nx=S[(ai+1)%9];document.getElementById('c3pl').innerHTML=`${pv.t}<small>← ${pv.v}</small>`;document.getElementById('c3nr').innerHTML=`${nx.t}<small>${nx.v} →</small>`;
+    const s=S[ai]; document.getElementById('c3t').textContent=s.t; document.getElementById('c3v').innerHTML=`${s.v} USD &nbsp; ${ch(s.c)} &nbsp; · &nbsp; ${s.a.join(' · ')}`;
+    document.getElementById('c3n').textContent=String(ai+1).padStart(2,'0')+' / 09';
+    document.getElementById('c3l').innerHTML=`<b>${meta[s.m]}</b>Built around ${s.a.join(', ')}. Reviewed every quarter.`;
+    document.getElementById('c3r').innerHTML=`<b>${(8+s.seed%9+.4).toFixed(1)}% · 12M</b>Volatility ${(4+s.seed%7+.2).toFixed(1)}% · from $250K`;
+    
+  }
+  document.getElementById('c3p').onclick=()=>{ai=(ai+8)%9;c3()}; document.getElementById('c3x').onclick=()=>{ai=(ai+1)%9;c3()};
+  arc.addEventListener('click',e=>{const i=e.target.dataset.i;if(i!=null){ai=+i;c3()}});
+  c3();
+
+  // C4 dot histogram + list
+  const dots=document.getElementById('c4dots'); let g='';
+  for(let c=0;c<22;c++){const h=Math.round(3+Math.abs(Math.sin(c*.7)+Math.sin(c*.23))*6+(c>14?4:0)); for(let r=0;r<h;r++) g+=`<circle cx="${7+c*13.5}" cy="${293-r*13.5}" r="5" fill="#C9A24A" opacity="${.45+r/h*.55}"/>`}
+  dots.innerHTML=g;
+  document.getElementById('c4list').innerHTML='<span class="mono" style="color:#8a8a92">Bronze models</span>'+[5,6,7].map(i=>{const s=S[i];return `<div class="li"><b>${s.t}</b><svg viewBox="0 0 300 40" preserveAspectRatio="none">${VSPARK(s.seed,300,40,s.c,VTREND(s.c,1),{fa:.22,r:3})}</svg><span class="tab" style="font-family:var(--f-disp);font-size:20px;text-align:right">${s.v}</span><span class="mono" style="text-align:right;color:${VTREND(s.c,1)}">${s.c<0?'▼':'▲'} ${Math.abs(s.c).toFixed(2)}%</span></div>`}).join('');
+
+  document.getElementById('c4big').innerHTML='<g stroke="rgba(255,255,255,.14)"><path d="M0 1H560M0 65H560M0 130H560M0 195H560" vector-effect="non-scaling-stroke"/></g>'+VSPARK(7,560,260,2.41,'#fff',{fa:.3,sw:2,r:5,bc:'#fff',n:90});
+  document.getElementById('c4atn').innerHTML=VSPARK(3,300,90,3.12,'#0E9F84',{fa:.25,sw:2,r:4});
+
+  if (!document.getElementById('c5deck')) return;
+  // C5 deck
+  const deck=document.getElementById('c5deck');
+  deck.innerHTML=S.map((s,i)=>`<div class="pl" data-i="${i}" style="transform:translateZ(${i*30}px)"><div class="tt">${s.t}</div><img src="assets/${coin(i)}.webp" alt=""><span class="mono">${s.a.join(' · ')}</span><span class="vv tab">${s.v}</span></div>`).join('');
+  const pls=[...deck.children], det=document.getElementById('c5det'); let hov=false, ci=8;
+  function lift(i){ci=i;pls.forEach((p,k)=>p.style.transform=`translateZ(${k*30+(k===i?70:0)}px) translate(${k===i?40:0}px,${k===i?-40:0}px)`);
+    const s=S[i];det.innerHTML=`<img src="assets/${coin(i)}.webp" alt=""><span class="tt">${s.t}</span><span class="vv tab">${s.v}</span><span class="mono" style="opacity:.75">${s.a.join(' · ')}</span><span class="mono" style="text-align:right">${ch(s.c)}</span>`}
+  deck.addEventListener('pointerover',e=>{const p=e.target.closest('.pl');if(p){hov=true;lift(+p.dataset.i)}});
+  deck.addEventListener('pointerleave',()=>hov=false);
+  setInterval(()=>{if(!hov)lift((ci+8)%9)},2200); lift(8);
+});
+</script>
+<style>
+/* ---------- T1 · Index with cursor portrait ---------- */
+.t1{background:var(--paper);color:#111}
+.t1 h2{position:absolute;left:36px;top:48px;margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:112px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase}
+.t1 .meta{position:absolute;left:40px;top:170px;width:560px;margin:0;font-size:16px;line-height:1.4;color:#55555c}
+.t1 .meta span{display:block;margin-bottom:6px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#8a8a92}
+.t1 .list{position:absolute;left:40px;right:40px;top:262px}
+.t1 .r{display:grid;grid-template-columns:110px 1fr 240px 110px 52px;align-items:center;height:118px;border-top:1px solid #111;cursor:pointer;transition:color .3s}
+.t1 .r:last-child{border-bottom:1px solid #111}
+.t1 .r .ti{font-family:var(--f-disp);font-weight:400;font-size:46px;letter-spacing:-.03em;transition:padding .5s cubic-bezier(.2,.8,.2,1)}
+.t1 .r:hover .ti{padding-left:28px;font-family:var(--f-serif);font-style:italic;font-size:54px;letter-spacing:-.01em}
+.t1 .list:hover .r:not(:hover){color:#a3a3a8}
+.t1 .r .ar{justify-self:end;width:52px;height:52px;border-radius:50%;border:1px solid #111;display:grid;place-items:center;transition:background .3s,color .3s,transform .4s}
+.t1 .r .ar svg{width:18px;height:18px}
+.t1 .r:hover .ar{background:#111;color:#fff}
+.t1 .r:hover .ar svg{transform:rotate(-45deg);transition:transform .4s}
+.t1 .float{position:absolute;left:0;top:0;width:150px;height:188px;pointer-events:none;opacity:0;transition:opacity .3s;z-index:5}
+.t1 .float .ph{width:100%;height:100%;border-radius:12px;overflow:hidden;position:relative;background:#DCDAD4;isolation:isolate;box-shadow:0 24px 40px -18px rgba(0,0,0,.35)}
+.t1 .float img.p{width:100%;height:100%;object-fit:cover;object-position:top;filter:grayscale(1) contrast(1.06);mix-blend-mode:multiply}
+.t1 .float img.c{position:absolute;right:-18px;bottom:-18px;width:52px}
+
+/* ---------- T2 · Player ---------- */
+.t2{background:#060607;color:#fff}
+.t2 .hd{position:absolute;left:40px;top:50px}
+.t2 .hd h2{margin:14px 0 0;font-family:var(--f-disp);font-weight:300;font-size:64px;letter-spacing:-.035em;line-height:1}
+.t2 .hd h2 .ser{font-size:74px}
+.t2 .feat{position:absolute;left:40px;top:280px;width:820px;height:620px;border-radius:30px;overflow:hidden;background:url(assets/photo-zebra.webp) center 30%/cover}
+.t2 .feat::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.1) 30%,rgba(0,0,0,.88) 100%);filter:grayscale(1)}
+.t2 .feat>*{position:absolute}
+.t2 .chipv{left:26px;top:26px;background:rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:999px;padding:8px 14px}
+.t2 .feat h3{left:32px;width:640px;bottom:176px;margin:0;font-family:var(--f-disp);font-weight:400;font-size:50px;line-height:1.02;letter-spacing:-.03em;text-wrap:balance}
+.t2 .feat .au{left:32px;bottom:128px;display:flex;align-items:center;gap:12px}
+.t2 .feat .au img{width:40px;height:40px;border-radius:50%;object-fit:cover;object-position:top}
+.t2 .bar{left:16px;right:16px;bottom:16px;height:84px;display:grid;grid-template-columns:60px auto 1fr auto auto;gap:18px;align-items:center;background:rgba(255,255,255,.82);backdrop-filter:blur(18px) saturate(1.2);border-radius:20px;padding:0 20px 0 12px;color:#111;box-shadow:inset 0 1px 0 rgba(255,255,255,.9),0 20px 40px -20px rgba(0,0,0,.6)}
+.t2 .play{width:60px;height:60px;border:0;padding:0;background:#111;border-radius:50%;cursor:pointer;display:grid;place-items:center;color:#fff;transition:transform .2s}
+.t2 .play:hover{transform:scale(1.05)}
+.t2 .play svg{width:20px;height:20px;display:block}
+.t2 .play .pz{display:none}.t2 .play[aria-pressed=true] .pz{display:block}.t2 .play[aria-pressed=true] .pl{display:none}
+
+
+.t2 .play:focus-visible{outline:2px solid #111;outline-offset:3px}
+.t2 .wave{height:48px;min-width:0;overflow:hidden;display:flex;align-items:center;gap:2px;cursor:pointer}
+.t2 .wave i{flex:1;background:rgba(17,17,17,.2);border-radius:2px;min-width:1px}
+.t2 .tm{font-family:var(--f-mono);font-size:12px;color:#55555c}
+.t2 .sp{font-family:var(--f-mono);font-size:11px;padding:6px 10px;border:1px solid rgba(17,17,17,.2);border-radius:8px;color:#111}
+.t2 .wave i.on{background:#111}
+.t2 .q{position:absolute;left:900px;right:40px;top:280px;display:flex;flex-direction:column;gap:10px}
+.t2 .qi{display:grid;grid-template-columns:96px 1fr 48px;gap:20px;align-items:center;padding:12px 18px 12px 12px;border-radius:22px;border:1px solid rgba(255,255,255,.1);transition:background .3s;cursor:pointer}
+.t2 .qi:hover{background:rgba(255,255,255,.06)}
+.t2 .qi .pf{width:96px;height:118px;border-radius:14px}
+.t2 .qi b{display:block;font-family:var(--f-disp);font-weight:400;font-size:23px;line-height:1.1;letter-spacing:-.01em;margin:16px 0 4px}
+.t2 .qi .pb{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;color:#fff;transition:background .3s,color .3s,border-color .3s,transform .3s}
+.t2 .qi .pb svg{width:16px;height:16px;margin-left:2px}
+.t2 .qi:hover .pb{background:#fff;color:#000;border-color:#fff;transform:scale(1.06)}
+
+
+/* ---------- T3 · Quote rail ---------- */
+.t3{background:var(--u);color:#fff}
+.t3 .hd{position:absolute;left:40px;right:40px;top:40px;display:flex;justify-content:space-between;align-items:flex-end}
+.t3 .hd h2{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 125;font-size:112px;letter-spacing:-.02em;text-transform:uppercase;line-height:.9}
+.t3 .hd .ar{display:flex;gap:10px}
+.t3 .hd button{width:54px;height:54px;border-radius:50%;border:1px solid #fff;background:transparent;color:#fff;font-size:18px;cursor:pointer}
+.t3 .hd button:last-child,.t3 .hd button:hover,.t3 .hd button:focus-visible{background:#fff;color:var(--u);outline:none}
+.t3 .rail{position:absolute;left:0;right:0;top:200px;bottom:40px;overflow-x:auto;scrollbar-width:none;cursor:grab;scroll-behavior:smooth}
+.t3 .rail::-webkit-scrollbar{display:none}
+.t3 .track{display:flex;gap:16px;padding:0 40px;height:100%;width:max-content}
+.t3 .qc{flex:none;border-radius:28px;padding:32px 36px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.t3 .qc .lb{display:flex;justify-content:space-between;align-items:center}
+.t3 .qc blockquote{margin:28px 0 0;font-family:var(--f-serif);font-size:58px;line-height:1;letter-spacing:-.015em;text-wrap:balance}
+.t3 .qc .au{margin-top:auto;padding-top:22px;border-top:1px solid currentColor;border-top-color:color-mix(in srgb,currentColor 22%,transparent);display:flex;align-items:center;gap:14px}
+.t3 .qc .au img{width:52px;height:52px;border-radius:50%;object-fit:cover;object-position:top}
+.t3 .qc .au b{display:block;font-family:var(--f-disp);font-weight:500;font-size:18px}
+.t3 .qc .ls{margin-left:auto;border:1px solid currentColor;border-radius:999px;padding:10px 16px}
+.t3 .q1{width:580px;background:var(--u-ink)}
+.t3 .q2{width:440px;background:#fff;color:var(--u)}
+.t3 .q3{width:660px;background:url(assets/photo-shadow.webp) center/cover}
+.t3 .q3::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.75));filter:grayscale(1)}
+.t3 .q3>*{position:relative}
+.t3 .q4{width:480px;background:#F2F2EF;color:#111}
+.t3 .q4 img.cn{width:64px;height:64px;padding:8px;margin:-16px -12px -16px 0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#e6e6e2 75%);box-shadow:0 10px 18px -8px rgba(0,0,0,.3),inset 0 0 0 1px rgba(0,0,0,.05)}
+.t3 .q5{width:420px;background:var(--u-deep)}
+
+/* ---------- T4 · Posters ---------- */
+.t4{background:#E7E7E4;color:#111}
+.t4 .hd{position:absolute;left:40px;right:40px;top:50px;display:flex;justify-content:space-between;align-items:flex-end}
+.t4 .hd h2{margin:0;font-family:var(--f-disp);font-weight:400;font-size:64px;letter-spacing:-.035em;line-height:.95}
+.t4 .hd h2 .ser{font-size:72px;color:#55555c}
+.t4 .row{position:absolute;left:40px;top:220px;display:flex;gap:26px;perspective:1400px}
+.t4 .po{width:320px;height:480px;border-radius:6px;position:relative;overflow:hidden;padding:22px;display:flex;flex-direction:column;transition:transform .2s ease-out,box-shadow .3s;box-shadow:0 30px 50px -30px rgba(0,0,0,.5);transform-style:preserve-3d}
+.t4 .po .tp{display:flex;justify-content:space-between;align-items:center}
+.t4 .po .tp svg{width:70px;height:9px}
+.t4 .po .ti{margin-top:auto;font-family:var(--f-mono);font-weight:500;font-size:20px;line-height:1.15;text-transform:uppercase;letter-spacing:-.01em}
+.t4 .po .ft{display:flex;justify-content:space-between;margin-top:16px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;opacity:.7}
+.t4 .po .art{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%)}
+.t4 .p1{background:#070708;color:#fff}.t4 .p1 .art{width:210px}
+.t4 .p2{background:var(--u);color:#fff}.t4 .p2 .art{width:250px;height:250px;color:rgba(255,255,255,.85)}
+.t4 .p3{background:url(assets/photo-zebra.webp) center/cover;color:#fff}
+.t4 .p3::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7))}
+.t4 .p3>*{position:relative}
+.t4 .p4{background:#fff}.t4 .p4 .art{width:180px}
+.t4 .p4 .rings{position:absolute;left:50%;top:44%;width:420px;height:420px;transform:translate(-50%,-50%);border-radius:50%;border:1px dashed #cfcfcc;box-shadow:0 0 0 70px transparent,inset 0 0 0 70px transparent}
+.t4 .p4 .rings::after{content:"";position:absolute;inset:70px;border-radius:50%;border:1px dashed #cfcfcc}
+.t4 .bt{position:absolute;left:40px;right:40px;bottom:40px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #111;padding-top:20px}
+
+/* ---------- T5 · Schedule ---------- */
+.t5{background:#fff;color:#111}
+.t5 .l{position:absolute;left:40px;top:60px;bottom:50px;width:520px;display:flex;flex-direction:column}
+.t5 .live{display:flex;align-items:center;gap:10px;color:#55555c}
+.t5 .live i{width:10px;height:10px;border-radius:50%;background:var(--hot);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,90,31,.6)}100%{box-shadow:0 0 0 14px rgba(255,90,31,0)}}
+.t5 .cd{font-family:var(--f-disp);font-weight:200;font-size:132px;line-height:.9;letter-spacing:-.05em;margin:22px 0 12px}
+.t5 .l h3{margin:44px 0 0;font-family:var(--f-disp);font-weight:400;font-size:40px;line-height:1.04;letter-spacing:-.03em;text-wrap:balance}
+.t5 .l h3 .ser{font-size:46px}
+.t5 .au{display:flex;align-items:center;gap:12px;margin-top:14px}
+.t5 .au img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top}
+.t5 .au b{display:block;font-family:var(--f-disp);font-weight:500;font-size:17px;line-height:1.2}
+.t5 .btns{display:flex;gap:10px;margin-top:32px}
+.t5 .btns span{height:54px;padding:0 26px;border-radius:999px;display:inline-flex;align-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.t5 .btns .d{background:#111;color:#fff}.t5 .btns .o{border:1px solid #cfcfcc}
+.t5 .lgd{margin-top:auto;display:flex;gap:22px;padding-top:18px;border-top:1px solid #ececea;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:#77777f}
+.t5 .lgd i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:8px;vertical-align:-1px}
+.t5 .cal{position:absolute;left:600px;right:40px;top:60px;bottom:50px;border-radius:24px;background:#F5F5F2;overflow:hidden;display:grid;grid-template-columns:54px repeat(5,1fr) .5fr .5fr;grid-template-rows:76px 1fr}
+.t5 .cal .hdr{display:contents}
+.t5 .dh{padding:14px 10px 0;border-bottom:1px solid #e3e3df;display:flex;flex-direction:column;gap:4px}
+.t5 .dh span{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;color:#8a8a92}
+.t5 .dh b{font-family:var(--f-disp);font-weight:400;font-size:24px;line-height:1;letter-spacing:-.02em;width:38px;height:38px;margin-left:-6px;display:grid;place-items:center;border-radius:50%}
+.t5 .dh.today b{background:var(--u);color:#fff}
+.t5 .dh.today span{color:var(--u)}
+.t5 .ax{position:relative;border-right:1px solid #e3e3df}
+.t5 .ax span{position:absolute;right:10px;transform:translateY(-50%);font-family:var(--f-mono);font-size:10px;color:#9a9aa2}
+.t5 .col{position:relative;border-right:1px solid #ebebe7;background:repeating-linear-gradient(180deg,#e9e9e5 0 1px,transparent 1px var(--ph))}
+.t5 .col:last-child{border-right:0}
+.t5 .col.we{background-color:#EFEFEB}
+.t5 .col.today{background-color:#EEEFFC}
+.t5 .now{position:absolute;left:-4px;right:0;height:2px;background:var(--hot);z-index:3}
+.t5 .now::before{content:"";position:absolute;left:0;top:-4px;width:10px;height:10px;border-radius:50%;background:var(--hot)}
+.t5 .ev{position:absolute;left:5px;right:5px;border-radius:10px;padding:8px 9px;overflow:hidden;font-size:12px;line-height:1.2;z-index:2}
+.t5 .ev small{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase}
+.t5 .ev b{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-family:var(--f-disp);font-weight:500;font-size:13px;line-height:1.15;margin-top:4px}
+.t5 .ev .sp{display:flex;align-items:center;gap:6px;margin-top:8px;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase}
+.t5 .ev .sp img{width:20px;height:20px;border-radius:50%;object-fit:cover;object-position:top}
+.t5 .ev.past{background:#fff;color:#8a8a92;box-shadow:inset 3px 0 0 #c9c9c5}
+.t5 .ev.past b{color:#55555c}
+.t5 .ev.onair{background:var(--u);color:#fff;box-shadow:0 16px 30px -14px rgba(62,66,220,.8)}
+.t5 .ev.soon{background:#fff;color:#111;box-shadow:inset 3px 0 0 var(--u),0 1px 0 rgba(0,0,0,.04)}
+.t5 .ev.soon small{color:var(--u)}
+</style>
+
+<section class="block" id="talks">
+  <div class="block-h"><span class="n">04</span><h2>Market Talks</h2><p>Сейчас это две одинаковые карточки в рамке. Варианты превращают раздел в медиа: индекс, плеер, цитаты, постеры, расписание.</p></div>
+
+  <!-- T1 -->
+  <article class="v" id="T1">
+    <header class="vh"><b>T1</b><h3>Индекс с портретом за курсором</h3><p>Редакционный список выпусков. Под заголовком короткое описание рубрики, список подтянут к ним. При наведении строка сдвигается и переключается на курсивную антикву, остальные гаснут, а портрет спикера плывёт за курсором. Портрет небольшой и без тонировки: ч/б фото на одной нейтральной подложке, поэтому любые исходные фоны выглядят одинаково. Справа у каждой строки круглая кнопка-стрелка, которая заливается при наведении, видно, что строка ведёт дальше. Описание рубрики стоит под заголовком. Классический приём Awwwards в фирменной типографике. <i>Наведите на строки. Что можно забрать: смену голоса шрифта на ховере, портрет за курсором.</i></p></header>
+    <div class="frame"><div class="stage t1" style="height:900px">
+      <h2>Market talks</h2>
+      <p class="meta"><span>Weekly · 5 talks · 54 min</span>Short talks where Valta bankers explain how they read markets, risk and timing.</p>
+      <div class="list" id="t1list"></div>
+      <div class="float" id="t1float"><div class="ph"><img class="p" alt=""></div><img class="c" src="assets/coin-gold-v.webp" alt=""></div>
+    </div></div>
+  </article>
+
+  <!-- T2 -->
+  <article class="v" id="T2">
+    <header class="vh"><b>T2</b><h3>Плеер</h3><p>Talks как подкаст или видео. Главный выпуск — большая карточка с фото-атмосферой кейса, отодвинутая от заголовка. Название выпуска сбалансировано без висячих слов. Плеер — аккуратная продуктовая панель на белом матовом стекле: чёрная кнопка Play с иконкой точно по центру, прошедшее и общее время по краям, плотная волна во всю ширину (по ней можно перематывать кликом), скорость 1×. Справа очередь: ч/б портреты на общей подложке, у каждой карточки кнопка Play, которая загорается при наведении. <i>Нажмите Play или кликните по волне. Что можно забрать: медиаформат, продуктовый плеер.</i></p></header>
+    <div class="frame"><div class="stage t2" style="height:940px">
+      <div class="hd"><span class="mono sq" style="opacity:.6">Market talks</span><h2>Listen before you <span class="ser">invest.</span></h2></div>
+      <div class="feat">
+        <span class="chipv mono">Video · 12 min</span>
+        <h3>Why capital needs structure before growth</h3>
+        <div class="au"><span class="pf" style="width:40px;height:40px;border-radius:50%"><img src="assets/p-victor.webp" alt=""></span><span class="mono">Victor Halden · Portfolio strategist</span></div>
+        <div class="bar"><button class="play" id="t2play" aria-pressed="false" aria-label="Play"><svg class="pl" viewBox="0 0 20 20"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg><svg class="pz" viewBox="0 0 20 20"><path d="M5 3h3.5v14H5zM11.5 3H15v14h-3.5z" fill="currentColor"/></svg></button><span class="tm tab" id="t2time">03:00</span><div class="wave" id="t2wave"></div><span class="tm tab">12:00</span><span class="sp">1×</span></div>
+      </div>
+      <div class="q" id="t2q"></div>
+    </div></div>
+  </article>
+
+  <!-- T3 -->
+  <article class="v" id="T3">
+    <header class="vh"><b>T3</b><h3>Лента цитат</h3><p>Заголовок блока главный (112px), карточки ниже и плотнее. Каждый выпуск — одна ключевая фраза крупной антиквой, отделённая от автора линией, чтобы пространство между ними работало как пауза, а не как пустота. Карточки разной ширины и материала: глубокий синий, белый, фото, бумага; монета живёт в строке номера и не заходит на текст. Лента листается мышью или стрелками. <i>Перетащите ленту. Что можно забрать: мысль как превью, разные материалы карточек.</i></p></header>
+    <div class="frame"><div class="stage t3" style="height:720px">
+      <div class="hd"><h2>Market talks</h2><div class="ar"><button id="t3p" aria-label="Previous">←</button><button id="t3n" aria-label="Next">→</button></div></div>
+      <div class="rail" id="t3rail"><div class="track">
+        <div class="qc q1"><div class="lb mono" style="opacity:.6"><span>№ 01 · Structure</span></div><blockquote>“Structure first. Growth is what structure earns.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-victor.webp" alt=""></span><div><b>Victor Halden</b><span class="mono" style="opacity:.6">Portfolio strategist</span></div><span class="ls mono">▶ 12 min</span></div></div>
+        <div class="qc q2"><div class="lb mono"><span>№ 02 · Risk</span></div><blockquote>“Risk is a number you can live with, not one you pick.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-martin.webp" alt=""></span><div><b>Martin Ellwood</b><span class="mono" style="opacity:.6">CIO</span></div><span class="ls mono">▶ 8 min</span></div></div>
+        <div class="qc q3"><div class="lb mono" style="opacity:.7"><span>№ 03 · Timing</span></div><blockquote style="font-size:62px">“Waiting is also a position, and it has a price.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-elena.webp" alt=""></span><div><b>Elena Voss</b><span class="mono" style="opacity:.7">Private capital strategist</span></div><span class="ls mono">▶ 15 min</span></div></div>
+        <div class="qc q4"><div class="lb mono"><span>№ 04 · Liquidity</span><img class="cn" src="assets/coin-bronze-l.webp" alt=""></div><blockquote>“Liquidity is a decision, not a leftover.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-adrian.webp" alt=""></span><div><b>Adrian Keller</b><span class="mono" style="opacity:.6">Growth strategist</span></div><span class="ls mono">▶ 10 min</span></div></div>
+        <div class="qc q5"><div class="lb mono" style="opacity:.6"><span>№ 05 · Review</span></div><blockquote>“A review that changes nothing was a meeting.”</blockquote><div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-daniel.webp" alt=""></span><div><b>Daniel Morozov</b><span class="mono" style="opacity:.6">Risk allocation</span></div><span class="ls mono">▶ 9 min</span></div></div>
+      </div></div>
+    </div></div>
+  </article>
+
+  <!-- T4 -->
+  <article class="v" id="T4">
+    <header class="vh"><b>T4</b><h3>Постеры</h3><p>Выпуски как серия постеров в духе соцсетей из кейса: чёрный с золотом, ультрамарин с чертежом, фото-зебра, белый с серебром. Моноширинный капс, коды VLT, при наведении постер наклоняется за курсором. <i>Что можно забрать: айдентику кейса прямо на сайте, серийность.</i></p></header>
+    <div class="frame"><div class="stage t4" style="height:860px">
+      <div class="hd"><h2>Market talks<br><span class="ser">weekly advisory sessions</span></h2><span class="mono" style="color:#55555c">Every Thursday · 18:00 GMT</span></div>
+      <div class="row" id="t4row">
+        <div class="po p1"><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-11</span></div><img class="art" src="assets/coin-gold-v.webp" alt=""><div class="ti">Why capital needs structure before growth</div><div class="ft"><span>Victor Halden</span><span>12 min</span></div></div>
+        <div class="po p2"><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-12</span></div><svg class="art" viewBox="0 0 220 220"><use href="#eng-dec"/></svg><div class="ti">How bankers read risk</div><div class="ft"><span>Martin Ellwood</span><span>8 min</span></div></div>
+        <div class="po p3"><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-13</span></div><div class="ti">Gold, bonds and the cost of waiting</div><div class="ft"><span>Elena Voss</span><span>15 min</span></div></div>
+        <div class="po p4"><span class="rings"></span><div class="tp"><svg viewBox="0 0 120 15"><use href="#logo"/></svg><span class="mono" style="font-size:10px">VLT-14</span></div><img class="art" src="assets/coin-silver-o.webp" alt=""><div class="ti">Liquidity is a decision</div><div class="ft"><span>Adrian Keller</span><span>10 min</span></div></div>
+      </div>
+      <div class="bt"><span class="mono">04 sessions this month</span><span class="pill" style="--pill-in:#fff">All sessions<i></i></span></div>
+    </div></div>
+  </article>
+
+  <!-- T5 -->
+  <article class="v" id="T5">
+    <header class="vh"><b>T5</b><h3>Расписание</h3><p>Talks как живое событие. Слева обратный отсчёт до следующей сессии, название и спикер одной плотной группой, кнопки и легенда. Справа проработанный недельный календарь: шкала часов, сегодняшний день выделен, красная линия «сейчас». Сессии трёх состояний: Live (заливка), Upcoming (акцентная кромка), Replay (приглушённые, с длительностью). У Live виден спикер. <i>Таймер идёт. Что можно забрать: время как графика, календарь как интерфейс.</i></p></header>
+    <div class="frame"><div class="stage t5" style="height:880px">
+      <div class="l">
+        <div class="live mono"><i></i>Next session · live in</div>
+        <div class="cd tab" id="t5cd">02:14:33</div>
+        <div class="mono" style="color:#77777f">Tue 27 Oct · 18:00 GMT · 40 min + Q&amp;A</div>
+        <h3>How bankers read risk <span class="ser">before</span> building a portfolio</h3>
+        <div class="au"><span class="pf" style="width:52px;height:52px;border-radius:50%"><img src="assets/p-martin.webp" alt=""></span><div><b>Martin Ellwood</b><span class="mono" style="color:#77777f">Chief investment officer</span></div></div>
+        <div class="btns"><span class="d">Remind me</span><span class="o">Add to calendar</span></div>
+        <div class="lgd"><span><i style="background:var(--u)"></i>Live</span><span><i style="background:#fff;box-shadow:inset 3px 0 0 var(--u),0 0 0 1px #e3e3df"></i>Upcoming</span><span><i style="background:#fff;box-shadow:inset 3px 0 0 #c9c9c5,0 0 0 1px #e3e3df"></i>Replay</span></div>
+      </div>
+      <div class="cal" id="t5cal"></div>
+    </div></div>
+  </article>
+</section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  const T=[['Why capital needs structure before growth','Victor Halden','p-victor','12'],['How bankers read risk','Martin Ellwood','p-martin','08'],['Gold, bonds and the cost of waiting','Elena Voss','p-elena','15'],['Liquidity is a decision','Adrian Keller','p-adrian','10'],['What a quarterly review should change','Daniel Morozov','p-daniel','09']];
+
+  // T1 index + floating portrait
+  const st=document.querySelector('.t1'), list=document.getElementById('t1list'), fl=document.getElementById('t1float'), fimg=fl.querySelector('.p');
+  list.innerHTML=T.map((t,i)=>`<div class="r" data-i="${i}"><span class="mono">№ ${String(i+1).padStart(2,'0')}</span><span class="ti">${t[0]}</span><span class="mono">${t[1]}</span><span class="mono">${t[3]} min</span><span class="ar"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 10h12M11 5l5 5-5 5"/></svg></span></div>`).join('');
+  let tx=0,ty=0,x=0,y=0,on=false;
+  st.addEventListener('pointermove',e=>{const r=st.getBoundingClientRect(),k=r.width/1440;tx=(e.clientX-r.left)/k;ty=(e.clientY-r.top)/k;const row=e.target.closest('.r');on=!!row;if(row)fimg.src='assets/'+T[row.dataset.i][2]+'.webp';fl.style.opacity=on?1:0});
+  st.addEventListener('pointerleave',()=>{on=false;fl.style.opacity=0});
+  (function loop(){const dx=tx-x;x+=dx*.12;y+=(ty-y)*.12;fl.style.transform=`translate(${x+36}px,${y-94}px) rotate(${Math.max(-12,Math.min(12,dx*.08))}deg)`;requestAnimationFrame(loop)})();
+
+  // T2 waveform + queue
+  const wave=document.getElementById('t2wave'); const N=110; let h='';
+  for(let i=0;i<N;i++){const v=Math.round(6+Math.abs(Math.sin(i*.29)*Math.cos(i*.07)+Math.sin(i*1.7)*.25)*36);h+=`<i style="height:${Math.min(46,v)}px"></i>`}
+  wave.innerHTML=h; const bars=[...wave.children]; let pos=25, timer=null;
+  const paint=()=>{bars.forEach((b,i)=>b.classList.toggle('on',i<pos*N/100));const s=Math.round(pos/100*720);document.getElementById('t2time').textContent=`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`};
+  wave.addEventListener('click',e=>{const r=wave.getBoundingClientRect();pos=(e.clientX-r.left)/r.width*100;paint()});
+  paint();
+  const pb=document.getElementById('t2play');
+  pb.onclick=()=>{const p=pb.getAttribute('aria-pressed')!=='true';pb.setAttribute('aria-pressed',p);clearInterval(timer);if(p)timer=setInterval(()=>{pos=(pos+.4)%100;paint()},120)};
+  document.getElementById('t2q').innerHTML=T.slice(1).map(t=>`<div class="qi"><span class="pf"><img src="assets/${t[2]}.webp" alt=""></span><div><span class="mono" style="opacity:.45;font-size:10px">${t[3]} min · Audio</span><b>${t[0]}</b><span class="mono" style="opacity:.7">${t[1]}</span></div><span class="pb"><svg viewBox="0 0 20 20"><path d="M6 3.5v13l11-6.5z" fill="currentColor"/></svg></span></div>`).join('');
+
+  // T3 rail: drag + arrows
+  const rail=document.getElementById('t3rail'); let dn=false,sx=0,sl=0;
+  rail.addEventListener('pointerdown',e=>{dn=true;sx=e.clientX;sl=rail.scrollLeft;rail.style.scrollBehavior='auto';rail.setPointerCapture(e.pointerId)});
+  rail.addEventListener('pointermove',e=>{if(!dn)return;const k=rail.getBoundingClientRect().width/1440;rail.scrollLeft=sl-(e.clientX-sx)/k});
+  rail.addEventListener('pointerup',()=>{dn=false;rail.style.scrollBehavior='smooth'});
+  document.getElementById('t3p').onclick=()=>rail.scrollLeft-=500; document.getElementById('t3n').onclick=()=>rail.scrollLeft+=500;
+
+  // T4 poster tilt
+  document.querySelectorAll('.t4 .po').forEach(p=>{
+    p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();const px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;p.style.transform=`rotateY(${px*14}deg) rotateX(${-py*14}deg) translateZ(20px)`;p.style.boxShadow=`${-px*30}px ${40-py*20}px 60px -30px rgba(0,0,0,.55)`});
+    p.addEventListener('pointerleave',()=>{p.style.transform='';p.style.boxShadow=''});
+  });
+
+  // T5 calendar + countdown
+  const days=[['MON',26],['TUE',27],['WED',28],['THU',29],['FRI',30],['SAT',31],['SUN',1]], H0=9, H1=21, PH=56;
+  const ev={0:[[10,1.3,'past','Replay · 12 min','Why capital needs structure'],[14.5,1.3,'past','Replay · 9 min','What a review should change']],
+    1:[[18,1.6,'onair','Live · 18:00','How bankers read risk','p-martin','M. Ellwood']],
+    2:[[9.5,1.3,'past','Office hours','Ask a banker anything']],
+    3:[[11,1.3,'soon','11:00 · 30 min','Office hours'],[18,1.3,'soon','18:00 · 15 min','Gold, bonds and the cost of waiting']],
+    4:[[12,1.3,'soon','12:00 · 10 min','Liquidity is a decision']]};
+  const cal=document.getElementById('t5cal');
+  let ch='<div class="dh"></div>'+days.map((d,i)=>`<div class="dh${i===1?' today':''}"><span>${d[0]}</span><b class="tab">${d[1]}</b></div>`).join('');
+  ch+=`<div class="ax">${Array.from({length:H1-H0},(_,k)=>k?`<span style="top:${k*PH}px">${String(H0+k).padStart(2,'0')}:00</span>`:'').join('')}</div>`;
+  ch+=days.map((d,i)=>`<div class="col${i===1?' today':''}${i>4?' we':''}" style="--ph:${PH}px">${i===1?`<div class="now" style="top:${(15.76-H0)*PH}px"></div>`:''}${(ev[i]||[]).map(e=>`<div class="ev ${e[2]}" style="top:${(e[0]-H0)*PH+2}px;height:${e[1]*PH-4}px"><small>${e[3]}</small><b>${e[4]}</b>${e[5]?`<div class="sp"><img src="assets/${e[5]}.webp" alt="">${e[6]}</div>`:''}</div>`).join('')}</div>`).join('');
+  cal.innerHTML=ch;
+  let left=2*3600+14*60+33; const cd=document.getElementById('t5cd');
+  setInterval(()=>{left=left>0?left-1:8040;cd.textContent=[Math.floor(left/3600),Math.floor(left%3600/60),left%60].map(n=>String(n).padStart(2,'0')).join(':')},1000);
+});
+</script>
+<style>
+/* ---------- A1 · Giant index ---------- */
+.a1{background:#060607;color:#fff}
+.a1 .hd{position:absolute;left:40px;right:40px;top:44px;display:flex;justify-content:space-between;color:rgba(255,255,255,.6)}
+.a1 .list{position:absolute;left:40px;right:40px;top:100px}
+.a1 .it{border-top:1px solid rgba(255,255,255,.22);transition:opacity .4s}
+.a1 .it:last-child{border-bottom:1px solid rgba(255,255,255,.22)}
+.a1 .list.has .it:not(.open){opacity:.42}
+.a1 .it button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:90px 1fr 60px;align-items:center;height:120px;cursor:pointer}
+.a1 .it button:focus-visible{outline:2px solid var(--u-hi)}
+.a1 .it .nm{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 100;font-size:80px;line-height:1;letter-spacing:-.03em;text-transform:uppercase;transition:font-variation-settings .6s cubic-bezier(.2,.8,.2,1)}
+.a1 .it button:hover .nm,.a1 .it.open .nm{font-variation-settings:"wdth" 125}
+.a1 .it .pl{justify-self:end;font-size:30px;font-weight:200;transition:transform .5s}
+.a1 .it.open .pl{transform:rotate(45deg)}
+.a1 .bd{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s cubic-bezier(.2,.8,.2,1)}
+.a1 .it.open .bd{grid-template-rows:1fr}
+.a1 .bd>div{overflow:hidden}
+.a1 .in{display:grid;grid-template-columns:90px minmax(0,1fr) 260px;padding:0 0 48px;align-items:end}
+.a1 .in .tx{grid-column:2;max-width:640px}
+.a1 .in p{margin:0;font-size:18px;line-height:1.45;color:rgba(255,255,255,.78)}
+.a1 .in ul{list-style:none;margin:0 0 18px;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.a1 .in ul li{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:8px 12px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:rgba(255,255,255,.85)}
+.a1 .in .mt{grid-column:3;text-align:right}
+.a1 .in .mt b{display:block;font-family:var(--f-disp);font-weight:200;font-size:84px;line-height:.9;letter-spacing:-.04em}
+.a1 .in img{position:absolute}
+.a1 .coin{position:absolute;right:380px;width:104px;pointer-events:none;transition:top .6s cubic-bezier(.2,.8,.2,1),opacity .4s;animation:spinY 7s linear infinite;filter:drop-shadow(0 20px 30px rgba(83,87,242,.35))}
+
+/* ---------- A2 · List + live stage ---------- */
+.a2{background:#fff;color:#111}
+.a2 .l{position:absolute;left:40px;top:50px;width:460px}
+.a2 .l h2{margin:0 0 40px;font-family:var(--f-disp);font-weight:400;font-size:56px;line-height:.98;letter-spacing:-.035em}
+.a2 .l h2 .ser{font-size:64px}
+.a2 .l button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:50px 1fr 30px;align-items:center;height:76px;border-top:1px solid #e3e3e0;cursor:pointer;color:#a3a3a8;transition:color .3s}
+.a2 .l h2+button{border-top:0}
+.a2 .l button b{font-family:var(--f-disp);font-weight:400;font-size:30px;letter-spacing:-.02em}
+.a2 .l button[aria-selected=true],.a2 .l button:hover{color:#111}
+.a2 .l button[aria-selected=true] .ar{opacity:1;transform:none}
+.a2 .l button .ar{opacity:0;transform:translateX(-10px);transition:.3s}
+.a2 .l button:focus-visible{outline:2px solid var(--u)}
+.a2 .stg{position:absolute;left:560px;right:40px;top:40px;bottom:40px;border-radius:34px;background:radial-gradient(700px 500px at 60% 40%,#5357F2,#3E42DC 60%,#2D30BE);overflow:hidden;color:#fff}
+.a2 .pn{position:absolute;inset:0;padding:40px;opacity:0;transform:translateY(20px) scale(.98);transition:opacity .5s,transform .6s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.a2 .pn .eg{position:absolute;right:-120px;bottom:-140px;width:560px;height:560px;color:rgba(255,255,255,.12)}
+.a2 .pn .ph h3{margin:10px 0 0;font-family:var(--f-disp);font-weight:400;font-size:44px;line-height:1;letter-spacing:-.03em}
+.a2 .pn .ph p{margin:12px 0 0;max-width:520px;font-size:16px;line-height:1.45;color:rgba(255,255,255,.78)}
+.a2 .pn .ui{position:absolute;left:40px;right:40px;top:230px;bottom:190px;display:flex;align-items:center;justify-content:center}
+.a2 .pn .ui>*{margin-top:0!important}
+.a2 .pn .ft{position:absolute;left:40px;right:40px;bottom:36px;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:20px;padding-top:22px;border-top:1px solid rgba(255,255,255,.25);align-items:start}
+.a2 .pn .ft .mt b{display:block;font-family:var(--f-disp);font-weight:200;font-size:64px;line-height:.85;letter-spacing:-.04em}
+.a2 .pn .ft .mt span{display:block;margin-top:10px;opacity:.7}
+.a2 .pn .ft .fi{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:14px;padding-left:18px;border-left:1px solid rgba(255,255,255,.25)}
+.a2 .pn .ft .fi span{opacity:.6}
+.a2 .pn .ft .fi b{font-family:var(--f-disp);font-weight:400;font-size:17px;line-height:1.2;letter-spacing:-.01em;text-wrap:balance}
+.a2 .pn.on{opacity:1;transform:none;pointer-events:auto}
+
+
+
+.a2 .wc{background:#fff;color:#111;border-radius:24px;padding:20px;box-shadow:0 30px 60px -30px rgba(0,0,40,.6)}
+.a2 .mono.g{color:#8a8a92}
+
+/* ---------- A3 · Dial ---------- */
+.a3{background:radial-gradient(800px 800px at 36% 50%,#4E52EE 0%,#3E42DC 45%,#2A2DB4 100%);color:#fff}
+.a3 .dial{position:absolute;left:140px;top:80px;width:760px;height:760px;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.a3 .dial svg.e{position:absolute;inset:0;width:100%;height:100%;color:#fff;opacity:.32}
+.a3 .dial svg.e use{stroke-width:1.2}
+.a3 .node{position:absolute;width:0;height:0}
+.a3 .node button{all:unset;position:absolute;left:-90px;top:-26px;width:180px;height:52px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;transition:transform 1.1s cubic-bezier(.2,.8,.2,1)}
+.a3 .node button::before{content:"";width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 0 0 7px rgba(255,255,255,.15);flex:none}
+.a3 .node button span{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;background:rgba(20,22,90,.55);padding:6px 10px;border-radius:999px}
+.a3 .node.on button span{background:#fff;color:var(--u)}
+.a3 .node button:focus-visible span{outline:2px solid #fff}
+.a3 .center{position:absolute;left:370px;top:310px;width:300px;height:300px}
+
+.a3 .center img{position:absolute;inset:0;width:100%;height:100%;margin-top:-4.5px;filter:drop-shadow(0 18px 26px rgba(10,10,60,.35));transition:opacity .4s,transform .9s cubic-bezier(.2,.8,.2,1)}
+.a3 .r{position:absolute;left:980px;right:40px;top:120px}
+.a3 .r .ix{color:rgba(255,255,255,.7)}
+.a3 .r h3{margin:18px 0 0;font-family:var(--f-disp);font-weight:400;font-size:64px;line-height:.96;letter-spacing:-.04em}
+.a3 .r p{font-size:17px;line-height:1.45;color:rgba(255,255,255,.82);margin:16px 0 36px;max-width:420px}
+.a3 .r ul{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.3)}
+.a3 .r li{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.22);font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase}
+.a3 .r li .ti{width:18px;height:18px;color:var(--sig);flex:none}
+.a3 .r .mt{margin-top:28px;display:flex;align-items:baseline;gap:14px}
+.a3 .r .mt b{font-family:var(--f-disp);font-weight:200;font-size:44px;letter-spacing:-.03em}
+.a3 .r .mt span{color:rgba(255,255,255,.7)}
+.a3 .hd{position:absolute;left:40px;top:44px;color:rgba(255,255,255,.7)}
+
+/* ---------- A4 · Strips ---------- */
+.a4{background:var(--paper);color:#111}
+.a4 .hd{position:absolute;left:40px;right:40px;top:40px;display:flex;justify-content:space-between;align-items:flex-end}
+.a4 .hd h2{margin:0;font-family:var(--f-disp);font-weight:400;font-size:56px;letter-spacing:-.035em;line-height:1}
+.a4 .st{position:absolute;left:40px;right:40px;top:140px;bottom:40px;display:flex;gap:8px}
+.a4 .s{flex:0 0 118px;border-radius:24px;background:#fff;box-shadow:0 0 0 1px rgba(0,0,0,.06);position:relative;overflow:hidden;cursor:pointer;transition:flex .8s cubic-bezier(.2,.8,.2,1),background .5s,color .5s}
+.a4 .s.on{flex:1 1 auto;background:var(--u);color:#fff;cursor:default}
+.a4 .s .ix{position:absolute;left:22px;top:22px}
+.a4 .s .vt{position:absolute;left:30px;bottom:110px;writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--f-disp);font-weight:400;font-variation-settings:"wdth" 110;font-size:34px;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;transition:opacity .3s}
+.a4 .s .sc{position:absolute;left:24px;bottom:24px;width:70px;transition:opacity .3s}
+.a4 .s.on .vt,.a4 .s.on .sc{opacity:0;transition:opacity .08s}
+.a4 .s .op{position:absolute;left:40px;right:40px;top:64px;bottom:40px;display:flex;flex-direction:column;opacity:0;transition:opacity .4s .2s;z-index:2}
+.a4 .s.on .op{opacity:1}
+.a4 .s .op h3{margin:0;max-width:560px;font-family:var(--f-disp);font-weight:300;font-size:66px;line-height:.95;letter-spacing:-.04em;text-wrap:balance}
+.a4 .s .op p{font-size:17px;line-height:1.45;color:rgba(255,255,255,.75);margin:14px 0 0;max-width:440px}
+.a4 .s .op ul{list-style:none;margin:32px 0 0;padding:0;width:380px;font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#fff}
+.a4 .s .op ul li{display:flex;justify-content:space-between;padding:11px 0;border-top:1px solid rgba(255,255,255,.28)}
+.a4 .s .op ul li:last-child{border-bottom:1px solid rgba(255,255,255,.28)}
+.a4 .s .op ul li .ti{width:16px;height:16px;color:var(--sig);flex:none}
+.a4 .s .bg{position:absolute;right:-110px;bottom:-110px;width:380px;opacity:0;transform:rotate(-20deg) scale(.8);transition:opacity .6s .2s,transform 1s cubic-bezier(.2,.8,.2,1) .1s;filter:drop-shadow(0 30px 40px rgba(0,0,40,.45))}
+.a4 .s.on .bg{opacity:1;transform:none}
+.a4 .s .mt{margin-top:auto}
+
+.a4 .s .mt{display:flex;align-items:baseline;gap:14px;padding-top:18px;border-top:1px solid rgba(255,255,255,.28);width:380px}
+.a4 .s .mt b{font-family:var(--f-disp);font-weight:300;font-size:40px;line-height:1;letter-spacing:-.03em}
+.a4 .s .mt span{display:block}
+
+/* ---------- A5 · Terminal ---------- */
+.a5{background:#060608;color:#D9DAE6;font-family:var(--f-mono)}
+.a5 .bar{position:absolute;left:40px;right:40px;top:40px;display:flex;justify-content:space-between;font-size:13px;color:#8C8EA8;padding-bottom:18px;border-bottom:1px dashed #2A2B38}
+.a5 .bar b{color:#fff;font-weight:500}
+.a5 .cur{display:inline-block;width:9px;height:16px;background:var(--u-hi);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.a5 h2{position:absolute;left:40px;top:96px;margin:0;font-family:var(--f-mono);font-weight:400;font-size:56px;letter-spacing:-.03em;color:#fff;text-transform:uppercase}
+.a5 h2 span{color:var(--u-hi)}
+.a5 .rows{position:absolute;left:40px;right:40px;top:200px}
+.a5 .row button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:50px 60px auto 1fr auto;gap:16px;align-items:center;height:62px;padding:0 16px;font-size:15px;cursor:pointer;border-radius:8px}
+.a5 .row button:hover{background:#12131A}
+.a5 .row button:focus-visible{outline:1px solid var(--u-hi)}
+.a5 .row.on button{background:var(--u);color:#fff}
+.a5 .row .lead{border-bottom:1px dotted #3A3B4A;height:1px;align-self:center}
+.a5 .row.on .lead{border-color:rgba(255,255,255,.5)}
+.a5 .row .k{color:#8C8EA8}.a5 .row.on .k{color:rgba(255,255,255,.75)}
+.a5 .sub{display:none;padding:14px 16px 18px 142px;font-size:13px;line-height:2;color:#A9ABC4}
+.a5 .row.on .sub{display:block}
+.a5 .sub div{white-space:nowrap;overflow:hidden;width:0;animation:type .5s steps(40) forwards}
+.a5 .sub div:nth-child(2){animation-delay:.35s}.a5 .sub div:nth-child(3){animation-delay:.7s}.a5 .sub div:nth-child(4){animation-delay:1.05s}
+@keyframes type{to{width:100%}}
+.a5 .sub .ok{color:var(--sig)}
+.a5 .prompt{position:absolute;left:40px;bottom:40px;font-size:15px;color:#fff}
+.a5 .prompt span{color:var(--u-hi)}
+</style>
+
+<section class="block" id="acc">
+  <div class="block-h"><span class="n">05</span><h2>Аккордеон</h2><p>Advisory capabilities: шесть услуг. Сейчас это строки со стрелками. Варианты превращают список в событие.</p></div>
+
+  <!-- A1 -->
+  <article class="v" id="A1">
+    <header class="vh"><b>A1</b><h3>Гигантский индекс</h3><p>Шесть строк огромным капсом. Широкая ось Archivo «дышит»: строка под курсором плавно расширяется до wide. Открытая строка разворачивается: на той же левой оси, что и заголовок, сначала строка тезисов-чипов, под ней описание, справа большая цифра. У строк больше воздуха у разделителей. Остальные строки гаснут, монета перекатывается к открытой. <i>Кликните по строке. Что можно забрать: вариативную ширину шрифта как моушн.</i></p></header>
+    <div class="frame"><div class="stage a1" style="height:1080px">
+      <div class="hd mono"><span class="sq">Advisory capabilities</span><span class="tab" id="a1n">02 / 06</span></div>
+      <div class="list has" id="a1list"></div>
+      <img class="coin" id="a1coin" src="assets/coin-silver-a.webp" alt="">
+    </div></div>
+  </article>
+
+  <!-- A2 -->
+  <article class="v" id="A2">
+    <header class="vh"><b>A2</b><h3>Список и сцена</h3><p>Слева спокойный список без внешних рамок, справа ультрамариновая сцена со строгой иерархией: номер, название услуги крупно, описание; в центре кусок живого интерфейса (подбор банкиров, сравнение моделей, профиль риска, ревью, аллокация, отчёт); внизу полоса фактов: главная цифра и три тезиса как ячейки спецификации (номер и короткая фраза, разделённые тонкими линиями). Фоном гравировка монеты, чтобы пространство работало. Объясняем не словами, а продуктом. <i>Переключайте пункты. Что можно забрать: UI-фрагменты как иллюстрации.</i></p></header>
+    <div class="frame"><div class="stage a2" style="height:900px">
+      <div class="l" role="tablist" id="a2tabs"><h2>Advisory <span class="ser">capabilities</span></h2></div>
+      <div class="stg" id="a2stage"></div>
+    </div></div>
+  </article>
+
+  <!-- A3 -->
+  <article class="v" id="A3">
+    <header class="vh"><b>A3</b><h3>Циферблат</h3><p>Услуги расставлены по кругу на гравировке монеты, как деления. Выбранная услуга поворачивает весь циферблат к верхней точке. Монета стоит прямо на гравировке, строго по центру циферблата, без подложек и колец, и сменяется поворотом. Гравировка нарисована ровными линиями без наслоений на пересечениях. Справа иерархия: служебный номер, крупное название, описание, тезисы и цифра в конце. Бренд-геометрия становится навигацией. <i>Кликните по точке на круге. Что можно забрать: гравировку как интерфейс.</i></p></header>
+    <div class="frame"><div class="stage a3" style="height:920px">
+      <span class="hd mono sq">Advisory capabilities</span>
+      <div class="dial" id="a3dial"><svg class="e" viewBox="0 0 220 220"><use href="#eng"/></svg></div>
+      <div class="center"><img id="a3coin" src="assets/coin-gold-v.webp" alt=""></div>
+      <div class="r" id="a3r"></div>
+    </div></div>
+  </article>
+
+  <!-- A4 -->
+  <article class="v" id="A4">
+    <header class="vh"><b>A4</b><h3>Полосы</h3><p>Горизонтальный аккордеон: шесть вертикальных полос с повёрнутыми названиями и маленькими монетами. Полоса под курсором раскрывается во весь блок и становится ультрамариновой. Содержимое идёт в потоке: название с переносом, описание прижато к нему, тезисы белым списком с галочками, внизу цифра на втором уровне (мельче, в одной строке с подписью), чтобы главным оставалось название, в угол вкатывается монета. Длинные названия ни на что не наезжают. <i>Ведите курсор по полосам. Что можно забрать: горизонтальную механику, повёрнутую типографику.</i></p></header>
+    <div class="frame"><div class="stage a4" style="height:880px">
+      <div class="hd"><h2>Advisory capabilities</h2><span class="mono" style="color:#77777f">Built for private wealth</span></div>
+      <div class="st" id="a4st"></div>
+    </div></div>
+  </article>
+
+  </section>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  const C=[
+    {n:'Banker selection',k:'BANKER_SELECTION',d:'We shortlist three verified bankers whose approach fits your capital, horizon and temperament, and show why each one made the cut.',l:['48 verified bankers','6 vetting criteria','Shortlist in 48 hours'],m:'48',ml:'Verified bankers',c:'coin-gold-v'},
+    {n:'Strategy matching',k:'STRATEGY_MATCHING',d:'Every banker’s models are compared on the same terms: what they hold, how they moved, and what role they play in your portfolio.',l:['9 model families','Side-by-side comparison','Same metrics for all'],m:'312',ml:'Strategy models',c:'coin-silver-a'},
+    {n:'Risk profiling',k:'RISK_PROFILING',d:'A short diagnostic turns your tolerance into a number you can see, so volatility is agreed before the first allocation.',l:['42 parameters','15-minute diagnostic','Safe · Moderate · Aggressive'],m:'15′',ml:'Diagnostic time',c:'coin-bronze-l'},
+    {n:'Portfolio review',k:'PORTFOLIO_REVIEW',d:'Each quarter your banker reviews the structure in writing: what changed, why, and what stays the same.',l:['Quarterly, in writing','Status you can track','Reviewed · Approved · In progress'],m:'4×',ml:'Reviews a year',c:'coin-gold-t'},
+    {n:'Asset allocation',k:'ASSET_ALLOCATION',d:'Capital is split across instruments, sectors and strategies with a clear reason for every weight.',l:['Gold · Silver · Bronze models','Rebalancing rules','Liquidity reserve'],m:'5–12',ml:'Assets per model',c:'coin-silver-o'},
+    {n:'Client reporting',k:'CLIENT_REPORTING',d:'One report, in plain language: performance, exposure and the decisions behind them, available any time.',l:['Live dashboard','Monthly statement','Decision log'],m:'24/7',ml:'Access to reports',c:'coin-bronze-g'}];
+
+  // A1
+  const l1=document.getElementById('a1list'), coin1=document.getElementById('a1coin');
+  l1.innerHTML=C.map((c,i)=>`<div class="it"><button aria-expanded="false"><span class="mono">${String(i+1).padStart(2,'0')}</span><span class="nm">${c.n}</span><span class="pl">+</span></button><div class="bd"><div><div class="in"><div class="tx"><ul>${c.l.map(x=>`<li>${x}</li>`).join('')}</ul><p>${c.d}</p></div><div class="mt"><b class="chrome">${c.m}</b><span class="mono" style="opacity:.6">${c.ml}</span></div></div></div></div></div>`).join('');
+  const its=[...l1.children];
+  function o1(i){its.forEach((it,k)=>{it.classList.toggle('open',k===i);it.querySelector('button').setAttribute('aria-expanded',k===i)});
+    l1.classList.toggle('has',i>=0);document.getElementById('a1n').textContent=String(i+1).padStart(2,'0')+' / 06';
+    coin1.src='assets/'+C[i].c+'.webp';coin1.style.top=(100+i*121+150)+'px'}
+  its.forEach((it,i)=>it.querySelector('button').onclick=()=>o1(i)); o1(1);
+
+  // A2
+  const tabs=document.getElementById('a2tabs'), stg=document.getElementById('a2stage');
+  const P=[
+    `<div style="display:flex;gap:12px;margin-top:40px">${[['p-elena','Elena Voss','96%'],['p-victor','Victor Halden','91%'],['p-adrian','Adrian Keller','88%']].map((b,i)=>`<div class="wc" style="width:220px;transform:translateY(${i*24}px)"><img src="assets/${b[0]}.webp" style="width:100%;height:200px;object-fit:cover;object-position:top;border-radius:14px" alt=""><div style="font-family:var(--f-disp);font-size:20px;margin-top:12px">${b[1]}</div><div class="mono g" style="margin-top:4px">Match ${b[2]}</div></div>`).join('')}</div>`,
+    `<div style="display:flex;gap:12px;margin-top:40px">${[0,4].map(i=>{const s=VS[i];return `<div class="wc" style="width:330px"><div style="display:flex;justify-content:space-between"><span style="font-family:var(--f-disp);font-size:56px;letter-spacing:-.03em">${s.t}</span><img src="assets/${VCOIN(i)}.webp" style="width:56px" alt=""></div><svg viewBox="0 0 290 80" style="width:100%;height:80px;margin:10px 0"><path d="${VSTEP(s.seed,290,80,14)}" fill="none" stroke="#3E42DC" stroke-width="2"/></svg>${[['12M return',(8+s.seed%9+.4).toFixed(1)+'%'],['Volatility',(4+s.seed%7+.2).toFixed(1)+'%'],['Assets',s.a.length]].map(r=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #eee" class="mono"><span class="g">${r[0]}</span><span>${r[1]}</span></div>`).join('')}</div>`}).join('')}</div>`,
+    `<div class="wc" style="width:520px;margin-top:60px;padding:26px"><div class="mono g">Risk profile</div><div style="display:flex;gap:4px;margin:16px 0 22px;background:#f1f1ef;border-radius:12px;padding:4px">${['Safe','Moderate','Aggressive'].map((x,i)=>`<span class="mono" style="flex:1;text-align:center;padding:10px 0;border-radius:9px;${i==1?'background:#151517;color:#fff':'color:#77777f'}">${x}</span>`).join('')}</div><div style="display:flex;justify-content:space-between;align-items:flex-end"><span style="font-family:var(--f-disp);font-size:64px;letter-spacing:-.04em">4.2<span style="font-size:28px;color:#aaa"> / 10</span></span><span class="mono g">Risk score</span></div><div style="height:4px;border-radius:4px;background:linear-gradient(90deg,#151517 42%,#e5e5e2 42%);margin-top:16px;position:relative"><i style="position:absolute;left:42%;top:50%;width:22px;height:22px;margin:-11px;border-radius:50%;background:#151517;box-shadow:0 0 0 5px #fff,0 3px 10px rgba(0,0,0,.3)"></i></div></div>`,
+    `<div class="wc" style="width:100%;margin-top:30px;padding:10px 24px">${[['23 Sep','Balanced allocation','Reviewed'],['18 Sep','Capital preservation','Approved'],['14 Sep','Growth strategy','In progress'],['09 Sep','Income portfolio','Reviewed']].map(r=>`<div class="mono" style="display:grid;grid-template-columns:90px 1fr auto;padding:16px 0;border-bottom:1px solid #eee;align-items:center"><span class="g">${r[0]}</span><span>${r[1]}</span><span style="padding:6px 12px;border-radius:999px;background:${r[2]=='In progress'?'#FFF0E8':'#EEF0FF'};color:${r[2]=='In progress'?'#c4470f':'#3E42DC'}">${r[2]}</span></div>`).join('')}</div>`,
+    `<div class="wc" style="width:620px;padding:26px 28px"><div style="display:flex;justify-content:space-between;align-items:center"><span class="mono g">Asset allocation · Silver model</span><img src="assets/coin-silver-a.webp" style="width:40px" alt=""></div><div style="font-family:var(--f-disp);font-size:30px;letter-spacing:-.02em;margin-top:6px">Balanced growth</div><div style="font-size:14px;color:#77777f;margin-top:4px">How $2.5M is split across four sleeves, rebalanced quarterly.</div><div style="display:grid;grid-template-columns:170px 1fr;gap:32px;align-items:center;margin-top:22px"><div style="position:relative;width:170px;height:170px"><svg viewBox="0 0 120 120" style="width:170px;height:170px;transform:rotate(-90deg)"><circle cx="60" cy="60" r="44" fill="none" stroke="#f1f1ef" stroke-width="16"/><circle cx="60" cy="60" r="44" fill="none" stroke="#3E42DC" stroke-width="16" stroke-dasharray="108.98 276.46" stroke-dashoffset="0.00"/><circle cx="60" cy="60" r="44" fill="none" stroke="#C9A24A" stroke-width="16" stroke-dasharray="67.52 276.46" stroke-dashoffset="-110.58"/><circle cx="60" cy="60" r="44" fill="none" stroke="#14164F" stroke-width="16" stroke-dasharray="53.69 276.46" stroke-dashoffset="-179.70"/><circle cx="60" cy="60" r="44" fill="none" stroke="#3EF2D0" stroke-width="16" stroke-dasharray="39.87 276.46" stroke-dashoffset="-234.99"/></svg><div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center"><div><b style="font-family:var(--f-disp);font-weight:400;font-size:24px;display:block" class="tab">$2.5M</b><span class="mono g" style="font-size:10px">4 sleeves</span></div></div></div><div><div style="display:grid;grid-template-columns:10px 1fr auto auto;gap:12px;align-items:center;padding:10px 0;"><i style="width:10px;height:10px;border-radius:3px;background:#3E42DC"></i><span class="mono">Equities</span><span class="mono g tab">$1.00M</span><b style="font-family:var(--f-disp);font-weight:400;font-size:20px;min-width:52px;text-align:right" class="tab">40%</b></div><div style="display:grid;grid-template-columns:10px 1fr auto auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #eee;"><i style="width:10px;height:10px;border-radius:3px;background:#C9A24A"></i><span class="mono">Gold</span><span class="mono g tab">$625K</span><b style="font-family:var(--f-disp);font-weight:400;font-size:20px;min-width:52px;text-align:right" class="tab">25%</b></div><div style="display:grid;grid-template-columns:10px 1fr auto auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #eee;"><i style="width:10px;height:10px;border-radius:3px;background:#14164F"></i><span class="mono">Bonds</span><span class="mono g tab">$500K</span><b style="font-family:var(--f-disp);font-weight:400;font-size:20px;min-width:52px;text-align:right" class="tab">20%</b></div><div style="display:grid;grid-template-columns:10px 1fr auto auto;gap:12px;align-items:center;padding:10px 0;border-top:1px solid #eee;"><i style="width:10px;height:10px;border-radius:3px;background:#3EF2D0"></i><span class="mono">Liquidity</span><span class="mono g tab">$375K</span><b style="font-family:var(--f-disp);font-weight:400;font-size:20px;min-width:52px;text-align:right" class="tab">15%</b></div></div></div></div>`,
+    `<div class="wc" style="width:560px;margin-top:40px;padding:26px"><div style="display:flex;justify-content:space-between"><span class="mono g">Private credit strategy</span><img src="assets/coin-gold-v.webp" style="width:44px" alt=""></div><div style="font-family:var(--f-disp);font-size:58px;letter-spacing:-.04em;margin-top:6px" class="tab">$71,930.24</div><svg viewBox="0 0 500 120" style="width:100%;height:120px;margin-top:10px">${Array.from({length:30},(_,i)=>{const h=Math.round(18+Math.abs(Math.sin(i*.4)+Math.sin(i*.13))*40+i*1.4);return `<rect x="${i*16.6}" y="${120-h}" width="12" height="${h}" rx="2" fill="${i>24?'#3E42DC':'#d9d9f7'}"/>`}).join('')}</svg></div>`];
+  tabs.insertAdjacentHTML('beforeend',C.map((c,i)=>`<button role="tab" aria-selected="false"><span class="mono">${String(i+1).padStart(2,'0')}</span><b>${c.n}</b><span class="ar">→</span></button>`).join(''));
+  stg.innerHTML=C.map((c,i)=>`<div class="pn"><svg class="eg" viewBox="0 0 220 220"><use href="#eng"/></svg><div class="ph"><span class="mono" style="opacity:.7">${String(i+1).padStart(2,'0')} / 06</span><h3>${c.n}</h3><p>${c.d}</p></div><div class="ui">${P[i]}</div><div class="ft"><div class="mt"><b class="tab">${c.m}</b><span class="mono">${c.ml}</span></div>${c.l.map((x,k)=>`<div class="fi"><span class="mono">0${k+1}</span><b>${x}</b></div>`).join('')}</div></div>`).join('');
+  const tb=[...tabs.querySelectorAll('button')], pn=[...stg.children];
+  const o2=i=>{tb.forEach((b,k)=>b.setAttribute('aria-selected',k===i));pn.forEach((p,k)=>p.classList.toggle('on',k===i))};
+  tb.forEach((b,i)=>b.onclick=()=>o2(i)); o2(2);
+
+  // A3 dial
+  const dial=document.getElementById('a3dial'), R=330;
+  dial.insertAdjacentHTML('beforeend',C.map((c,i)=>{const a=(i*60-90)*Math.PI/180;return `<div class="node" style="left:${380+R*Math.cos(a)}px;top:${380+R*Math.sin(a)}px"><button><span>${c.n}</span></button></div>`}).join(''));
+  const nodes=[...dial.querySelectorAll('.node')]; let rot=0;
+  function o3(i){rot=-i*60;dial.style.transform=`rotate(${rot}deg)`;nodes.forEach((n,k)=>{n.classList.toggle('on',k===i);n.querySelector('button').style.transform=`rotate(${-rot}deg)`});
+    const c=C[i],cn=document.getElementById('a3coin');cn.style.opacity=0;cn.style.transform='rotate(-40deg) scale(.9)';setTimeout(()=>{cn.src='assets/'+c.c+'.webp';cn.style.opacity=1;cn.style.transform='none'},250);
+    document.getElementById('a3r').innerHTML=`<div class="ix mono tab">${String(i+1).padStart(2,'0')} / 06 · Advisory capability</div><h3>${c.n}</h3><p>${c.d}</p><ul>${c.l.map(x=>`<li><span>${x}</span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"/></svg></li>`).join('')}</ul><div class="mt"><b class="tab">${c.m}</b><span class="mono">${c.ml}</span></div>`}
+  nodes.forEach((n,i)=>n.querySelector('button').onclick=()=>o3(i)); o3(0);
+
+  // A4 strips
+  const st4=document.getElementById('a4st');
+  st4.innerHTML=C.map((c,i)=>`<div class="s" tabindex="0"><span class="ix mono">${String(i+1).padStart(2,'0')}</span><span class="vt">${c.n}</span><img class="sc" src="assets/${c.c}.webp" alt=""><div class="op"><h3>${c.n}</h3><p>${c.d}</p><ul>${c.l.map(x=>`<li><span>${x}</span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10"/></svg></li>`).join('')}</ul><div class="mt"><b class="tab">${c.m}</b><span class="mono" style="opacity:.75">${c.ml}</span></div></div><img class="bg" src="assets/${c.c}.webp" alt=""></div>`).join('');
+  const ss=[...st4.children]; const o4=i=>ss.forEach((s,k)=>s.classList.toggle('on',k===i));
+  ss.forEach((s,i)=>{s.addEventListener('pointerenter',()=>o4(i));s.addEventListener('focus',()=>o4(i))}); o4(0);
+
+  if (!document.getElementById('a5rows')) return;
+  // A5 terminal
+  const r5=document.getElementById('a5rows');
+  const sum=['48 bankers · 6 criteria','312 models · 9 families','42 params · 15 min','4 reviews / year','5–12 assets / model','24/7 · live dashboard'];
+  r5.innerHTML=C.map((c,i)=>`<div class="row"><button aria-expanded="false"><span class="k">[+]</span><span class="k">${String(i+1).padStart(2,'0')}</span><span>${c.k}</span><span class="lead"></span><span>${sum[i]}</span></button><div class="sub">${c.l.map(x=>`<div><span class="ok">✓</span> ${x.toLowerCase()} ........ ok</div>`).join('')}<div><span class="ok">→</span> ${c.d.toLowerCase().slice(0,72)}…</div></div></div>`).join('');
+  const rr=[...r5.children];
+  const o5=i=>rr.forEach((r,k)=>{const on=k===i&&!r.classList.contains('on');r.classList.toggle('on',on);r.querySelector('button').setAttribute('aria-expanded',on);r.querySelector('.k').textContent=on?'[–]':'[+]';
+    if(on)r.querySelectorAll('.sub div').forEach(d=>{d.style.animation='none';d.offsetWidth;d.style.animation=''})});
+  rr.forEach((r,i)=>r.querySelector('button').onclick=()=>o5(i)); o5(0);
+});
+</script>
+</main>
+
+<script>
+// shared data + helpers (run before the per-block DOMContentLoaded handlers)
+window.VS=[
+  {t:'ATN',a:['Apple','Tesla','Nasdaq'],v:'214.3381',c:3.12,m:'gold',seed:3},
+  {t:'BSE',a:['Bonds','Silver','Euro'],v:'98.1204',c:0.84,m:'silver',seed:5},
+  {t:'BEG',a:['Bitcoin','Ethereum','Gold'],v:'167.9144',c:2.41,m:'gold',seed:7},
+  {t:'SGA',a:['S&P 500','Gold','Apple'],v:'142.0711',c:-0.62,m:'silver',seed:11},
+  {t:'VBG',a:['Visa','Bonds','Gold'],v:'121.5530',c:1.08,m:'silver',seed:13},
+  {t:'USB',a:['US Bonds','Silver','Berkshire'],v:'88.2917',c:0.37,m:'bronze',seed:17},
+  {t:'GB',a:['Gold','Bonds'],v:'76.4402',c:-0.21,m:'bronze',seed:19},
+  {t:'BGE',a:['Bonds','Gold','Euro'],v:'93.0068',c:-0.44,m:'bronze',seed:23},
+  {t:'MNVA',a:['Microsoft','Nvidia','Visa','Apple'],v:'251.7710',c:4.85,m:'gold',seed:29}
+];
+window.VCOIN=i=>({gold:['coin-gold-v','coin-gold-t'],silver:['coin-silver-a','coin-silver-o'],bronze:['coin-bronze-l','coin-bronze-g']})[VS[i].m][i%2];
+// stepped line (the brand chart): seeded random walk drawn with H/V segments
+window.VSTEP=(seed,w,h,n)=>{let s=seed*9301+49297;const r=()=>(s=(s*9301+49297)%233280)/233280;
+  let y=h*(.3+r()*.4),d=`M0 ${y.toFixed(1)}`;const dx=w/n;
+  for(let i=1;i<=n;i++){d+=`H${(i*dx).toFixed(1)}`;y=Math.max(h*.06,Math.min(h*.94,y+(r()-.5)*h*.55));d+=`V${y.toFixed(1)}`}return d};
+
+// realistic price line: seeded random walk with drift, lightly smoothed
+window.VLINE=(seed,w,h,n=64,drift=0)=>{let s=(seed*7919+13)%2147483647;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+  let v=0;const p=[];for(let i=0;i<n;i++){v+=(r()-.5)+(r()<.06?(r()-.5)*2.4:0)+drift;p.push(v)}
+  const sm=p.map((x,i)=>(p[Math.max(0,i-1)]+x*2+p[Math.min(n-1,i+1)])/4),mn=Math.min(...sm),mx=Math.max(...sm),pad=h*.1;
+  const P=sm.map((x,i)=>[i*w/(n-1),pad+(1-(x-mn)/((mx-mn)||1))*(h-2*pad)]);
+  const d='M'+P.map(q=>q[0].toFixed(1)+' '+q[1].toFixed(1)).join('L');
+  return {d,area:d+`L${w} ${h}L0 ${h}Z`,y0:P[0][1],end:P[n-1]}};
+// sparkline markup: area gradient + line + dashed open price + end dot
+window.VSPARK=(seed,w,h,c,col,o={})=>{const pr=o.pr??Math.max(6,w*.025),L=VLINE(seed,w-pr,h,o.n||64,c>0?.14:c<0?-.14:0),id='sg'+Math.random().toString(36).slice(2,8),r=o.r||3;
+  return `<defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity="${o.fa??.28}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient>`+
+    `<linearGradient id="${id}f" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".16" stop-color="#fff"/></linearGradient>`+
+    `<mask id="${id}m" maskUnits="userSpaceOnUse" x="0" y="${-h}" width="${w}" height="${h*3}"><rect x="0" y="${-h}" width="${w}" height="${h*3}" fill="url(#${id}f)"/></mask></defs><g mask="url(#${id}m)">`+
+    (o.base===false?'':`<path d="M0 ${L.y0.toFixed(1)}H${w-pr}" stroke="${o.bc||col}" stroke-opacity=".35" stroke-dasharray="2 4" vector-effect="non-scaling-stroke"/>`)+
+    `<path d="${L.area}" fill="url(#${id})" stroke="none"/><path d="${L.d}" fill="none" stroke="${col}" stroke-width="${o.sw||1.6}" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g>`+
+    (o.dot===false?'':`<path d="M${L.end[0].toFixed(1)} ${L.end[1].toFixed(1)}h0" stroke="${col}" stroke-opacity=".25" stroke-width="${r*4}" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M${L.end[0].toFixed(1)} ${L.end[1].toFixed(1)}h0" stroke="${col}" stroke-width="${r*2}" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`)};
+window.VTREND=(c,light)=>c<0?(light?'#E2531A':'#FF7A45'):(light?'#0E9F84':'#3EF2D0');
+
+addEventListener('DOMContentLoaded',()=>{
+  // fill declarative stepped paths
+  document.querySelectorAll('path[data-step]').forEach(p=>{if(p.getAttribute('d'))return;const vb=p.ownerSVGElement.viewBox.baseVal;p.setAttribute('d',VSTEP(+p.dataset.step,vb.width,vb.height,+p.dataset.n||16))});
+
+  // scale every 1440px stage to its column
+  const frames=[...document.querySelectorAll('.frame')];
+  const fit=()=>frames.forEach(f=>{const s=f.firstElementChild,k=f.clientWidth/1440;s.style.transform=`scale(${k})`;f.style.height=(parseFloat(s.style.height)*k)+'px'});
+  fit(); new ResizeObserver(fit).observe(document.querySelector('main'));
+
+  // "keep scrolling" dividers between variants
+  const vs=[...document.querySelectorAll('article.v')];
+  vs.forEach((v,i)=>{const n=vs[i+1];if(!n)return;const a=document.createElement('a');a.className='next';a.href='#'+n.id;
+    a.innerHTML=`<span class="ln"></span><span class="ar">↓</span><small>Листайте дальше</small><span>${n.id} · ${n.querySelector('.vh h3').textContent}</span>`;v.after(a)});
+
+  // glyph noise canvases
+  const G='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789$%&@#+=/<>·ΛΣΦΩ';
+  document.querySelectorAll('canvas.glyphs').forEach(c=>{
+    const W=1440,H=parseFloat(c.parentNode.style.height);c.width=W;c.height=H;const x=c.getContext('2d');
+    const col=c.dataset.color||'255,255,255',al=+c.dataset.alpha||.15,cs=24,cells=[];
+    for(let i=0;i<W/cs;i++)for(let j=0;j<H/cs;j++)if(Math.random()<.2)cells.push([i*cs,j*cs,G[Math.random()*G.length|0],Math.random()]);
+    x.font='12px "JetBrains Mono",monospace';let vis=false;
+    new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(c);
+    const draw=()=>{if(vis){x.clearRect(0,0,W,H);cells.forEach(g=>{if(Math.random()<.02)g[2]=G[Math.random()*G.length|0];if(Math.random()<.01)g[3]=Math.random();x.fillStyle=`rgba(${col},${(al*g[3]).toFixed(3)})`;x.fillText(g[2],g[0],g[1])})}setTimeout(draw,110)};draw();
+  });
+});
+</script>
