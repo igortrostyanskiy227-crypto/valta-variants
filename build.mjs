@@ -14,4 +14,5 @@ const count = [...page.matchAll(/<article class="v"/g)].length;
 page = page.replace('{{VARIANT_COUNT}}', String(count));
 writeFileSync(new URL('page.html', root), page);
 writeFileSync(new URL('preview.html', root), `<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>\n${page}\n</body></html>\n`);
+writeFileSync(new URL('index.html', root), readFileSync(new URL('preview.html', root)));
 console.log(`Built ${count} variants; excluded: ${excluded.join(', ') || 'none'}`);
