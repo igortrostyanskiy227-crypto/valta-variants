@@ -1,0 +1,171 @@
+<style>
+/* P3 · Terminal — black stage, chrome name, one glowing ultramarine line down the centre axis */
+.p3{background:#060607;color:#fff;--cb:rgba(255,255,255,.14);--cl1:#5357F2;--cl2:#ffffff;--cp:transparent;--cpw:0px;--clf:drop-shadow(0 0 6px rgba(83,87,242,.9));--cpf:drop-shadow(0 0 10px rgba(255,255,255,.95));--cnc:#fff;--cnr:rgba(255,255,255,.16);
+  --gb0:rgba(255,255,255,.08);--gb1:#5357F2;--gb2:#ffffff;--gbt:6s}
+.p3 .hero{position:relative;text-align:center;padding-top:150px}
+.p3 .hero canvas.glyphs{position:absolute;left:0;top:0;width:1440px;height:900px}
+.p3 .eb{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.p3 h1{position:relative;margin:26px 0 0;font-family:var(--f-disp);font-weight:200;font-size:150px;line-height:.9;letter-spacing:-.045em}
+.p3 .role{position:relative;margin-top:14px;font-family:var(--f-serif);font-style:italic;font-size:36px;color:rgba(255,255,255,.6)}
+.p3 .meta{position:relative;display:flex;justify-content:center;gap:40px;margin-top:32px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#fff}
+.p3 .meta span{display:inline-flex;align-items:center;gap:8px}
+.p3 .meta .ti{width:16px;height:16px}
+.p3 .node{position:relative;margin:70px auto 0;width:150px;height:150px;border-radius:50%;background:#0E0E13;display:grid;place-items:center}
+.p3 .node .pf{width:120px;height:120px;border-radius:50%}
+.p3 .node .lb{position:absolute;left:50%;top:-14px;transform:translateX(-50%);padding:5px 10px;border-radius:6px;background:#0E0E13;box-shadow:0 0 0 1px rgba(255,255,255,.14);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.p3 .sec{position:relative;margin-top:150px;padding:0 40px}
+.p3 .sh{display:grid;grid-template-columns:560px 1fr 520px;align-items:end}
+.p3 .sh h2{margin:0;font-family:var(--f-disp);font-weight:300;font-size:56px;line-height:.98;letter-spacing:-.035em}
+.p3 .sh h2 .ser{color:rgba(255,255,255,.55)}
+.p3 .sh .n{display:block;margin-bottom:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.5)}
+.p3 .sh p{grid-column:3;margin:0;font-size:16px;line-height:1.45;color:rgba(255,255,255,.65)}
+.p3 .card{position:relative;margin:56px 0 0;width:1360px;border-radius:28px;background:#0E0E13;padding:32px 36px}
+.p3 .card .cn.t{left:50%;top:0}.p3 .card .cn.b{left:50%;top:100%}
+.p3 .chart .tt{display:flex;justify-content:space-between;align-items:flex-start}
+.p3 .chart .tk{font-family:var(--f-disp);font-weight:200;font-size:96px;line-height:.85;letter-spacing:-.05em}
+.p3 .chart .vv{font-family:var(--f-disp);font-size:22px;margin-top:10px}
+.p3 .tabs{display:flex;padding:4px;border-radius:12px;background:rgba(255,255,255,.06)}
+.p3 .tabs span{padding:9px 16px;border-radius:9px;font-family:var(--f-mono);font-size:11px;color:rgba(255,255,255,.6)}
+.p3 .tabs .on{background:#fff;color:#000}
+.p3 .chart svg{display:block;width:1288px;height:320px;margin-top:24px;overflow:visible}
+.p3 .chart .rt{display:flex;align-items:flex-start;gap:48px}
+.p3 .alloc{display:grid;grid-template-columns:repeat(3,200px);margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
+.p3 .alloc > div{padding:0 24px;border-left:1px solid rgba(255,255,255,.1)}
+.p3 .alloc > div:first-child{padding-left:0;border-left:0}
+.p3 .alloc .name{display:flex;align-items:center;gap:8px;color:#fff;font-family:var(--f-body);font-size:16px}
+.p3 .alloc .name i{width:12px;height:12px;flex:none;border-radius:3px}
+.p3 .alloc .pct{margin-top:8px;color:#fff;font-family:var(--f-disp);font-weight:300;font-size:32px;letter-spacing:-.02em}
+.p3 .lg{display:flex;gap:24px;margin-top:12px;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.p3 .lg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:8px}
+.p3 .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px}
+.p3 .tile{border-radius:20px;background:#15151C;padding:24px;display:grid;grid-template-columns:1fr auto;gap:8px 16px}
+.p3 .tile b{font-family:var(--f-disp);font-weight:300;font-size:48px;letter-spacing:-.03em;line-height:1}
+.p3 .tile .cw{width:68px;height:68px;grid-row:span 2;display:grid;place-items:center}
+.p3 .tile .cw img{display:block;flex:none}
+.p3 .tile .as{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;font-family:var(--f-mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.p3 .tile svg{grid-column:1/-1;width:270px;height:64px;margin-top:16px;overflow:visible}
+.p3 .tile .vr{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);font-family:var(--f-disp);font-size:20px}
+.p3 .tile .vr span:last-child{font-family:var(--f-mono);font-size:12px}
+.p3 .log .r{display:grid;grid-template-columns:130px 110px 220px 1fr 130px;gap:18px;align-items:start;padding:18px 0;border-top:1px solid rgba(255,255,255,.08);font-family:var(--f-mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase}
+.p3 .log .r:first-of-type{border-top:0}
+.p3 .log .r .a{color:rgba(255,255,255,.6);line-height:1.5;text-transform:none;font-family:var(--f-body);font-size:14px;letter-spacing:0}
+.p3 .log .r .s{justify-self:end;display:flex;align-items:center;gap:8px;font-size:10px}
+.p3 .log .r .s i{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 8px rgba(255,255,255,.8)}
+.p3 .log .r .s.pr i{background:#FF7A45;box-shadow:0 0 8px #FF7A45}
+.p3 .ct{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:stretch}
+.p3 .ct .l{display:flex;flex-direction:column;justify-content:space-between;gap:32px}
+.p3 .ct .dl{display:flex;align-items:center;gap:16px;font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.p3 .ct .dl .pf{width:56px;height:56px;border-radius:50%}
+.p3 .ct .dl b{display:block;font-family:var(--f-body);font-weight:500;font-size:18px;letter-spacing:0;text-transform:none}
+.p3 .ct .dl small{display:flex;align-items:center;gap:8px;margin-top:4px;font-size:11px;color:rgba(255,255,255,.6)}
+.p3 .ct .dl small i{width:8px;height:8px;border-radius:50%;background:#3EF2A0;box-shadow:0 0 8px #3EF2A0}
+.p3 .ct .big{font-family:var(--f-disp);font-weight:300;font-size:40px;line-height:1.15;letter-spacing:-.02em}
+.p3 .ct .big a{color:#fff;text-decoration:underline;text-underline-offset:6px}
+.p3 .ct .sv div{padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+.p3 .ct .sv div:first-child{border-top:0;padding-top:0}
+.p3 .ct .sv b{display:block;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.p3 .ct .sv p{margin:6px 0 0;font-size:14px;color:rgba(255,255,255,.6)}
+.p3 .ctz{position:relative;margin-top:56px}
+.p3 .ctz .ct{grid-template-columns:560px 1fr 520px}
+.p3 .ctz .ct .sv{grid-column:3}
+.p3 .mb{position:relative;margin:96px auto 0;width:200px;height:200px;border-radius:50%;z-index:3;cursor:pointer;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6))}
+.p3 .mb canvas{width:200px;height:200px;display:block}
+.p3 .mb .ar{position:absolute;inset:0;display:grid;place-items:center;color:#0b0b0d;pointer-events:none}
+.p3 .mb .ar .ti{width:36px;height:36px;stroke-width:1.6}
+.p3 .mbl{margin-top:24px;text-align:center;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.p3 .go{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:30px;height:60px;border-radius:999px;background:#fff;color:#000;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.p3 .you{position:relative;margin:120px auto 0;width:96px;height:96px;border-radius:50%;background:#0E0E13;display:grid;place-items:center;color:rgba(255,255,255,.7)}
+.p3 .you .ti{width:34px;height:34px}
+.p3 .you span{position:absolute;top:110px;left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.p3 .ft{display:flex;justify-content:space-between;align-items:center;margin-top:120px;padding:28px 40px;border-top:1px solid rgba(255,255,255,.1);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.p3 .ft svg.logo{width:120px;height:15px;color:#fff}
+</style>
+
+<article class="v" id="P3">
+  <header class="vh"><b>P3</b><h3>Терминал</h3><p>Чёрная сцена, имя тонким хромом, глиф-шум на первом экране. Коннектор — светящаяся ультрамариновая линия строго по центральной оси: выходит из портрета, проходит сквозь каждую карточку сверху вниз и заканчивается узлом «You». Заголовок раздела слева, пояснение справа, линия идёт между ними. Карточки — тёмное стекло с бегущей сине-белой обводкой; палитра монохромная, второй голос заголовков приглушённо-белый. <i>Что можно забрать: центральную ось, свечение линии, плитки портфелей с монетами.</i></p></header>
+  <div class="frame"><div class="stage bp p3" id="p3s" data-r="28">
+    <svg class="conn"></svg>
+    <div class="s-nav" style="color:#fff">
+      <svg class="logo"><use href="#logo"/></svg>
+      <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+      <span class="mono cta" style="text-decoration:underline;text-underline-offset:4px;justify-self:end">Get a consultation</span>
+    </div>
+    <section class="hero">
+      <canvas class="glyphs" data-color="169,247,234" data-alpha=".14"></canvas>
+      <div class="eb" style="position:relative">Banker profile · VLT-0042 · verified 23.09.2026</div>
+      <h1 class="chrome">Kirill Platunov</h1>
+      <div class="role">Portfolio strategist</div>
+      <div class="meta"><span><svg class="ti"><use href="#ti-map-pin"/></svg>London · United Kingdom</span><span><svg class="ti"><use href="#ti-phone"/></svg>+44 20 7946 1842</span><span><svg class="ti"><use href="#ti-brand-linkedin"/></svg>LinkedIn</span></div>
+      <div class="node gb" style="border-radius:50%"><span class="lb">Banker</span><span class="pf"><img src="assets/banker-bw.webp" alt=""></span><i class="cn" style="left:50%;top:100%"></i></div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><div><span class="n">01 / Strategy</span><h2>One model,<br><span class="ser">measured</span> daily</h2></div><span></span><p>BEG combines Bitcoin, Ethereum and gold. The same metrics as every other banker on Valta, updated every trading day.</p></div>
+      <div class="card chart gb tr"><i class="cn t"></i>
+        <div class="tt"><div><div class="tk chrome">BEG</div><div class="vv tab">167.9144 <span class="mono" style="font-size:12px;color:#A9F7EA">▲&#8239;2.41%</span></div></div><div class="rt"><div class="tabs"><span class="on">1M</span><span>3M</span><span>6M</span><span>12M</span></div></div></div>
+        <svg viewBox="0 0 1288 320" preserveAspectRatio="none" data-spark="7|2.41|#7B7FFF" data-o='{"grid":"rgba(255,255,255,.06)","sw":2,"r":5,"n":100,"fa":0.35}'></svg>
+        <div class="alloc">
+          <div><div class="name"><i style="background:#FFB067"></i>Bitcoin</div><div class="pct">40%</div></div>
+          <div><div class="name"><i style="background:#9fa1ff"></i>Ethereum</div><div class="pct">35%</div></div>
+          <div><div class="name"><i style="background:#E7C46E"></i>Gold</div><div class="pct">25%</div></div>
+        </div>
+        
+        <i class="cn b" data-wrap="r"></i></div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><div><span class="n">02 / Portfolios</span><h2>Four models,<br><span class="ser">one</span> standard</h2></div><span></span><p>Gold models for growth, silver for balance, bronze for income. Each tile shows 30 days, value and change.</p></div>
+      <div class="card gb tr" style="padding:0"><i class="cn t"></i><div class="tiles" id="p3tiles"></div><i class="cn b" data-wrap="l"></i></div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><div><span class="n">03 / Reviews</span><h2>Every decision<br><span class="ser">in writing</span></h2></div><span></span><p>Portfolio actions are logged with a client ID and a status, so you can see what changed and whether it is approved.</p></div>
+      <div class="card log gb tr" id="p3log"><i class="cn t"></i></div>
+    </section>
+
+    <section class="sec">
+      <div class="sh"><div><span class="n">04 / Contact</span><h2>Start with<br><span class="ser">a conversation</span></h2></div><span></span><p>Kirill replies within one business day, in English or German.</p></div>
+      <div class="ctz">
+        <div class="ct"><div class="l"><div class="dl"><span class="pf"><img src="assets/banker-bw.webp" alt=""></span><div><b>Kirill Platunov</b><small><i></i>Available today</small></div></div><div class="big">+44 20 7946 1842<br><a>kirill.platunov@valta.capital</a></div></div><div class="sv" id="p3sv"></div></div>
+        <div class="mb"><canvas class="metal" width="400" height="400"></canvas><span class="ar"><svg class="ti"><use href="#ti-arrow-right"/></svg></span><i class="cn" style="left:50%;top:0"></i></div>
+        <div class="mbl">Request a private consultation</div>
+      </div>
+    </section>
+
+    <div class="ft"><svg class="logo"><use href="#logo"/></svg><span>Privacy · Terms · Cookies</span><span>© 2026 Valta</span></div>
+  </div></div>
+</article>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('canvas.metal').forEach(cv=>{const gl=cv.getContext('webgl',{premultipliedAlpha:false,alpha:true});if(!gl)return;
+    const vs='attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
+    const fs=`precision highp float;uniform vec2 res;uniform float t;uniform vec2 m;
+float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float n(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),f.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),f.x),f.y);}
+void main(){vec2 uv=(gl_FragCoord.xy*2.-res)/res.y;float r=length(uv);if(r>1.){gl_FragColor=vec4(0.);return;}
+float a=atan(uv.y,uv.x);vec3 nr=normalize(vec3(uv*.5*smoothstep(.0,1.,r),1.));
+float g=n(vec2(r*160.,a*1.5))*.55+n(vec2(r*420.,a*5.))*.3;
+vec3 l=normalize(vec3(m,1.2));float spec=pow(max(dot(reflect(-l,nr),vec3(0,0,1)),0.),26.);
+float la=atan(m.y,m.x);float an=pow(abs(cos(a-la)),14.)*.55*smoothstep(.15,.9,r);
+vec3 rf=reflect(vec3(0,0,-1),nr);float env=.5+.32*sin(rf.y*3.2+1.1)+.12*sin(rf.x*5.+t*.4);
+vec3 c=vec3(.58,.6,.64)*env+(g-.4)*.14+spec*.9+an*vec3(.95,.96,1.);
+float bev=smoothstep(.88,.96,r)*(1.-smoothstep(.96,1.,r));c=mix(c,vec3(.97),bev*(.5+.5*uv.y));
+c*=1.-smoothstep(.975,1.,r)*.5;gl_FragColor=vec4(c,1.-smoothstep(.992,1.,r));}`;
+    const sh=(ty,src)=>{const o=gl.createShader(ty);gl.shaderSource(o,src);gl.compileShader(o);return o};
+    const pr=gl.createProgram();gl.attachShader(pr,sh(gl.VERTEX_SHADER,vs));gl.attachShader(pr,sh(gl.FRAGMENT_SHADER,fs));gl.linkProgram(pr);gl.useProgram(pr);
+    const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,1,1]),gl.STATIC_DRAW);
+    const loc=gl.getAttribLocation(pr,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);
+    const uR=gl.getUniformLocation(pr,'res'),uT=gl.getUniformLocation(pr,'t'),uM=gl.getUniformLocation(pr,'m');
+    let tm=[.5,.6],mm=[.5,.6],hover=false;
+    addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2;tm=[Math.max(-1.5,Math.min(1.5,(e.clientX-cx)/r.width*2)),Math.max(-1.5,Math.min(1.5,-(e.clientY-cy)/r.height*2))];hover=true});
+    (function loop(ts){const t=ts/1000;if(!hover)tm=[Math.cos(t*.5)*.8,.5+Math.sin(t*.5)*.4];mm[0]+=(tm[0]-mm[0])*.08;mm[1]+=(tm[1]-mm[1])*.08;
+      gl.viewport(0,0,cv.width,cv.height);gl.uniform2f(uR,cv.width,cv.height);gl.uniform1f(uT,t);gl.uniform2f(uM,mm[0],mm[1]);gl.drawArrays(gl.TRIANGLE_STRIP,0,4);requestAnimationFrame(loop)})(0);
+  });
+  // visible-diameter share of each coin PNG, so all coins render at the same 68px
+  const FILL={'coin-gold-v':.77,'coin-gold-t':.76,'coin-silver-a':1,'coin-silver-o':1,'coin-bronze-l':.75,'coin-bronze-g':.76};
+  document.getElementById('p3tiles').innerHTML=PF.map(p=>`<div class="tile"><div><b>${p.t}</b></div><span class="cw"><img src="assets/${p.coin}.webp" style="width:${Math.round(68/FILL[p.coin])}px;height:${Math.round(68/FILL[p.coin])}px" alt=""></span><span class="as">${p.a.join(' · ')}</span><svg viewBox="0 0 270 64" preserveAspectRatio="none">${VSPARK(p.seed,270,64,p.c,VTREND(p.c),{fa:.22,r:2.5})}</svg><div class="vr"><span class="tab">${p.v}</span><span style="color:${VTREND(p.c)}">${PCT(p.c)}</span></div></div>`).join('');
+  document.getElementById('p3log').insertAdjacentHTML('beforeend',RV.map(r=>`<div class="r"><span>${r[0]}</span><span style="opacity:.55">${r[1]}</span><span>${r[2]}</span><span class="a">${r[3]}</span><span class="s ${r[4]==='In progress'?'pr':''}"><i></i>${r[4]}</span></div>`).join('')+'<i class="cn b" data-wrap="r"></i>');
+  document.getElementById('p3sv').innerHTML=SV.map(s=>`<div><b>${s[0]}</b><p>${s[1]}</p></div>`).join('');
+});
+</script>

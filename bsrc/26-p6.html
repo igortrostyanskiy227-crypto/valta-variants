@@ -1,0 +1,130 @@
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* P6 · Case grade — the case discipline: flat grey field, one object per frame, mono caps + one sans, label/value pairs,
+   bare white cards, black inversion for state, one blue point per screen, black round buttons, 1px line connector. */
+.p6{--g:#D6D6D4;--ink:#0B0B0C;--mute:#8E8E8C;--b:#3E42DC;--fm:'Geist Mono',ui-monospace,Menlo,monospace;--fs:'Geist','Helvetica Neue',Arial,sans-serif;
+  background:var(--g);color:var(--ink);font-family:var(--fs);
+  --cb:rgba(11,11,12,.16);--cbw:1px;--cl1:#0B0B0C;--cl2:#0B0B0C;--clw:1px;--cp:rgba(11,11,12,0);--cpw:0px;--cnc:#0B0B0C;--cnr:transparent}
+.p6 .cn{width:7px;height:7px;margin:-3.5px 0 0 -3.5px}
+.p6 .mono{font-family:var(--fm);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.p6 .t{font-family:var(--fm);font-weight:500;font-size:24px;letter-spacing:.02em;text-transform:uppercase;line-height:1.1}
+.p6 .lv{display:flex;gap:48px}
+.p6 .lv dt{font-family:var(--fm);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.p6 .lv dd{margin:8px 0 0;font-family:var(--fm);font-size:16px;letter-spacing:.02em}
+.p6 .rb{width:64px;height:64px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;flex:none}
+.p6 .rb.w{background:#fff;color:var(--ink)}
+.p6 .rb .ti{width:16px;height:16px}
+.p6 .nav{display:grid;grid-template-columns:1fr auto 1fr;padding:32px 40px;font-family:var(--fm);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.p6 .nav svg{width:120px;height:15px}
+.p6 .nav nav{display:grid;grid-template-columns:auto auto;gap:4px 56px}
+.p6 .nav .r{justify-self:end;text-decoration:underline;text-underline-offset:4px}
+.p6 .row{display:grid;grid-template-columns:440px 1fr;padding:0 40px}
+.p6 .row .l{padding-right:40px}
+.p6 .row .c{position:relative;padding-left:40px;border-left:0}
+.p6 .hero{padding-top:120px}
+.p6 .hero h1{margin:0;font-family:var(--fs);font-weight:400;font-size:112px;line-height:.9;letter-spacing:-.04em;text-transform:uppercase}
+.p6 .hero .sub{margin-top:24px}
+.p6 .prof{position:relative;margin-top:56px;background:#fff;border-radius:24px;padding:32px;display:grid;grid-template-columns:96px 1fr auto;gap:32px;align-items:center}
+.p6 .prof img{width:96px}
+.p6 .photo{position:relative;margin-top:16px;border-radius:24px;overflow:hidden;height:560px;background:#111}
+.p6 .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.p6 .photo .cap{position:absolute;left:24px;bottom:24px;color:#fff}
+.p6 .sec{margin-top:160px}
+.p6 .l .t{margin-top:0}
+.p6 .l p{margin:24px 0 0;font-size:24px;line-height:1.2;letter-spacing:-.01em;max-width:360px}
+.p6 .list{position:relative}
+.p6 .it{position:relative;display:grid;grid-template-columns:120px 1fr auto;gap:40px;align-items:center;padding:32px;border-radius:24px}
+.p6 .it img{width:120px}
+.p6 .it.on{background:var(--ink);color:#fff;--gb0:rgba(255,255,255,.08);--gb1:#5357F2;--gb2:#fff;--gbt:6s}
+.p6 .it.on .lv dt{color:#77777a}
+.p6 .open{position:relative;background:#fff;border-radius:24px;padding:32px;margin:0 0 0}
+.p6 .open .hd{display:flex;justify-content:space-between;align-items:baseline;padding-top:24px;border-top:1px solid #E6E6E4}
+.p6 .tabs{display:flex;gap:32px;font-family:var(--fm);font-size:12px;letter-spacing:.04em;color:var(--mute)}
+.p6 .tabs .on{color:var(--b)}
+.p6 .big{margin-top:16px;font-family:var(--fm);font-weight:500;font-size:56px;letter-spacing:-.01em}
+.p6 .open svg{display:block;width:100%;height:200px;margin-top:32px;overflow:visible}
+.p6 .ax{display:flex;justify-content:space-between;margin-top:16px;padding-top:16px;border-top:1px solid #E6E6E4;color:var(--mute)}
+.p6 .log{position:relative;background:#fff;border-radius:24px;padding:8px 32px}
+.p6 .log .r{display:grid;grid-template-columns:140px 1fr 140px;gap:24px;padding:24px 0;border-top:1px solid #E6E6E4;align-items:baseline}
+.p6 .log .r:first-child{border-top:0}
+.p6 .log .r b{display:block;font-family:var(--fm);font-weight:500;font-size:16px;letter-spacing:.02em;text-transform:uppercase}
+.p6 .log .r p{margin:8px 0 0;font-size:16px;line-height:1.35;color:#555}
+.p6 .log .r .s{justify-self:end}
+.p6 .log .r .s.pr{color:var(--b)}
+.p6 .moment{position:relative;border-radius:24px;overflow:hidden;height:760px;background:#222}
+.p6 .moment img{width:100%;height:100%;object-fit:cover}
+.p6 .moment .card{position:absolute;left:40px;bottom:40px;width:440px;background:#fff;border-radius:24px;padding:32px}
+.p6 .moment .card p{margin:24px 0 0;font-size:20px;line-height:1.3}
+.p6 .ct h2{margin:0;font-family:var(--fs);font-weight:400;font-size:112px;line-height:.9;letter-spacing:-.04em;text-transform:uppercase}
+.p6 .ct .lines{position:relative;margin-top:56px;font-family:var(--fm);font-size:24px;line-height:1.5;letter-spacing:.01em}
+.p6 .ct .lines a{text-decoration:underline;text-underline-offset:6px}
+.p6 .ct .go{display:flex;align-items:center;gap:24px;margin-top:56px}
+.p6 .ft{margin-top:200px;padding:0 40px 32px}
+.p6 .ft .coins{display:flex;justify-content:center;gap:0;margin-bottom:120px}
+.p6 .ft .coins img{width:240px;margin:0 -24px}
+.p6 .ft .bt{display:flex;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(11,11,12,.16)}
+.p6 .ft .bt svg{width:120px;height:15px}
+</style>
+
+<article class="v" id="P6">
+  <header class="vh"><b>P6</b><h3>Как в кейсе</h3><p>Страница по дисциплине кейса. Плоское серое поле и один объект на кадр. Две роли шрифта: моно-капс для заголовков и пар «подпись / значение», гротеск для фраз и крупного имени. Белые карточки без обводок и теней, выбранная строка инвертирована в чёрный. Синий в одной точке на экран (активный таб, линия графика), кнопки — чёрные круги со стрелкой. Коннектор — тонкая чёрная линия-разделитель кейса, без свечения: непрерывно идёт по оси колонки и заходит в каждый блок. Фото документальные, без позирования. <i>Что забрать: систему целиком как основу для всех страниц.</i></p></header>
+  <div class="frame"><div class="stage bp p6" id="p6s">
+    <svg class="conn"></svg>
+    <div class="nav"><svg><use href="#logo"/></svg><nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span><span></span><span>Contact</span></nav><span class="r">Get a consultation</span></div>
+
+    <section class="row hero">
+      <div class="l"><span class="mono" style="color:var(--mute)">Banker · London</span><i class="cn h" style="position:absolute;left:480px;top:160px"></i></div>
+      <div class="c">
+        <h1>Kirill<br>Platunov</h1>
+        <div class="sub mono">Portfolio strategist · since 2012</div>
+        <div class="prof"><i class="cn" style="left:0;top:50%" data-t="vh"></i>
+          <img src="assets/coin-gold-v.webp" alt="">
+          <div><div class="t">Balanced · Long-term</div><dl class="lv" style="margin:16px 0 0"><div><dt>Experience</dt><dd>14 years</dd></div><div><dt>Capital advised</dt><dd>$640,000,000</dd></div><div><dt>Clients</dt><dd>38</dd></div></dl></div>
+          <span class="rb"><svg class="ti"><use href="#ti-arrow-right"/></svg></span>
+          <i class="cn h" style="left:40px;top:100%" data-t="hv"></i><i class="cn h" style="left:-40px;top:calc(100% + 8px)" data-t="vh"></i></div>
+        <div class="photo"><img src="assets/doc-portrait.webp" onerror="this.src='assets/banker-bw.webp'" alt=""><span class="cap mono">Kirill Platunov · Valta London office</span></div>
+      </div>
+    </section>
+
+    <section class="row sec">
+      <div class="l"><div class="t">Strategy models</div><p>Four portfolios, one set of metrics. Open any model to see how it moved.</p></div>
+      <div class="c list" id="p6list"></div>
+    </section>
+
+    <section class="row sec">
+      <div class="l"><div class="t">Review log</div><p>Every portfolio action is written down, dated and approved.</p></div>
+      <div class="c"><div class="log" id="p6log"></div></div>
+    </section>
+
+    <section class="row sec">
+      <div class="l"><div class="t">How we work</div><p>Decisions are made on paper first. Then on the market.</p></div>
+      <div class="c"><div class="moment"><i class="cn" style="left:0;top:50%" data-t="vh"></i><img src="assets/doc-hands.webp" onerror="this.src='assets/banker-arch.webp'" alt="">
+        <div class="card"><div class="t">Quarterly review</div><dl class="lv" style="margin:24px 0 0"><div><dt>Next review</dt><dd>15 Jan 2027</dd></div><div><dt>Format</dt><dd>In writing</dd></div></dl><p>You receive what changed, why, and what stays the same.</p></div>
+        <i class="cn h" style="left:40px;top:100%" data-t="hv"></i><i class="cn h" style="left:-40px;top:calc(100% + 8px)" data-t="vh"></i></div></div>
+    </section>
+
+    <section class="row sec ct">
+      <div class="l"><div class="t">Contact</div><p>Kirill replies within one business day.</p></div>
+      <div class="c"><h2>Contact</h2>
+        <div class="lines"><i class="cn" style="left:-40px;top:16px;position:absolute" data-t="vh"></i>London · United Kingdom<br>+44 20 7946 1842<br><a>kirill.platunov@valta.capital</a></div>
+        <div class="go"><span class="rb"><svg class="ti"><use href="#ti-arrow-right"/></svg></span><span class="mono">Request a private consultation</span></div></div>
+    </section>
+
+    <div class="ft"><div class="coins"><img src="assets/coin-silver-o.webp" alt=""><img src="assets/coin-gold-v.webp" alt="" style="position:relative;z-index:2"><img src="assets/coin-bronze-l.webp" alt=""></div>
+      <div class="bt mono"><svg><use href="#logo"/></svg><span>Privacy · Terms · Cookies</span><span>© 2026 Valta</span></div></div>
+  </div></div>
+</article>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  // smooth line through a few seeded points (Catmull-Rom → cubic Bézier)
+  const smooth=(seed,w,h,n)=>{const L=VLINE(seed,w,h,n,0.06),pts=L.d.slice(1).split('L').map(p=>p.split(' ').map(Number));let d=`M${pts[0][0]} ${pts[0][1]}`;
+    for(let i=0;i<pts.length-1;i++){const p0=pts[i-1]||pts[i],p1=pts[i],p2=pts[i+1],p3=pts[i+2]||p2;
+      d+=`C${(p1[0]+(p2[0]-p0[0])/6).toFixed(1)} ${(p1[1]+(p2[1]-p0[1])/6).toFixed(1)} ${(p2[0]-(p3[0]-p1[0])/6).toFixed(1)} ${(p2[1]-(p3[1]-p1[1])/6).toFixed(1)} ${p2[0].toFixed(1)} ${p2[1].toFixed(1)}`}return d};
+  const rows=PF.map((p,i)=>{const on=i===0;return `<div class="it${on?' on gb':''}"><img src="assets/${p.coin}.webp" alt=""><div><div class="t">${p.t} · ${p.a.slice(0,3).join(' · ')}</div><dl class="lv" style="margin:16px 0 0"><div><dt>30-day return</dt><dd>${p.c>0?'+':''}${p.c.toFixed(2)}%</dd></div><div><dt>Value</dt><dd>$${p.v}</dd></div><div><dt>12M</dt><dd>${p.r}%</dd></div></dl></div><span class="rb${on?' w':''}"><svg class="ti"><use href="#ti-${on?'arrow-up-right':'chevron-down'}"/></svg></span>${on?'':''}</div>`+
+    (on?`<div class="open"><div class="hd"><span class="mono" style="color:var(--mute)">Total return</span><div class="tabs"><span class="on">Daily</span><span>Weekly</span><span>Monthly</span></div></div><div class="big">$52,120.76</div><svg viewBox="0 0 860 200" preserveAspectRatio="none"><path d="${smooth(p.seed,860,200,9)}" fill="none" stroke="#3E42DC" stroke-width="2" vector-effect="non-scaling-stroke"/></svg><div class="ax mono"><span>Sep 01</span><span>Sep 15</span><span>Sep 30</span></div></div>`:'')});
+  const list=document.getElementById('p6list');
+  list.innerHTML='<i class="cn" style="left:0;top:96px" data-t="vh"></i>'+rows.join('')+'<i class="cn h" style="left:40px;top:100%" data-t="hv"></i><i class="cn h" style="left:-40px;top:calc(100% + 8px)" data-t="vh"></i>';
+  document.getElementById('p6log').innerHTML='<i class="cn" style="left:-40px;top:50%;position:absolute" data-t="vh"></i>'+RV.slice(0,4).map(r=>`<div class="r"><span class="mono" style="color:var(--mute)">${r[0]}</span><div><b>${r[2]}</b><p>${r[3]}</p></div><span class="s mono ${r[4]==='In progress'?'pr':''}">${r[4]}</span></div>`).join('')+'<i class="cn h" style="left:-40px;top:calc(100% + 8px);position:absolute" data-t="vh"></i>';
+});
+</script>

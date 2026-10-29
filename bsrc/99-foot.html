@@ -1,0 +1,110 @@
+</main>
+
+<script>
+// shared data
+window.BK={name:'Kirill Platunov',first:'Kirill',last:'Platunov',role:'Portfolio strategist',city:'London · United Kingdom',phone:'+44 20 7946 1842',mail:'kirill.platunov@valta.capital',photo:'p-adrian'};
+window.PF=[
+  {t:'ATN',a:['Apple','Tesla','Nasdaq'],v:'214.3381',c:3.12,m:'gold',coin:'coin-gold-v',seed:3,r:'14.2'},
+  {t:'VBG',a:['Visa','Bonds','Gold'],v:'121.5530',c:1.08,m:'silver',coin:'coin-silver-a',seed:13,r:'8.6'},
+  {t:'USB',a:['US Bonds','Silver','Berkshire'],v:'88.2917',c:-0.37,m:'bronze',coin:'coin-bronze-l',seed:17,r:'5.1'},
+  {t:'MNVA',a:['Microsoft','Nvidia','Visa','Apple'],v:'251.7710',c:4.85,m:'gold',coin:'coin-gold-t',seed:29,r:'19.8'}];
+window.RV=[
+  ['23 Sep 2026','CL-0842','Balanced allocation','Portfolio risk review and bond exposure adjustment','Reviewed'],
+  ['18 Sep 2026','CL-1170','Capital preservation','Liquidity reserve increased before market rotation','Approved'],
+  ['14 Sep 2026','CL-0928','Growth strategy','Technology allocation reviewed against time horizon','In progress'],
+  ['09 Sep 2026','CL-0614','Income portfolio','Dividend and fixed-income structure updated','Reviewed'],
+  ['02 Sep 2026','CL-1432','Alternative assets','Gold and crypto exposure reduced to target range','Approved']];
+window.SV=[['Private consultation','Direct discussions on portfolio structure, capital goals and risk positioning.'],['Strategy review','Assessment of existing allocations, asset mix and long-term investment direction.'],['Client focus','Private investors, entrepreneurs and clients with cross-border capital needs.']];
+window.ICO=(n,c='')=>`<svg class="ti ${c}"><use href="#ti-${n}"/></svg>`;
+window.VTREND=(c,light)=>c<0?(light?'#E2531A':'#FF7A45'):(light?'#0E9F84':'#3EF2D0');
+window.PCT=c=>`${c<0?'▼':'▲'} ${Math.abs(c).toFixed(2)}%`;
+
+// realistic price line
+window.VLINE=(seed,w,h,n=64,drift=0)=>{let s=(seed*7919+13)%2147483647;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+  let v=0;const p=[];for(let i=0;i<n;i++){v+=(r()-.5)+(r()<.06?(r()-.5)*2.4:0)+drift;p.push(v)}
+  const sm=p.map((x,i)=>(p[Math.max(0,i-1)]+x*2+p[Math.min(n-1,i+1)])/4),mn=Math.min(...sm),mx=Math.max(...sm),pad=h*.1;
+  const P=sm.map((x,i)=>[i*w/(n-1),pad+(1-(x-mn)/((mx-mn)||1))*(h-2*pad)]);
+  const d='M'+P.map(q=>q[0].toFixed(1)+' '+q[1].toFixed(1)).join('L');
+  return {d,area:d+`L${w} ${h}L0 ${h}Z`,y0:P[0][1],end:P[n-1]}};
+window.VSPARK=(seed,w,h,c,col,o={})=>{const pr=o.pr??Math.max(6,w*.025),L=VLINE(seed,w-pr,h,o.n||64,c>0?.14:c<0?-.14:0),id='sg'+Math.random().toString(36).slice(2,8),r=o.r||3;
+  return `<defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity="${o.fa??.28}"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient>`+
+    `<linearGradient id="${id}f" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".16" stop-color="#fff"/></linearGradient>`+
+    `<mask id="${id}m" maskUnits="userSpaceOnUse" x="0" y="${-h}" width="${w}" height="${h*3}"><rect x="0" y="${-h}" width="${w}" height="${h*3}" fill="url(#${id}f)"/></mask></defs>`+
+    (o.grid?`<g stroke="${o.grid}" vector-effect="non-scaling-stroke">${[0,.25,.5,.75].map(f=>`<path d="M0 ${(f*h+1).toFixed(1)}H${w}" vector-effect="non-scaling-stroke"/>`).join('')}</g>`:'')+
+    `<g mask="url(#${id}m)">`+
+    (o.base===false?'':`<path d="M0 ${L.y0.toFixed(1)}H${w-pr}" stroke="${o.bc||col}" stroke-opacity=".35" stroke-dasharray="2 4" vector-effect="non-scaling-stroke"/>`)+
+    `<path d="${L.area}" fill="url(#${id})" stroke="none"/><path d="${L.d}" fill="none" stroke="${col}" stroke-width="${o.sw||1.6}" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></g>`+
+    (o.dot===false?'':`<path d="M${L.end[0].toFixed(1)} ${L.end[1].toFixed(1)}h0" stroke="${col}" stroke-opacity=".25" stroke-width="${r*4}" stroke-linecap="round" vector-effect="non-scaling-stroke"/><path d="M${L.end[0].toFixed(1)} ${L.end[1].toFixed(1)}h0" stroke="${col}" stroke-width="${r*2}" stroke-linecap="round" vector-effect="non-scaling-stroke"/>`)};
+
+// orthogonal polyline through points with rounded corners
+function polyPath(P,rad){
+  const pts=[P[0]];
+  for(let i=1;i<P.length;i++){const a=pts[pts.length-1],b=P[i],t=b.t||'mid';
+    if(Math.abs(a.x-b.x)<.5||Math.abs(a.y-b.y)<.5){pts.push(b);continue}
+    if(t==='hv'){pts.push({x:b.x,y:a.y})}else if(t==='vh'){pts.push({x:a.x,y:b.y})}
+    else{const my=b.my!=null?b.my:(a.y+b.y)/2;pts.push({x:a.x,y:my},{x:b.x,y:my})}
+    pts.push(b)}
+  const Q=pts.filter((p,i)=>i===0||Math.hypot(p.x-pts[i-1].x,p.y-pts[i-1].y)>.5);
+  let d=`M${Q[0].x.toFixed(1)} ${Q[0].y.toFixed(1)}`;
+  for(let i=1;i<Q.length;i++){const v=Q[i];
+    if(i===Q.length-1){d+=`L${v.x.toFixed(1)} ${v.y.toFixed(1)}`;break}
+    const u=Q[i-1],w=Q[i+1],l1=Math.hypot(v.x-u.x,v.y-u.y),l2=Math.hypot(w.x-v.x,w.y-v.y),r=Math.min(rad,l1/2,l2/2);
+    const p1={x:v.x-(v.x-u.x)/l1*r,y:v.y-(v.y-u.y)/l1*r},p2={x:v.x+(w.x-v.x)/l2*r,y:v.y+(w.y-v.y)/l2*r};
+    d+=`L${p1.x.toFixed(1)} ${p1.y.toFixed(1)}Q${v.x.toFixed(1)} ${v.y.toFixed(1)} ${p2.x.toFixed(1)} ${p2.y.toFixed(1)}`}
+  return d}
+
+addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('[data-spark]').forEach(s=>{const [seed,c,col]=s.dataset.spark.split('|'),vb=s.viewBox.baseVal;let o={};try{o=JSON.parse(s.dataset.o||'{}')}catch(e){}
+    s.innerHTML=VSPARK(+seed,vb.width,vb.height,+c,col,o)});
+
+  const frames=[...document.querySelectorAll('.frame')];
+  const fit=()=>frames.forEach(f=>{const s=f.firstElementChild,k=f.clientWidth/1440;s.style.transform=`scale(${k})`;f.style.height=(s.offsetHeight*k)+'px'});
+
+  // continuous connector per stage
+  const conns=[];
+  function build(){conns.length=0;frames.forEach(f=>{const st=f.firstElementChild,svg=st.querySelector(':scope > svg.conn');if(!svg)return;
+    const sr=st.getBoundingClientRect(),k=sr.width/1440,H=st.offsetHeight;
+    const P=[];
+    st.querySelectorAll('.cn').forEach(el=>{const r=el.getBoundingClientRect(),pt={x:(r.left+r.width/2-sr.left)/k,y:(r.top+r.height/2-sr.top)/k,t:el.dataset.t,my:el.dataset.my!=null?+el.dataset.my:null};
+      // data-wrap: the line travels around the card's edge (right or left) from the previous point to this one, so it becomes the card's border
+      if(el.dataset.wrap){const c=el.parentElement.getBoundingClientRect(),x=(el.dataset.wrap==='l'?c.left:c.right)-sr.left;
+        const top=(c.top-sr.top)/k,bot=(c.bottom-sr.top)/k;P.push({x:x/k,y:top},{x:x/k,y:bot})}
+      P.push(pt)});
+    if(P.length<2)return;
+    svg.setAttribute('viewBox',`0 0 1440 ${H}`);svg.style.height=H+'px';
+    const d=polyPath(P,+(st.dataset.r||18)),id=st.id||'s';
+    svg.innerHTML=`<defs><linearGradient id="${id}lg" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="${H}"><stop offset="0" style="stop-color:var(--cl1)"/><stop offset=".5" style="stop-color:var(--cl2)"/><stop offset="1" style="stop-color:var(--cl1)"/></linearGradient></defs>`+
+      `<path class="cb" d="${d}" style="stroke:var(--cb);stroke-width:var(--cbw,1.2px)"/>`+
+      `<path class="cl" d="${d}" stroke="url(#${id}lg)" style="stroke-width:var(--clw,2px);filter:var(--clf,none)"/>`+
+      `<path class="cp" d="${d}" style="stroke:var(--cp);stroke-width:var(--cpw,3px);filter:var(--cpf,none)"/>`;
+    const cl=svg.querySelector('.cl'),cp=svg.querySelector('.cp'),L=cl.getTotalLength();
+    cl.style.strokeDasharray=L;cp.style.strokeDasharray=`90 ${L}`;
+    // cards traced by the line (.tr): their border highlight is driven by the line's lit front, not by time
+    const trs=[...st.querySelectorAll('.tr')].map(el=>{const r=el.getBoundingClientRect(),w=el.querySelector(':scope > .cn[data-wrap]');return{el,top:(r.top-sr.top)/k,h:r.height/k,side:w?w.dataset.wrap:'r'}});
+    const nodes=[...st.querySelectorAll('.sn')].map(el=>{const r=el.getBoundingClientRect();return{el,y:(r.top+r.height/2-sr.top)/k}});
+    conns.push({f,cl,cp,L,p:0,o:Math.random()*L,nodes,trs})})}
+  // the lit line fills section nodes as its front passes them
+  function scroll(){conns.forEach(c=>{const r=c.f.getBoundingClientRect();const p=Math.max(0,Math.min(1,(innerHeight*.75-r.top)/r.height));c.cl.style.strokeDashoffset=c.L*(1-p);
+    const fy=p>0?c.cl.getPointAtLength(c.L*p).y:-1;
+    c.nodes.forEach(n=>n.el.classList.toggle('on',n.y<=fy+1));
+    c.trs.forEach(t=>{const q=Math.max(0,Math.min(1,(fy-t.top)/t.h)),th=t.side==='l'?360-180*q:180*q;t.el.style.setProperty('--ga',(th-300)+'deg')})})}
+  (function pulse(){conns.forEach(c=>{c.o=(c.o+4)%(c.L+90);c.cp.style.strokeDashoffset=-c.o+90});requestAnimationFrame(pulse)})();
+  const all=()=>{fit();build();scroll()};
+  all();addEventListener('scroll',scroll,{passive:true});new ResizeObserver(all).observe(document.querySelector('main'));
+  document.fonts&&document.fonts.ready.then(all);addEventListener('load',all);
+
+  // dividers
+  const vs=[...document.querySelectorAll('article.v')];
+  vs.forEach((v,i)=>{const n=vs[i+1];if(!n)return;const a=document.createElement('a');a.className='next';a.href='#'+n.id;
+    a.innerHTML=`<span class="ln"></span><span class="ar">↓</span><small>Листайте дальше</small><span>${n.id} · ${n.querySelector('.vh h3').textContent}</span>`;v.after(a)});
+
+  // glyph noise
+  const G='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789$%&@#+=/<>·';
+  document.querySelectorAll('canvas.glyphs').forEach(c=>{
+    const W=c.offsetWidth||1440,H=c.offsetHeight||800;c.width=W;c.height=H;const x=c.getContext('2d');
+    const col=c.dataset.color||'0,0,0',al=+c.dataset.alpha||.12,cs=22,cells=[];
+    for(let i=0;i<W/cs;i++)for(let j=0;j<H/cs;j++)if(Math.random()<.22)cells.push([i*cs,j*cs+12,G[Math.random()*G.length|0],Math.random()]);
+    x.font='11px "JetBrains Mono",monospace';let vis=false;new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(c);
+    const draw=()=>{if(vis){x.clearRect(0,0,W,H);cells.forEach(g=>{if(Math.random()<.02)g[2]=G[Math.random()*G.length|0];x.fillStyle=`rgba(${col},${(al*g[3]).toFixed(3)})`;x.fillText(g[2],g[0],g[1])})}setTimeout(draw,120)};draw()});
+});
+</script>

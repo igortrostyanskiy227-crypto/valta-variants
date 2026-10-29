@@ -1,0 +1,138 @@
+<style>
+/* P2 · Spine — the current blue page, its vertical rule turned into a lit, continuous spine with section nodes */
+.p2{background:#3E42DC;color:#fff;--cb:rgba(255,255,255,.28);--cl1:#fff;--cl2:#A9F7EA;--cp:#fff;--cpf:drop-shadow(0 0 8px rgba(255,255,255,.9));--cbw:1px;--clw:2px;--cnc:#fff;--cnr:rgba(255,255,255,.18);
+  --gb0:rgba(255,255,255,.22);--gb1:rgba(255,255,255,.55);--gb2:#fff}
+.p2 .side{position:absolute;left:40px;top:153px;display:flex;flex-direction:column;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.p2 .side .on{color:#fff}.p2 .side .on::before{content:"";display:inline-block;width:6px;height:6px;background:#fff;margin-right:8px;vertical-align:1px}
+.p2 .sec{position:relative;margin-left:380px;margin-right:40px}
+.p2 .sn{position:absolute;left:-62px;top:0;width:44px;height:44px;border-radius:50%;background:#3E42DC;border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;z-index:3}
+.p2 .sn{transition:background .35s,color .35s,border-color .35s,box-shadow .35s}
+.p2 .sn.on{background:#fff;color:#3E42DC;border-color:#fff;box-shadow:0 0 18px rgba(255,255,255,.55)}
+.p2 .sn .cn{left:50%;top:50%;opacity:0}
+.p2 .hero{padding-top:140px}
+.p2 h1{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 112;font-size:128px;line-height:.86;letter-spacing:-.035em;text-transform:uppercase}
+.p2 .ph{position:absolute;right:0;top:153px;width:200px}
+.p2 .ph .pf{width:200px;height:240px;border-radius:20px;display:block}
+.p2 .ph span{display:block;margin-top:10px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.p2 .meta{display:flex;gap:40px;margin-top:36px;white-space:nowrap;font-family:var(--f-mono);font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.p2 .meta span{display:flex;align-items:center;gap:10px}
+.p2 .hrow{display:flex;justify-content:space-between;align-items:center;margin-top:120px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.3)}
+.p2 .tog{display:flex;padding:4px;border-radius:999px;background:rgba(255,255,255,.06)}
+.p2 .tog span{padding:14px 34px;border-radius:999px;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.p2 .tog .on{background:#fff;color:#3E42DC}
+.p2 .sh{display:flex;justify-content:space-between;align-items:flex-end;padding-top:6px}
+.p2 .sh h2{margin:0;font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 118;font-size:64px;line-height:.95;letter-spacing:-.02em;text-transform:uppercase}
+.p2 .sh .lb{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:10px}
+.p2 .flt{display:flex;gap:8px}
+.p2 .fp{white-space:nowrap;display:flex;align-items:center;gap:22px;padding:5px 5px 5px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.45);font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.p2 .fp i{width:34px;height:34px;border-radius:50%;background:#fff;color:#3E42DC;display:grid;place-items:center}
+.p2 .card{border-radius:28px;background:rgba(255,255,255,.06);backdrop-filter:blur(6px);padding:30px 32px}
+.p2 .chart{margin-top:36px}
+.p2 .chart .tt{display:flex;justify-content:space-between;align-items:flex-start}
+.p2 .chart .tk{font-family:var(--f-disp);font-weight:300;font-size:110px;line-height:.82;letter-spacing:-.05em}
+.p2 .chart .vv{font-family:var(--f-disp);font-size:24px;margin-top:12px}
+.p2 .tabs{display:flex;padding:4px;border-radius:999px;border:1px solid rgba(255,255,255,.35)}
+.p2 .tabs span{padding:10px 20px;border-radius:999px;font-family:var(--f-mono);font-size:11px}
+.p2 .tabs .on{background:#fff;color:#3E42DC}
+.p2 .chart .cw{position:relative;margin-top:24px;height:300px}
+.p2 .chart .cw svg{width:860px;height:300px;overflow:visible}
+.p2 .chart .yl{position:absolute;right:0;top:0;bottom:0;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--f-mono);font-size:11px;color:rgba(255,255,255,.65)}
+.p2 .alloc{display:grid;grid-template-columns:repeat(3,200px);margin-top:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.2)}
+.p2 .alloc > div{padding:0 24px;border-left:1px solid rgba(255,255,255,.25)}
+.p2 .alloc > div:first-child{padding-left:0;border-left:0}
+.p2 .alloc .asset{display:flex;align-items:center;gap:8px;color:#fff;font-family:var(--f-body);font-size:16px}
+.p2 .alloc .asset i{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.p2 .alloc .pct{margin-top:8px;color:#fff;font-family:var(--f-disp);font-weight:300;font-size:32px;letter-spacing:-.02em}
+.p2 .pr{display:grid;grid-template-columns:190px 170px minmax(0,1fr) 150px 100px 52px;gap:20px;align-items:center;height:116px;border-top:1px solid rgba(255,255,255,.25)}
+.p2 .pr:last-child{border-bottom:1px solid rgba(255,255,255,.25)}
+.p2 .pr b{font-family:var(--f-disp);font-weight:300;font-variation-settings:"wdth" 118;font-size:58px;letter-spacing:-.02em;line-height:1}
+.p2 .pr svg.sp{width:170px;height:40px;overflow:visible}
+.p2 .pr .as{white-space:nowrap;padding-left:24px;overflow:hidden;text-overflow:ellipsis;font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.p2 .pr .vl{font-family:var(--f-disp);font-size:24px;text-align:right}
+.p2 .pr .c{font-family:var(--f-mono);font-size:12px;text-align:right}
+.p2 .pr .go{width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;transition:background .3s,color .3s}
+.p2 .pr:hover .go{background:#fff;color:#3E42DC}
+.p2 .mg{margin-top:36px;padding:10px 32px}
+.p2 .mg .h,.p2 .mg .r{display:grid;grid-template-columns:140px 100px 210px 1fr 120px;gap:20px;align-items:center;white-space:nowrap}
+.p2 .mg .h{padding:18px 0;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.p2 .mg .r{padding:22px 0;border-top:1px solid rgba(255,255,255,.18);font-family:var(--f-mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+.p2 .mg .r .a{overflow:hidden;text-overflow:ellipsis;font-family:var(--f-body);font-size:14px;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.75)}
+.p2 .mg .r .s{justify-self:end;padding:6px 12px;border-radius:999px;font-size:10px;background:rgba(255,255,255,.14)}
+.p2 .mg .r .s.pr2{background:#fff;color:#3E42DC}
+.p2 .ct{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.p2 .ct .big{font-family:var(--f-mono);font-size:30px;line-height:1.5;letter-spacing:-.01em;text-transform:uppercase}
+.p2 .ct .big a{text-decoration:underline;text-underline-offset:6px;text-transform:none}
+.p2 .cells{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:56px}
+.p2 .cells > div{position:relative;background:rgba(255,255,255,.06);border-radius:24px;padding:24px}
+.p2 .cells .cell-head{display:flex;align-items:center;justify-content:space-between}
+.p2 .cells .cell-icon{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.35);display:grid;place-items:center}
+.p2 .cells .cell-num{font-family:var(--f-mono);font-size:12px}
+.p2 .cells b{display:block;margin-top:40px;font-family:var(--f-disp);font-weight:400;font-size:24px;letter-spacing:-.01em}
+.p2 .cells p{margin:8px 0 0;font-size:15px;line-height:1.45;color:rgba(255,255,255,.75)}
+.p2 .ctab{display:inline-flex;align-items:center;gap:20px;margin-top:56px;padding:6px 6px 6px 28px;border-radius:999px;background:#fff;color:#3E42DC;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.p2 .ctab i{width:46px;height:46px;border-radius:50%;background:#3E42DC;color:#fff;display:grid;place-items:center}
+.p2 .ft{position:relative;margin-top:140px;padding:40px 40px 30px;border-top:1px solid rgba(255,255,255,.3);display:flex;justify-content:space-between;align-items:flex-end}
+.p2 .ft svg.logo{width:240px;height:30px;color:#fff}
+.p2 .ft .coins{display:flex;gap:12px}.p2 .ft .coins img{width:96px}
+</style>
+
+<article class="v" id="P2">
+  <header class="vh"><b>P2</b><h3>Хребет</h3><p>Развитие вашей текущей страницы: синий фон, огромное имя капсом. Вертикальная линия слева стала живым хребтом: она непрерывно идёт от первого экрана до футера, на ней узлы разделов (01–03), при скролле прорисовывается белым, по ней бежит светящийся импульс. Карточки с бегущей белой обводкой, графики реальные, портфели — строки с металлическими спарклайнами, журнал ревью и контакты как ячейки спецификации. <i>Что можно забрать: хребет как навигация всей страницы.</i></p></header>
+  <div class="frame"><div class="stage bp p2" id="p2s">
+    <svg class="conn"></svg>
+    <div class="s-nav" style="color:#fff">
+      <svg class="logo"><use href="#logo"/></svg>
+      <nav><span>Capital</span><span>Strategies</span><span>Bankers</span><span>Portfolio</span><span></span><span>About</span></nav>
+      <span class="mono cta" style="text-decoration:underline;text-underline-offset:4px;justify-self:end">Get a consultation</span>
+    </div>
+    <div class="side"><span class="on">Profile overview</span><span>Portfolio stocks</span><span>Portfolio management</span><span>Contact</span></div>
+
+    <section class="sec hero"><div class="sn" style="top:138px">00<i class="cn"></i></div>
+      <h1>Kirill<br>Platunov</h1>
+      <div class="ph"><span class="pf"><img src="assets/banker-bw.webp" alt=""></span><span>Verified · 23.09.2026</span></div>
+      <div class="meta"><span>London · United Kingdom</span><span>+44 20 7946 1842</span><span><svg class="ti" style="width:16px;height:16px"><use href="#ti-brand-linkedin"/></svg>LinkedIn</span></div>
+      <div class="hrow"><span class="mono sq">Portfolio strategist · 14 years</span><div class="tog gb" style="border-radius:999px"><span class="on">Profile</span><span>Advisory</span></div></div>
+    </section>
+
+    <section class="sec" style="margin-top:120px"><div class="sn">01<i class="cn"></i></div>
+      <div class="sh"><div><div class="lb">Portfolio stocks</div><h2>Strategy models</h2></div>
+        <div class="flt"><span class="fp">Investment model<i><svg class="ti" style="width:16px;height:16px"><use href="#ti-chevron-down"/></svg></i></span><span class="fp">Asset category<i><svg class="ti" style="width:16px;height:16px"><use href="#ti-chevron-down"/></svg></i></span></div></div>
+      <div class="card chart gb">
+        <div class="tt"><div><div class="tk">BEG</div><div class="vv tab">167.9144 <span class="mono" style="font-size:12px;color:#A9F7EA">▲&#8239;2.41%</span></div></div><div class="tabs"><span class="on">1M</span><span>3M</span><span>6M</span><span>12M</span></div></div>
+        <div class="cw"><svg viewBox="0 0 860 300" preserveAspectRatio="none" data-spark="7|2.41|#ffffff" data-o='{"grid":"rgba(255,255,255,.14)","sw":2,"r":5,"n":100,"fa":0.22}'></svg>
+          <div class="yl tab"><span>172.00</span><span>166.00</span><span>160.00</span><span>154.00</span></div></div>
+        <div class="alloc">
+          <div><div class="asset"><i style="background:#FFB067"></i>Bitcoin</div><div class="pct">40%</div></div>
+          <div><div class="asset"><i style="background:#B9BBFF"></i>Ethereum</div><div class="pct">35%</div></div>
+          <div><div class="asset"><i style="background:#E7C46E"></i>Gold</div><div class="pct">25%</div></div>
+        </div>
+      </div>
+      <div style="margin-top:56px" id="p2rows"></div>
+    </section>
+
+    <section class="sec" style="margin-top:140px"><div class="sn">02<i class="cn"></i></div>
+      <div class="sh"><div><div class="lb">Portfolio management</div><h2>Review log</h2></div>
+        <div class="flt"><span class="fp">Strategy model<i><svg class="ti" style="width:16px;height:16px"><use href="#ti-chevron-down"/></svg></i></span><span class="fp">Review status<i><svg class="ti" style="width:16px;height:16px"><use href="#ti-chevron-down"/></svg></i></span></div></div>
+      <div class="card mg gb" id="p2log"><div class="h"><span>Date</span><span>Client ID</span><span>Model</span><span>Portfolio action</span><span style="text-align:right">Review</span></div></div>
+    </section>
+
+    <section class="sec" style="margin-top:140px"><div class="sn">03<i class="cn"></i></div>
+      <div class="sh"><div><div class="lb">Contact</div><h2>Private consultation</h2></div></div>
+      <div class="ct"><div class="big">London · United Kingdom<br>+44 20 7946 1842<br><a>kirill.platunov@valta.capital</a></div>
+        <div style="display:flex;justify-content:flex-end;align-items:flex-start"><span class="fp">Reply within 24 hours<i><svg class="ti" style="width:16px;height:16px"><use href="#ti-clock"/></svg></i></span></div></div>
+      <div class="cells" id="p2cells"></div>
+      <span class="ctab">Contact Kirill<i><svg class="ti" style="width:18px;height:18px"><use href="#ti-arrow-right"/></svg></i></span>
+    </section>
+
+    <div class="ft"><svg class="logo"><use href="#logo"/></svg><div class="coins"><img src="assets/coin-gold-v.webp" alt=""><img src="assets/coin-silver-a.webp" alt=""><img src="assets/coin-bronze-l.webp" alt=""></div><i class="cn h" style="position:absolute;left:340px;top:0"></i></div>
+  </div></div>
+</article>
+
+<script>
+addEventListener('DOMContentLoaded',()=>{
+  const mc={gold:'#E7C46E',silver:'#E3E6EE',bronze:'#F0A577'};
+  document.getElementById('p2rows').innerHTML=PF.map(p=>`<div class="pr"><b>${p.t}</b><svg class="sp" viewBox="0 0 170 40" preserveAspectRatio="none">${VSPARK(p.seed,170,40,p.c,mc[p.m],{fa:.25,r:2.5})}</svg><span class="as">${p.a.join(' · ')}</span><span class="vl tab">${p.v}</span><span class="c" style="color:${p.c<0?'#FFB08A':'#A9F7EA'}">${PCT(p.c)}</span><span class="go">${ICO('arrow-up-right')}</span></div>`).join('');
+  document.getElementById('p2log').insertAdjacentHTML('beforeend',RV.map(r=>`<div class="r"><span>${r[0]}</span><span style="opacity:.7">${r[1]}</span><span>${r[2]}</span><span class="a">${r[3]}</span><span class="s ${r[4]==='In progress'?'pr2':''}">${r[4]}</span></div>`).join(''));
+  document.getElementById('p2cells').innerHTML=SV.map((s,i)=>`<div class="gb"><div class="cell-head"><span class="cell-icon"><svg class="ti" style="width:20px;height:20px"><use href="#ti-${['phone','check','user'][i]}"/></svg></span><span class="cell-num">0${i+1}</span></div><b>${s[0]}</b><p>${s[1]}</p></div>`).join('');
+});
+</script>
